@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soy Deportista — Eleven Cracks</title>
+<meta name="description" content="Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades dentro del ecosistema 11 Cracks.">
+<link rel="icon" href="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cropped-Favicon-32x32.png" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend+Deca:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS — mismos de Home / internas ============ */
+:root{
+  --black:        oklch(0.16 0.003 92);
+  --charcoal:     oklch(0.22 0.004 92);
+  --white:        oklch(1 0 0);
+  --ivory-dim:    oklch(1 0 0 / 0.72);
+  --gold:         oklch(0.78 0.09 72);
+  --gold-light:   oklch(0.90 0.06 78);
+  --gold-deep:    oklch(0.55 0.08 72);
+  --gold-dim:     oklch(0.78 0.09 72 / 0.14);
+  --ink:          oklch(0.16 0.003 92);
+  --ink-dim:      oklch(0.16 0.003 92 / 0.68);
+  --line:         oklch(0.16 0.003 92 / 0.1);
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'Lexend Deca', sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body); background:var(--white); color:var(--ink); line-height:1.6; overflow-x:hidden; font-size:16px;}
+h1,h2,h3,h4{font-family:var(--display); font-weight:400; line-height:0.96; letter-spacing:.01em;}
+p{max-width:62ch;}
+a{color:inherit; text-decoration:none;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:2px;}
+img{max-width:100%; display:block;}
+button{font-family:var(--body); border:none; background:none; cursor:pointer;}
+.wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
+@media (max-width:640px){.wrap{padding:0 20px;}}
+.eyebrow{color:var(--gold-deep); font-weight:600; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px; display:block;}
+.eyebrow.on-dark{color:var(--gold-light);}
+section{padding:88px 0;}
+@media (max-width:700px){section{padding:56px 0;}}
+.lede{font-size:1.05rem; color:var(--ink-dim); max-width:60ch;}
+.btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--black); padding:14px 26px; font-weight:600; font-size:.92rem; border-radius:999px; transition:background .2s ease, transform .2s ease, box-shadow .2s ease; cursor:pointer; white-space:nowrap;}
+.btn:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 24px oklch(0.78 0.09 72 / 0.35);}
+.btn:focus-visible{transform:translateY(-2px);}
+.link-more{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem; color:var(--black); border-bottom:1.5px solid var(--gold); padding-bottom:2px; cursor:pointer;}
+.link-more:hover{color:var(--gold-deep);}
+
+/* ---------- SKIP LINK ---------- */
+.skip-link{position:absolute; left:-999px; top:0; background:var(--gold); color:var(--black); padding:12px 18px; z-index:999; font-weight:600;}
+.skip-link:focus{left:16px; top:16px;}
+
+/* ---------- NAV ---------- */
+nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-bottom:1px solid oklch(1 0 0 / 0.1);}
+.mainnav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
+.logo img{height:34px; width:auto;}
+.nav-links{display:flex; align-items:center; gap:28px;}
+.nav-links > a:not(.btn){font-size:.9rem; font-weight:600; color:var(--ivory-dim); transition:color .2s; display:inline-flex; align-items:center; min-height:44px;}
+.nav-links > a:not(.btn):hover{color:var(--gold-light);}
+.nav-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; gap:5px;}
+.nav-toggle span, .nav-toggle::before, .nav-toggle::after{content:''; display:block; width:20px; height:2px; background:var(--white);}
+.nav-dropdown{position:relative;}
+.dropdown-toggle{display:inline-flex; align-items:center; gap:7px; cursor:pointer; background:oklch(1 0 0 / 0.05); border:1px solid oklch(1 0 0 / 0.16); border-radius:999px; font:inherit; font-size:.88rem; font-weight:600; color:var(--ivory-dim); padding:9px 16px; min-height:44px; transition:color .2s, background .2s, border-color .2s;}
+.dropdown-toggle:hover{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
+.dropdown-toggle svg{width:10px; height:10px; transition:transform .2s;}
+.nav-dropdown.open .dropdown-toggle svg, .nav-dropdown:hover .dropdown-toggle svg{transform:rotate(180deg);}
+.nav-dropdown.open .dropdown-toggle, .nav-dropdown:hover .dropdown-toggle{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
+.dropdown-menu{display:none; background:var(--charcoal); border:1px solid oklch(1 0 0 / 0.12); border-radius:8px; padding:8px; min-width:230px;}
+.nav-dropdown.open .dropdown-menu{display:block;}
+.dropdown-menu a{display:block; padding:10px 14px; border-radius:6px; font-size:.88rem; font-weight:600; color:var(--ivory-dim);}
+.dropdown-menu a:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
+@media (min-width:901px){
+  .dropdown-menu{display:block; position:absolute; top:100%; left:50%; padding-top:14px; box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity .16s ease, transform .16s ease, visibility .16s;}
+  .nav-dropdown.open .dropdown-menu, .nav-dropdown:hover .dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+}
+@media (max-width:900px){
+  .nav-links{position:fixed; inset:0 0 0 auto; width:min(78vw,320px); height:100vh; background:var(--black); flex-direction:column; align-items:flex-start; padding:90px 28px 28px; gap:22px; transform:translateX(100%); transition:transform .3s ease; box-shadow:-8px 0 30px oklch(0 0 0 / 0.4); overflow-y:auto;}
+  .nav-links.open{transform:translateX(0);}
+  .nav-toggle{display:flex;}
+  .dropdown-toggle{width:100%; justify-content:space-between;}
+  .dropdown-menu{margin-top:8px; border:none; padding:0 0 0 14px; min-width:0; background:transparent;}
+}
+
+/* ---------- PAGE HERO ---------- */
+.phero{position:relative; min-height:74vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
+.phero-bg{position:absolute; inset:0; background-size:cover; background-position:center 20%; background-image:url('https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_4.jpg');}
+.phero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.16 0.003 92 / 0.25) 0%, oklch(0.16 0.003 92 / 0.94) 96%);}
+.phero-content{position:relative; z-index:2; padding:64px 0 60px;}
+.breadcrumb{display:inline-flex; align-items:center; gap:8px; font-size:.85rem; color:var(--ivory-dim); margin-bottom:28px;}
+.breadcrumb:hover{color:var(--gold-light);}
+.phero h1{font-size:clamp(2.2rem,6vw,4.4rem); max-width:15ch; margin-bottom:20px;}
+.phero .lede{color:var(--ivory-dim); font-size:1.08rem; max-width:56ch; margin-bottom:32px;}
+
+/* ---------- QUÉ OBTIENES ---------- */
+.obtiene{background:var(--white);}
+.obtiene-head{max-width:640px; margin-bottom:48px;}
+.obtiene-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+.obtiene-grid{display:flex; flex-wrap:wrap; background:var(--black);}
+.obtiene-item{background:var(--black); color:var(--white); border:1px solid oklch(1 0 0 / 0.08); margin:-1px 0 0 -1px; padding:34px 28px; display:flex; flex-direction:column; gap:14px; flex:1 1 280px;}
+.obtiene-item h3{font-family:var(--body); font-weight:700; font-size:1.05rem;}
+.obtiene-item p{color:var(--ivory-dim); font-size:.92rem;}
+.obtiene-item .link-more{color:var(--gold-light); border-color:var(--gold); align-self:flex-start; margin-top:auto;}
+
+/* ---------- CÓMO FUNCIONA ---------- */
+.pasos{background:var(--white);}
+.pasos-head{max-width:640px; margin-bottom:48px;}
+.pasos-list{display:flex; flex-direction:column;}
+.paso{display:grid; grid-template-columns:90px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line);}
+.pasos-list .paso:last-child{border-bottom:1px solid var(--line);}
+.paso .num{font-family:var(--display); font-size:2.6rem; color:var(--gold); line-height:1;}
+.paso h3{font-family:var(--body); font-weight:700; font-size:1.05rem; margin-bottom:6px; color:var(--black);}
+.paso p{color:var(--ink-dim); font-size:.95rem;}
+
+/* ---------- EVIDENCIA / VOCES ---------- */
+.voces{background:var(--gold-dim);}
+.voces-head{max-width:640px; margin-bottom:44px;}
+.voces-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+.voces-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+@media (max-width:1000px){.voces-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.voces-grid{grid-template-columns:1fr;}}
+.voz-card{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:26px; display:flex; flex-direction:column; gap:16px; min-height:220px;}
+.voz-photo{width:52px; height:52px; border-radius:50%; object-fit:cover; margin-bottom:-6px;}
+.voz-card .quote-mark{font-family:var(--display); font-size:2.4rem; color:var(--gold); line-height:.6;}
+.voz-card p.quote{font-size:.92rem; color:var(--ink-dim); flex:1;}
+.voz-card .name{font-weight:700; font-size:.92rem; color:var(--black);}
+
+/* ---------- CLOSE / CTA FINAL ---------- */
+.close-cta{background:var(--black); color:var(--white); text-align:center;}
+.close-cta h2{font-size:clamp(2rem,5vw,3.2rem); max-width:16ch; margin:0 auto 30px;}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
+.footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
+@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+.footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
+.footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
+.footer-grid a::before{content:""; position:absolute; left:-12px; top:50%; width:0; height:1px; background:var(--gold-light); transform:translateY(-50%); transition:width .2s ease;}
+.footer-grid a:hover, .footer-grid a:focus-visible{opacity:1; color:var(--gold-light); transform:translateX(3px);}
+.footer-grid a:hover::before, .footer-grid a:focus-visible::before{width:8px;}
+.footer-grid a:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
+.social-icons{display:flex; gap:10px; margin-top:14px;}
+.social-icon{width:42px; height:42px; border-radius:50%; border:1px solid oklch(1 0 0 / 0.18); display:inline-flex; align-items:center; justify-content:center; color:var(--ivory-dim); background:transparent; cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;}
+.social-icon svg{width:18px; height:18px;}
+.social-icon:hover, .social-icon:focus-visible{background:var(--gold); border-color:var(--gold); color:var(--black); transform:translateY(-2px); box-shadow:0 6px 16px oklch(0.78 0.09 72 / 0.35);}
+.social-icon:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
+@media (max-width:760px){.social-icon{width:44px; height:44px;}}
+.footer-bottom{border-top:1px solid oklch(1 0 0 / 0.12); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; opacity:.7;}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="mainnav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Eleven Cracks — inicio">
+      <img src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/logo.svg" alt="Eleven Cracks">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ecosistema.html">Ecosistema</a>
+      <a href="historias.html">Historias</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
+          Encuentra tu lugar
+          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="soy-club.html">Soy Club</a>
+          <a href="soy-deportista.html">Soy Deportista</a>
+          <a href="soy-aliado.html">Soy Aliado</a>
+          <a href="plan-padrino.html">Quiero apoyar</a>
+          <a href="padres.html">Soy Padre/Madre</a>
+        </div>
+      </div>
+      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="phero">
+    <div class="phero-bg" role="img" aria-label="Deportista entrenando dentro del ecosistema 11 Cracks"></div>
+    <div class="wrap phero-content">
+      <a class="breadcrumb" href="index.html">&larr; Volver a inicio</a>
+      <span class="eyebrow on-dark">Soy Deportista · 11 Cracks</span>
+      <h1>Crece dentro y fuera de la cancha</h1>
+      <p class="lede">Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades dentro del ecosistema 11 Cracks.</p>
+      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Quiero inscribirme</a>
+    </div>
+  </section>
+
+  <!-- ============ QUÉ OBTIENES ============ -->
+  <section class="obtiene">
+    <div class="wrap">
+      <div class="obtiene-head">
+        <span class="eyebrow">Qué obtienes</span>
+        <h2>Formación que no se queda solo en la cancha.</h2>
+      </div>
+      <div class="obtiene-grid">
+        <div class="obtiene-item">
+          <h3>Siete frentes de formación</h3>
+          <p>Finanzas, marketing, idiomas, cultura, salud mental, alto rendimiento y sostenibilidad — en el mismo proceso.</p>
+          <a class="link-more" href="index.html#areas">Ver las 7 áreas →</a>
+        </div>
+        <div class="obtiene-item">
+          <h3>NeuroCracks</h3>
+          <p>Formación emocional, disciplina y mentalidad competitiva saludable, dentro de cada sesión de entrenamiento.</p>
+          <a class="link-more" href="index.html#somos">Cómo formamos →</a>
+        </div>
+        <div class="obtiene-item">
+          <h3>Selección Internacional</h3>
+          <p>Un cupo limitado para el talento que destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
+          <a class="link-more" href="index.html#seleccion">Conocer el programa →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO FUNCIONA ============ -->
+  <section class="pasos">
+    <div class="wrap">
+      <div class="pasos-head">
+        <span class="eyebrow">Cómo funciona</span>
+      </div>
+      <div class="pasos-list">
+        <div class="paso">
+          <span class="num">01</span>
+          <div>
+            <h3>Dejas tus datos</h3>
+            <p>Nos cuentas quién eres y en qué club o territorio entrenas.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <span class="num">02</span>
+          <div>
+            <h3>11 Cracks confirma tu vinculación</h3>
+            <p>El equipo confirma cómo te conectas al ecosistema formativo.</p>
+          </div>
+        </div>
+        <div class="paso">
+          <span class="num">03</span>
+          <div>
+            <h3>Empiezas tu proceso</h3>
+            <p>Entrenas, aprendes y avanzas por las siete áreas de formación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVIDENCIA ============ -->
+  <section class="voces">
+    <div class="wrap">
+      <div class="voces-head">
+        <span class="eyebrow">Evidencia</span>
+        <h2>Lo que 11 Cracks cambió, en palabras de otros deportistas.</h2>
+      </div>
+      <div class="voces-grid">
+        <div class="voz-card">
+          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_3.jpg" alt="Angie Julieth Quintero">
+          <span class="quote-mark">"</span>
+          <p class="quote">Encontré en el programa de 11 cracks un lugar para mejorar mi habilidad deportiva, pero descubrí la pasión empresarial y el amor por los idiomas.</p>
+          <span class="name">Angie Julieth Quintero</span>
+        </div>
+        <div class="voz-card">
+          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_4.png" alt="Nezareth Segura">
+          <span class="quote-mark">"</span>
+          <p class="quote">Antes de conocer 11 Crack's Foundation, mi existencia se fundamentaba en "fútbol o nada". Hoy, a mis 17 años, soy profesional del fútbol y agente de cambio en mi territorio, Tumaco, Nariño.</p>
+          <span class="name">Nezareth Segura</span>
+        </div>
+        <div class="voz-card">
+          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_2.jpg" alt="Stephanie Alejandra">
+          <span class="quote-mark">"</span>
+          <p class="quote">Siempre soñé con jugar fútbol profesional, superando las barreras de género, hasta que me convertí en la primera preparadora física mujer de la MLS y parte de la selección de U.S.A.</p>
+          <span class="name">Stephanie Alejandra</span>
+        </div>
+        <div class="voz-card">
+          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_1.jpg" alt="Juan Carlos Giraldo">
+          <span class="quote-mark">"</span>
+          <p class="quote">La moda, para mí, es un estilo de vida. Un deportista debe ser un atleta en el campo, y un influyente positivo desde su vestir en la sociedad.</p>
+          <span class="name">Juan Carlos Giraldo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="close-cta">
+    <div class="wrap">
+      <h2>Un entrenamiento puede ser el comienzo de todo.</h2>
+      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Quiero inscribirme</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>Eleven Cracks</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="ecosistema.html">Ecosistema</a>
+        <a href="historias.html">Historias</a>
+        <a href="seleccion-internacional.html">Selección Internacional</a>
+      </div>
+      <div>
+        <h4>Comunidad</h4>
+        <a href="padres.html">Padres</a>
+        <a href="soy-club.html">Equipos</a>
+        <a href="soy-aliado.html">Marcas</a>
+        <a href="noticias.html">Noticias</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://www.11cracksglobal.com/contacto/">Escríbenos</a>
+        <div class="social-icons">
+          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></svg></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Encuentra tu lugar</h4>
+        <a href="soy-club.html">Soy Club</a>
+        <a href="soy-deportista.html">Soy Deportista</a>
+        <a href="soy-aliado.html">Soy Aliado</a>
+        <a href="plan-padrino.html">Quiero apoyar</a>
+        <a href="padres.html">Soy Padre/Madre</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Eleven Cracks · Sport Student</span>
+      <span>Educación · Medio ambiente · Economía · Cultura · Salud · Sociedad</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+  var dd = document.getElementById('navDropdown');
+  var ddToggle = dd.querySelector('.dropdown-toggle');
+  ddToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = dd.classList.toggle('open');
+    ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function(e){
+    if (!dd.contains(e.target)) { dd.classList.remove('open'); ddToggle.setAttribute('aria-expanded','false'); }
+  });
+})();
+</script>
+
+<!--
+  AUDITORÍA DE CONTENIDO HEREDADO (/nuestros-cracks/ en vivo) — hallazgos:
+
+  La página real "/nuestros-cracks/" (a la que "Soy Deportista" apunta hoy) es en realidad una
+  galería de testimonios ("Historias"), no una landing de captación para un deportista que quiere
+  vincularse. No tenía copy de beneficio, ni cómo funciona, ni CTA de inscripción — por eso se
+  construyó esta landing nueva desde cero en vez de "corregir" una página que no cumplía ese rol.
+
+  REQUIERE VALIDACIÓN — el footer del sitio en vivo lista un enlace "Inscripción" que apunta a
+  href="#" (vacío) y la ruta /inscripcion/ no existe (redirige a home). No hay flujo de inscripción
+  real confirmado. El CTA "Quiero inscribirme" de esta página enlaza a /contacto/ (real) hasta que
+  exista un formulario propio — evita simular un enlace funcional inexistente.
+
+  Sin cifras, porcentajes ni claims financieros en el contenido original de esta página — no hubo
+  nada que eliminar por ese motivo.
+-->
+</body>
+</html>
