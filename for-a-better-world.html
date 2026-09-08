@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soy Deportista — Eleven Cracks</title>
-<meta name="description" content="Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades dentro del ecosistema 11 Cracks.">
+<title>For a Better World — Eleven Cracks</title>
+<meta name="description" content="Seis frentes, un mismo propósito: educación, medio ambiente, economía, cultura, salud y sociedad dentro del ecosistema 11 Cracks.">
 <link rel="icon" href="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cropped-Favicon-32x32.png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,51 +84,41 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 }
 
 /* ---------- PAGE HERO ---------- */
-.phero{position:relative; min-height:74vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
-.phero-bg{position:absolute; inset:0; background-size:cover; background-position:center 20%; background-image:url('https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_4.jpg');}
+.phero{position:relative; min-height:62vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
+.phero-bg{position:absolute; inset:0; background-size:cover; background-position:center 30%; background-image:url('https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg');}
 .phero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.16 0.003 92 / 0.25) 0%, oklch(0.16 0.003 92 / 0.94) 96%);}
 .phero-content{position:relative; z-index:2; padding:64px 0 60px;}
 .breadcrumb{display:inline-flex; align-items:center; gap:8px; font-size:.85rem; color:var(--ivory-dim); margin-bottom:28px;}
 .breadcrumb:hover{color:var(--gold-light);}
-.phero h1{font-size:clamp(2.2rem,6vw,4.4rem); max-width:15ch; margin-bottom:20px;}
-.phero .lede{color:var(--ivory-dim); font-size:1.08rem; max-width:56ch; margin-bottom:32px;}
+.phero h1{font-size:clamp(2.2rem,6vw,4.2rem); max-width:18ch; margin-bottom:20px;}
+.phero .lede{color:var(--ivory-dim); font-size:1.08rem; max-width:60ch;}
 
-/* ---------- QUÉ OBTIENES ---------- */
-.obtiene{background:var(--white);}
-.obtiene-head{max-width:640px; margin-bottom:48px;}
-.obtiene-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
-.obtiene-grid{display:flex; flex-wrap:wrap; background:var(--black);}
-.obtiene-item{background:var(--black); color:var(--white); border:1px solid oklch(1 0 0 / 0.08); margin:-1px 0 0 -1px; padding:34px 28px; display:flex; flex-direction:column; gap:14px; flex:1 1 280px;}
-.obtiene-item h3{font-family:var(--body); font-weight:700; font-size:1.05rem;}
-.obtiene-item p{color:var(--ivory-dim); font-size:.92rem;}
-.obtiene-item .link-more{color:var(--gold-light); border-color:var(--gold); align-self:flex-start; margin-top:auto;}
+/* ---------- MANIFIESTO ---------- */
+.manifiesto{background:var(--white);}
+.manifiesto .wrap{max-width:820px;}
+.manifiesto .pull-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,4vw,2.9rem); color:var(--black); line-height:1.08; margin-bottom:32px;}
+.manifiesto .lede{font-size:1.08rem; margin-bottom:36px;}
+.manifiesto .sub-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.3rem,2.4vw,1.7rem); color:var(--gold-deep); border-left:3px solid var(--gold); padding-left:22px; line-height:1.2;}
 
-/* ---------- CÓMO FUNCIONA ---------- */
-.pasos{background:var(--white);}
-.pasos-head{max-width:640px; margin-bottom:48px;}
-.pasos-list{display:flex; flex-direction:column;}
-.paso{display:grid; grid-template-columns:90px 1fr; gap:24px; padding:28px 0; border-top:1px solid var(--line);}
-.pasos-list .paso:last-child{border-bottom:1px solid var(--line);}
-.paso .num{font-family:var(--display); font-size:2.6rem; color:var(--gold); line-height:1;}
-.paso h3{font-family:var(--body); font-weight:700; font-size:1.05rem; margin-bottom:6px; color:var(--black);}
-.paso p{color:var(--ink-dim); font-size:.95rem;}
+/* ---------- SEIS FRENTES ---------- */
+.frentes{background:var(--charcoal); color:var(--white);}
+.frentes-head{max-width:640px; margin-bottom:48px;}
+.frentes-head h2{font-size:clamp(1.9rem,4vw,2.7rem);}
+.frentes-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:oklch(1 0 0 / 0.1);}
+@media (max-width:900px){.frentes-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.frentes-grid{grid-template-columns:1fr;}}
+.frente-card{background:var(--charcoal); padding:32px 26px; display:flex; flex-direction:column; gap:10px;}
+.frente-card .num{font-family:var(--display); font-size:1.1rem; color:var(--gold);}
+.frente-card h3{font-family:var(--body); font-weight:700; font-size:1.05rem; color:var(--white);}
+.frente-card p{color:var(--ivory-dim); font-size:.92rem;}
 
-/* ---------- EVIDENCIA / VOCES ---------- */
-.voces{background:var(--gold-dim);}
-.voces-head{max-width:640px; margin-bottom:44px;}
-.voces-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
-.voces-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-@media (max-width:1000px){.voces-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:560px){.voces-grid{grid-template-columns:1fr;}}
-.voz-card{background:var(--white); border:1px solid var(--line); border-radius:6px; padding:26px; display:flex; flex-direction:column; gap:16px; min-height:220px;}
-.voz-photo{width:52px; height:52px; border-radius:50%; object-fit:cover; margin-bottom:-6px;}
-.voz-card .quote-mark{font-family:var(--display); font-size:2.4rem; color:var(--gold); line-height:.6;}
-.voz-card p.quote{font-size:.92rem; color:var(--ink-dim); flex:1;}
-.voz-card .name{font-weight:700; font-size:.92rem; color:var(--black);}
+/* ---------- ENLACE A ÁREAS DE FORMACIÓN ---------- */
+.puente{background:var(--white); text-align:center;}
+.puente h2{font-size:clamp(1.5rem,3vw,2rem); max-width:26ch; margin:0 auto 20px;}
 
 /* ---------- CLOSE / CTA FINAL ---------- */
 .close-cta{background:var(--black); color:var(--white); text-align:center;}
-.close-cta h2{font-size:clamp(2rem,5vw,3.2rem); max-width:16ch; margin:0 auto 30px;}
+.close-cta h2{font-size:clamp(1.9rem,4.6vw,2.8rem); max-width:20ch; margin:0 auto 30px;}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
@@ -188,116 +178,81 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 
   <!-- ============ HERO ============ -->
   <section class="phero">
-    <div class="phero-bg" role="img" aria-label="Deportista entrenando dentro del ecosistema 11 Cracks"></div>
+    <div class="phero-bg" role="img" aria-label="Jóvenes deportistas en un escenario formativo de 11 Cracks"></div>
     <div class="wrap phero-content">
       <a class="breadcrumb" href="index.html">&larr; Volver a inicio</a>
-      <span class="eyebrow on-dark">Soy Deportista · 11 Cracks</span>
-      <h1>Crece dentro y fuera de la cancha</h1>
-      <p class="lede">Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades dentro del ecosistema 11 Cracks.</p>
-      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Quiero inscribirme</a>
+      <span class="eyebrow on-dark">For a Better World</span>
+      <h1>Seis frentes, un mismo propósito.</h1>
+      <p class="lede">Educación, medio ambiente, economía, cultura, salud y sociedad — así es como 11 Cracks entiende su impacto más allá de la cancha.</p>
     </div>
   </section>
 
-  <!-- ============ QUÉ OBTIENES ============ -->
-  <section class="obtiene">
+  <!-- ============ MANIFIESTO ============ -->
+  <section class="manifiesto">
     <div class="wrap">
-      <div class="obtiene-head">
-        <span class="eyebrow">Qué obtienes</span>
-        <h2>Formación que no se queda solo en la cancha.</h2>
-      </div>
-      <div class="obtiene-grid">
-        <div class="obtiene-item">
-          <h3>Siete frentes de formación</h3>
-          <p>Finanzas, marketing, idiomas, cultura, salud mental, alto rendimiento y sostenibilidad — en el mismo proceso.</p>
-          <a class="link-more" href="index.html#areas">Ver las 7 áreas →</a>
-        </div>
-        <div class="obtiene-item">
-          <h3>NeuroCracks</h3>
-          <p>Formación emocional, disciplina y mentalidad competitiva saludable, dentro de cada sesión de entrenamiento.</p>
-          <a class="link-more" href="index.html#somos">Cómo formamos →</a>
-        </div>
-        <div class="obtiene-item">
-          <h3>Selección Internacional</h3>
-          <p>Un cupo limitado para el talento que destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
-          <a class="link-more" href="index.html#seleccion">Conocer el programa →</a>
-        </div>
-      </div>
+      <span class="eyebrow">¿Cómo aportamos al mundo?</span>
+      <p class="lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
+      <div class="pull-quote" style="margin-top:32px; margin-bottom:0;">"El deporte es la cuota inicial de la vida, no la vida."</div>
+      <div class="sub-quote" style="margin-top:24px;">Las piernas se cansan más rápido que el conocimiento.</div>
     </div>
   </section>
 
-  <!-- ============ CÓMO FUNCIONA ============ -->
-  <section class="pasos">
+  <!-- ============ SEIS FRENTES ============ -->
+  <section class="frentes">
     <div class="wrap">
-      <div class="pasos-head">
-        <span class="eyebrow">Cómo funciona</span>
+      <div class="frentes-head">
+        <span class="eyebrow on-dark">Los seis frentes</span>
+        <h2>Una misma cancha, seis maneras de dejar huella.</h2>
       </div>
-      <div class="pasos-list">
-        <div class="paso">
+      <div class="frentes-grid">
+        <div class="frente-card">
           <span class="num">01</span>
-          <div>
-            <h3>Dejas tus datos</h3>
-            <p>Nos cuentas quién eres y en qué club o territorio entrenas.</p>
-          </div>
+          <h3>Educación</h3>
+          <p>Aprender desde el corazón, en jornada complementaria al entrenamiento, sin escritorios.</p>
         </div>
-        <div class="paso">
+        <div class="frente-card">
           <span class="num">02</span>
-          <div>
-            <h3>11 Cracks confirma tu vinculación</h3>
-            <p>El equipo confirma cómo te conectas al ecosistema formativo.</p>
-          </div>
+          <h3>Medio Ambiente</h3>
+          <p>Economía circular desde la cancha: uniformes, reciclaje y conciencia ambiental en cada proceso.</p>
         </div>
-        <div class="paso">
+        <div class="frente-card">
           <span class="num">03</span>
-          <div>
-            <h3>Empiezas tu proceso</h3>
-            <p>Entrenas, aprendes y avanzas por las siete áreas de formación.</p>
-          </div>
+          <h3>Economía</h3>
+          <p>Clubes, empresas, talento e inversión, articulados en comunidades que crecen juntas.</p>
+        </div>
+        <div class="frente-card">
+          <span class="num">04</span>
+          <h3>Cultura</h3>
+          <p>Intercambio, idiomas y conexiones entre jóvenes, clubes y países.</p>
+        </div>
+        <div class="frente-card">
+          <span class="num">05</span>
+          <h3>Salud</h3>
+          <p>Hábitos saludables y acompañamiento físico y emocional entre clubes y comunidades.</p>
+        </div>
+        <div class="frente-card">
+          <span class="num">06</span>
+          <h3>Sociedad</h3>
+          <p>No somos un club, somos una comunidad que juega, aprende y crece junta.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ EVIDENCIA ============ -->
-  <section class="voces">
+  <!-- ============ PUENTE A ÁREAS DE FORMACIÓN ============ -->
+  <section class="puente">
     <div class="wrap">
-      <div class="voces-head">
-        <span class="eyebrow">Evidencia</span>
-        <h2>Lo que 11 Cracks cambió, en palabras de otros deportistas.</h2>
-      </div>
-      <div class="voces-grid">
-        <div class="voz-card">
-          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_3.jpg" alt="Angie Julieth Quintero">
-          <span class="quote-mark">"</span>
-          <p class="quote">Encontré en el programa de 11 cracks un lugar para mejorar mi habilidad deportiva, pero descubrí la pasión empresarial y el amor por los idiomas.</p>
-          <span class="name">Angie Julieth Quintero</span>
-        </div>
-        <div class="voz-card">
-          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_4.png" alt="Nezareth Segura">
-          <span class="quote-mark">"</span>
-          <p class="quote">Antes de conocer 11 Crack's Foundation, mi existencia se fundamentaba en "fútbol o nada". Hoy, a mis 17 años, soy profesional del fútbol y agente de cambio en mi territorio, Tumaco, Nariño.</p>
-          <span class="name">Nezareth Segura</span>
-        </div>
-        <div class="voz-card">
-          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_2.jpg" alt="Stephanie Alejandra">
-          <span class="quote-mark">"</span>
-          <p class="quote">Siempre soñé con jugar fútbol profesional, superando las barreras de género, hasta que me convertí en la primera preparadora física mujer de la MLS y parte de la selección de U.S.A.</p>
-          <span class="name">Stephanie Alejandra</span>
-        </div>
-        <div class="voz-card">
-          <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_1.jpg" alt="Juan Carlos Giraldo">
-          <span class="quote-mark">"</span>
-          <p class="quote">La moda, para mí, es un estilo de vida. Un deportista debe ser un atleta en el campo, y un influyente positivo desde su vestir en la sociedad.</p>
-          <span class="name">Juan Carlos Giraldo</span>
-        </div>
-      </div>
+      <span class="eyebrow">De la intención a la práctica</span>
+      <h2>Estos seis frentes se entrenan todos los días en las 7 áreas de formación 11 Cracks.</h2>
+      <a class="link-more" href="index.html#areas">Ver las áreas de formación →</a>
     </div>
   </section>
 
   <!-- ============ CIERRE ============ -->
   <section class="close-cta">
     <div class="wrap">
-      <h2>Un entrenamiento puede ser el comienzo de todo.</h2>
-      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Quiero inscribirme</a>
+      <h2>Encuentra tu lugar dentro de este propósito.</h2>
+      <a class="btn" href="index.html#lugar">Ver mis caminos de entrada</a>
     </div>
   </section>
 
@@ -371,20 +326,33 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 </script>
 
 <!--
-  AUDITORÍA DE CONTENIDO HEREDADO (/nuestros-cracks/ en vivo) — hallazgos:
+  AUDITORÍA DE CONTENIDO — for-a-better-world.html (creada 2026-09-08)
 
-  La página real "/nuestros-cracks/" (a la que "Soy Deportista" apunta hoy) es en realidad una
-  galería de testimonios ("Historias"), no una landing de captación para un deportista que quiere
-  vincularse. No tenía copy de beneficio, ni cómo funciona, ni CTA de inscripción — por eso se
-  construyó esta landing nueva desde cero en vez de "corregir" una página que no cumplía ese rol.
+  ORIGEN: página nueva, construida a partir de un marco ("For a Better World", 6 frentes:
+  Educación/Ambiente/Economía/Cultura/Salud/Sociedad) que la usuaria confirmó como válido y real
+  para 11 Cracks, aunque no aparece publicado en el sitio en vivo (11cracksglobal.com) al momento
+  de esta auditoría.
 
-  REQUIERE VALIDACIÓN — el footer del sitio en vivo lista un enlace "Inscripción" que apunta a
-  href="#" (vacío) y la ruta /inscripcion/ no existe (redirige a home). No hay flujo de inscripción
-  real confirmado. El CTA "Quiero inscribirme" de esta página enlaza a /contacto/ (real) hasta que
-  exista un formulario propio — evita simular un enlace funcional inexistente.
+  SE USÓ: nombres de los 6 frentes + descripciones generales sin cifras (tomadas de un concepto
+  de home alternativo revisado con la usuaria). El párrafo "¿Cómo aportamos al mundo?" y la frase
+  "Las piernas se cansan más rápido que el conocimiento" también vienen de esa misma fuente y no
+  afirman datos verificables — se tratan como lenguaje de marca, no como hechos.
 
-  Sin cifras, porcentajes ni claims financieros en el contenido original de esta página — no hubo
-  nada que eliminar por ese motivo.
+  SE EXCLUYÓ deliberadamente por no estar verificado (mismo criterio que el resto del sitio):
+  - Cifras específicas por frente (71% de recursos donados, 510 horas de certificación, 80
+    jugadores certificados, etc.)
+  - "Historias" con fecha por frente — eran notas de blog inventadas, no existen en el sitio real
+  - Galerías de fotos y grids de video por frente — no hay activos reales confirmados para esto
+  - La cita atribuida al "CEO" NO se repite aquí — ya vive, confirmada por la usuaria y atribuida
+    a Victor Córdoba (Fundador), en la sección "Quiénes somos" de index.html. No se duplica.
+
+  Esta página convive con "Áreas de formación" (index.html#areas, 7 ítems, 100% verificados desde
+  el sitio en vivo) sin reemplazarla: For a Better World es el marco de propósito/impacto: Áreas
+  de formación es el contenido curricular que se entrena con el deportista. Se agregó un enlace
+  puente entre ambas para que no se lean como cosas distintas o contradictorias.
+
+  Si en el futuro se confirman cifras o historias reales por frente, esta página es el lugar para
+  incorporarlas — no antes.
 -->
 </body>
 </html>

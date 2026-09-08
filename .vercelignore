@@ -7,9 +7,8 @@ assets/video/ELEVEN CRACK_Micro documental_Juan Pablo_Textos y subtitulos en esp
 # Logos de clubes sin usar (se reemplazaron por las marcas reales del sitio en vivo)
 assets/marcas/
 
-# Archivos de respaldo local, no son parte del código fuente del sitio
+# Archivo de respaldo local, no es parte del código fuente del sitio
 11CRACKSpaginaweb.zip
-pagina11Cracks.zip
 
 
 .vercel

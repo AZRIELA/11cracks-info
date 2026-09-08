@@ -98,22 +98,32 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .hero{position:relative; min-height:92vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
 .hero-bg{position:absolute; inset:0; background-size:cover; background-position:center; background-image:url('https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg');}
 .hero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.16 0.003 92 / 0.35) 0%, oklch(0.16 0.003 92 / 0.92) 92%);}
-.hero-content{position:relative; z-index:2; padding:120px 0 64px;}
+.hero-content{position:relative; z-index:2; padding:120px 0 64px; max-width:780px;}
 .hero h1{font-size:clamp(2.6rem,7vw,5.4rem); max-width:16ch; margin-bottom:20px;}
 .hero .lede{color:var(--ivory-dim); font-size:1.1rem; max-width:58ch; margin-bottom:32px;}
-.hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;}
-.hero-note{color:var(--ivory-dim); font-size:.88rem; max-width:56ch;}
+.hero .pull-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--white); line-height:1.08; margin-bottom:24px;}
+.hero .sub-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.2rem,2.2vw,1.5rem); color:var(--gold-light); border-left:3px solid var(--gold); padding-left:20px; line-height:1.2;}
 
 /* ---------- QUIÉNES SOMOS ---------- */
 .somos{background:var(--white);}
+.founder-quote{display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:start; margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--line);}
+@media (max-width:600px){.founder-quote{grid-template-columns:64px 1fr; gap:18px;}}
+.founder-quote img{width:120px; height:120px; border-radius:50%; object-fit:cover;}
+@media (max-width:600px){.founder-quote img{width:64px; height:64px;}}
+.founder-quote blockquote{font-family:var(--display); font-weight:400; font-size:clamp(1.3rem,2.6vw,1.8rem); line-height:1.22; color:var(--black); max-width:52ch;}
+.founder-quote cite{display:block; margin-top:16px; font-style:normal; font-family:var(--body); font-weight:700; font-size:.92rem; color:var(--gold-deep);}
+.founder-quote cite span{display:block; font-weight:500; color:var(--ink-dim); font-size:.85rem; margin-top:2px;}
 .somos-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;}
 @media (max-width:820px){.somos-grid{grid-template-columns:1fr; gap:28px;}}
 .somos h2{font-size:clamp(1.9rem,4vw,2.7rem); max-width:14ch; margin-bottom:6px;}
-.pull-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,2.6vw,2rem); color:var(--gold-deep); border-left:3px solid var(--gold); padding-left:22px; line-height:1.15;}
 
 /* ---------- QUIÉNES SOMOS — video + cierre de propósito ---------- */
 .somos-video{margin-top:64px;}
+.video-frame{position:relative;}
 .somos-video video{width:100%; aspect-ratio:16/9; border-radius:6px; background:var(--black); display:block;}
+.sound-toggle{position:absolute; right:16px; top:16px; z-index:3; display:inline-flex; align-items:center; gap:8px; background:oklch(0.16 0.003 92 / 0.75); backdrop-filter:blur(4px); color:var(--white); border:1px solid oklch(1 0 0 / 0.3); border-radius:999px; padding:10px 18px; font-size:.85rem; font-weight:600; cursor:pointer; transition:background .2s ease, border-color .2s ease;}
+.sound-toggle:hover, .sound-toggle:focus-visible{background:var(--gold); color:var(--black); border-color:var(--gold);}
+.sound-toggle svg{width:18px; height:18px; flex-shrink:0;}
 .somos-video-caption{margin-top:14px; font-size:.85rem; color:var(--ink-dim); max-width:60ch;}
 @media (max-width:700px){.somos-video{margin-top:40px;}}
 .somos-purpose{margin-top:72px; display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:center;}
@@ -254,19 +264,10 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="hero" style="padding:0;">
     <div class="hero-bg" role="img" aria-label="Jóvenes deportistas entrenando en un escenario formativo de 11 Cracks"></div>
     <div class="wrap hero-content">
-      <span class="eyebrow on-dark">Sport Student · NeuroCracks</span>
-      <h1>11 cracks por<br>un mundo mejor</h1>
-      <p class="lede">En alianza con clubes deportivos, escuelas, comunidades y organizaciones comprometidas con la transformación social, contribuimos a que millones de jóvenes amplíen su visión de futuro y desarrollen conciencia ambiental, académica y económica sostenible.</p>
-      <div class="hero-ctas">
-        <a class="btn" href="soy-club.html">Soy Club</a>
-        <a class="btn" href="soy-deportista.html">Soy Deportista</a>
-        <a class="btn ghost" href="soy-aliado.html">Soy Aliado</a>
-        <a class="btn support" href="plan-padrino.html">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-          Quiero apoyar
-        </a>
-      </div>
-      <p class="hero-note">Elige tu camino de entrada — cada rol tiene su propia puerta a la comunidad 11 Cracks.</p>
+      <span class="eyebrow on-dark">¿Cómo aportamos al mundo?</span>
+      <p class="lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
+      <div class="pull-quote">"El deporte es la cuota inicial de la vida, no la vida."</div>
+      <div class="sub-quote">Las piernas se cansan más rápido que el conocimiento.</div>
     </div>
   </section>
 
@@ -304,6 +305,13 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ QUIÉNES SOMOS ============ -->
   <section class="somos" id="somos">
     <div class="wrap">
+      <div class="founder-quote">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba">
+        <div>
+          <blockquote>"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo."</blockquote>
+          <cite>Victor Córdoba<span>Fundador, 11 Cracks</span></cite>
+        </div>
+      </div>
       <div class="somos-grid">
         <div>
           <span class="eyebrow">Quiénes somos</span>
@@ -311,14 +319,20 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         </div>
         <div>
           <p class="lede" style="margin-bottom:24px;">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
-          <div class="pull-quote">El deporte es la cuota inicial de la vida, no la vida.</div>
         </div>
       </div>
 
       <div class="somos-video">
-        <video controls preload="metadata" playsinline poster="assets/video/eleven-cracks-poster.jpg">
-          <source src="assets/video/eleven-cracks-documental-web.mp4" type="video/mp4">
-        </video>
+        <div class="video-frame">
+          <video id="somosVideo" controls preload="metadata" playsinline muted poster="assets/video/eleven-cracks-poster.jpg">
+            <source src="assets/video/eleven-cracks-documental-web.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="sound-toggle" id="soundToggle" aria-label="Activar sonido del video">
+            <svg id="iconMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg id="iconUnmuted" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+            <span id="soundToggleLabel">Activar sonido</span>
+          </button>
+        </div>
         <p class="somos-video-caption">Voces reales del territorio donde nace 11 Cracks — el propósito, contado por quienes lo viven.</p>
       </div>
 
@@ -495,6 +509,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <h4>Eleven Cracks</h4>
         <a href="nosotros.html">Nosotros</a>
         <a href="ecosistema.html">Ecosistema</a>
+        <a href="for-a-better-world.html">For a Better World</a>
         <a href="historias.html">Historias</a>
         <a href="seleccion-internacional.html">Selección Internacional</a>
       </div>
@@ -551,6 +566,47 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   document.addEventListener('click', function(e){
     if (!dd.contains(e.target)) { dd.classList.remove('open'); ddToggle.setAttribute('aria-expanded','false'); }
   });
+
+  var video = document.getElementById('somosVideo');
+  if (video) {
+    var videoObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          video.play().catch(function(){});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+    videoObserver.observe(video);
+
+    var soundToggle = document.getElementById('soundToggle');
+    var soundToggleLabel = document.getElementById('soundToggleLabel');
+    var iconMuted = document.getElementById('iconMuted');
+    var iconUnmuted = document.getElementById('iconUnmuted');
+    function syncSoundToggle(){
+      soundToggleLabel.textContent = video.muted ? 'Activar sonido' : 'Silenciar';
+      soundToggle.setAttribute('aria-label', video.muted ? 'Activar sonido del video' : 'Silenciar el video');
+      iconMuted.style.display = video.muted ? 'block' : 'none';
+      iconUnmuted.style.display = video.muted ? 'none' : 'block';
+    }
+    syncSoundToggle();
+    soundToggle.addEventListener('click', function(){
+      if (video.muted) {
+        video.volume = 1;
+        video.muted = false;
+        video.removeAttribute('muted');
+        var t = video.currentTime;
+        video.pause();
+        video.currentTime = t;
+        video.play().catch(function(){});
+      } else {
+        video.muted = true;
+      }
+      syncSoundToggle();
+    });
+    video.addEventListener('volumechange', syncSoundToggle);
+  }
 })();
 </script>
 </body>
