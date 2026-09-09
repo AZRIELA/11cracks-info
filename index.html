@@ -113,9 +113,10 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .hero .lede{color:var(--ivory-dim); font-size:1.1rem; max-width:58ch; margin-bottom:32px;}
 .hero .pull-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--white); line-height:1.08; margin-bottom:24px;}
 .hero .sub-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.2rem,2.2vw,1.5rem); color:var(--gold-light); line-height:1.2; position:relative; padding-top:20px;}
-.hero .sub-quote::before{content:''; position:absolute; top:0; left:0; width:44px; height:2px; background:var(--gold);}
+.hero .sub-quote::before{content:''; position:absolute; top:0; left:0; width:0; height:2px; background:var(--gold); animation:heroLineDraw .6s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay:1.05s;}
+@keyframes heroLineDraw{to{width:44px;}}
 .hero-scroll-cue{display:inline-flex; align-items:center; gap:8px; margin-top:40px; font-size:.85rem; font-weight:600; color:var(--ivory-dim); transition:color .2s ease, gap .2s ease;}
-.hero-scroll-cue svg{width:10px; height:10px; animation:heroScrollNudge 1.8s ease-in-out infinite;}
+.hero-scroll-cue svg{width:10px; height:10px; animation:heroScrollNudge 1.6s ease-in-out 2;}
 .hero-scroll-cue:hover{color:var(--gold-light); gap:12px;}
 @keyframes heroScrollNudge{0%,100%{transform:translateY(0);} 50%{transform:translateY(4px);}}
 .hero-content > *{opacity:0; animation:heroReveal .8s cubic-bezier(0.16,1,0.3,1) forwards;}
@@ -126,7 +127,14 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .hero-content > *:nth-child(5){animation-delay:.82s;}
 .hero-content > *:nth-child(6){animation-delay:1s;}
 @keyframes heroReveal{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
-@media (prefers-reduced-motion: reduce){.hero-scroll-cue svg{animation:none;}}
+/* El titular usa mask/clip en vez de solo opacity — mayor especificidad que la regla
+   genérica de arriba, así que gana solo para el h1 sin tocar el resto de la secuencia. */
+.hero h1{opacity:0; clip-path:inset(0 0 100% 0); animation:heroTitleReveal 900ms cubic-bezier(0.22,1,0.36,1) forwards; animation-delay:.28s;}
+@keyframes heroTitleReveal{to{opacity:1; clip-path:inset(0 0 0% 0);}}
+/* Camera push muy sutil sobre el marquee al cargar — una vez, no en loop. */
+.hero-camera-push{animation:heroCameraPush 1600ms cubic-bezier(0.22,1,0.36,1) forwards;}
+@keyframes heroCameraPush{from{transform:scale(1.025);} to{transform:scale(1);}}
+@media (prefers-reduced-motion: reduce){.hero-scroll-cue svg{animation:none;} .hero h1{opacity:1; clip-path:none;} .hero .sub-quote::before{width:44px;}}
 
 /* ---------- HERO — marquee de fotos (mismo patrón del sitio en vivo) ---------- */
 .hero-marquee{position:relative; overflow:hidden; height:92vh;}
@@ -173,23 +181,11 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 
 /* ---------- ENCUENTRA TU LUGAR ---------- */
 .lugar{background:var(--gold-dim);}
-.lugar-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line); margin-top:48px;}
-@media (max-width:760px){.lugar-grid{grid-template-columns:1fr;}}
-.lugar-card{background:var(--white); padding:40px; display:flex; flex-direction:column; gap:14px; transition:transform .3s cubic-bezier(0.16,1,0.3,1), box-shadow .3s ease; position:relative; z-index:1;}
-.lugar-card:hover{transform:translateY(-6px); box-shadow:0 16px 40px oklch(0.16 0.003 92 / 0.12); z-index:2;}
-.lugar-card h3{font-family:var(--display); font-weight:400; font-size:clamp(1.4rem,2.6vw,1.8rem); max-width:16ch;}
-.lugar-card p{color:var(--ink-dim); font-size:.95rem;}
-.lugar-card .link-more{margin-top:4px;}
 
 /* ---------- QUÉ HACEMOS / ÁREAS ---------- */
 .areas{background:var(--black); color:var(--white);}
 .areas-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:48px; flex-wrap:wrap;}
 .areas-head h2{font-size:clamp(1.9rem,4vw,2.7rem); max-width:14ch;}
-.areas-grid{display:flex; flex-wrap:wrap; background:var(--black);}
-.area-item{background:var(--black); border:1px solid oklch(1 0 0 / 0.08); margin:-1px 0 0 -1px; padding:34px 22px; display:flex; flex-direction:column; gap:16px; flex:1 1 220px; transition:background .2s ease;}
-.area-item:hover{background:var(--charcoal);}
-.area-item img{height:40px; width:40px; object-fit:contain;}
-.area-item p{color:var(--ivory-dim); font-size:.95rem; max-width:20ch;}
 
 /* ---------- FOR A BETTER WORLD (teaser) ---------- */
 .fabw-teaser{background:var(--white);}
@@ -215,21 +211,32 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .voz-card .name{font-weight:700; font-size:.92rem; color:var(--black);}
 
 /* ---------- ENTRENAMIENTO STATEMENT ---------- */
-.statement{position:relative; background:var(--black) url('https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/bg_training.png') center 35% / cover no-repeat fixed; color:var(--white); text-align:center; overflow:hidden;}
-.statement::before{content:''; position:absolute; inset:0; background:oklch(0.16 0.003 92 / 0.55);}
+.statement{position:relative; background:var(--black); color:var(--white); text-align:center; overflow:hidden;}
+/* Antes era un CSS background con background-attachment:fixed (parallax nativo
+   pero imposible de combinar con una animación de escala propia — ambas pelean
+   por la misma propiedad transform). Ahora es una imagen real de verdad,
+   envuelta en dos capas: la exterior recibe el parallax de scroll (vía el
+   script ya existente en el archivo, mismo que .hero-bg/.phero-bg), la interior
+   el latido — cada una anima su propio transform sin pisarse. */
+.statement-heart-wrap{position:absolute; inset:-40px 0; z-index:0; overflow:hidden;}
+.statement-heart{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; animation:heartbeat 2.2s ease-in-out infinite;}
+@keyframes heartbeat{
+  0%, 100% { transform:scale(1); }
+  14% { transform:scale(1.045); }
+  28% { transform:scale(1); }
+  42% { transform:scale(1.03); }
+  70% { transform:scale(1); }
+}
+.statement::before{content:''; position:absolute; inset:0; z-index:1; background:oklch(0.16 0.003 92 / 0.55);}
 .statement .wrap{position:relative; z-index:2;}
 .statement h2{font-size:clamp(2rem,5vw,3.2rem); max-width:18ch; margin:0 auto 12px; color:var(--white);}
 .statement p{margin:0 auto; color:var(--ivory-dim);}
-@media (max-width:900px){.statement{background-attachment:scroll;}}
+@media (prefers-reduced-motion: reduce){.statement-heart{animation:none;}}
 
 /* ---------- ECOSISTEMA ---------- */
 .ecosistema{background:var(--white);}
 .eco-grid{display:grid; grid-template-columns:1fr 2fr; gap:48px;}
 @media (max-width:820px){.eco-grid{grid-template-columns:1fr; gap:24px;}}
-.eco-item{border-top:1px solid var(--line); padding:26px 0;}
-.eco-item:last-child{border-bottom:1px solid var(--line);}
-.eco-item h3{font-family:var(--body); font-weight:700; font-size:1.1rem; margin-bottom:10px; color:var(--black);}
-.eco-item p{color:var(--ink-dim); font-size:.95rem; margin-bottom:10px;}
 
 /* ---------- MOMENTO EDITORIAL — PET / SOSTENIBILIDAD ---------- */
 .pet-moment{position:relative; background:var(--charcoal); color:var(--white); overflow:hidden;}
@@ -252,9 +259,12 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .marcas{background:var(--white); text-align:center;}
 .marcas h2{font-size:clamp(1.8rem,3.6vw,2.4rem); margin-bottom:8px;}
 .marcas .lede{margin:0 auto 40px;}
-.marcas-grid{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:38px;}
-.marcas-grid img{height:44px; width:auto; filter:grayscale(1) opacity(.55); transition:filter .2s ease;}
-.marcas-grid img:hover{filter:grayscale(0) opacity(1);}
+.marcas-marquee{overflow:hidden; margin-top:8px; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.marcas-track{display:flex; align-items:center; gap:64px; width:max-content; animation:marcasScroll 34s linear infinite;}
+.marcas-marquee:hover .marcas-track, .marcas-marquee:focus-within .marcas-track{animation-play-state:paused;}
+@keyframes marcasScroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+.marcas-grid img{height:120px; width:auto; flex-shrink:0;}
+@media (max-width:700px){.marcas-grid img{height:88px;}}
 
 /* ---------- CLOSE / CONTACTO ---------- */
 .close-cta{background:var(--black); color:var(--white); padding:0;}
@@ -270,9 +280,12 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 @media (max-width:900px){.close-photo{min-height:300px;}}
 
 /* ---------- FOOTER ---------- */
-footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
+footer{background:var(--black); color:var(--ivory-dim); padding:56px 0 28px; font-size:.85rem;}
+.footer-brand-block{margin-bottom:40px; padding-bottom:36px; border-bottom:1px solid oklch(1 0 0 / 0.1); display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+.footer-brand-block img{height:30px; width:auto;}
+.footer-brand-block p{margin:0; font-family:var(--display); font-size:clamp(1.05rem,1.8vw,1.3rem); color:var(--white); max-width:32ch;}
 .footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
-@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);} .footer-brand-block{flex-direction:column; align-items:flex-start;}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
 .footer-grid a::before{content:""; position:absolute; left:-12px; top:50%; width:0; height:1px; background:var(--gold-light); transform:translateY(-50%); transition:width .2s ease;}
@@ -287,9 +300,108 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 @media (max-width:760px){.social-icon{width:44px; height:44px;}}
 .footer-bottom{border-top:1px solid oklch(1 0 0 / 0.12); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; opacity:.7;}
 
+/* ============ MOTION SYSTEM — reveals genéricos, reutilizables por toda la página ============ */
+[data-motion="reveal"]{opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(0.22,1,0.36,1), transform .6s cubic-bezier(0.22,1,0.36,1);}
+[data-motion="reveal"].is-visible{opacity:1; transform:none;}
+
+/* ---------- ENCUENTRA TU LUGAR / ECOSISTEMA — selector editorial compartido ---------- */
+.editorial-selector{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:48px; align-items:stretch;}
+@media (max-width:900px){.editorial-selector{grid-template-columns:1fr; gap:0; margin-top:32px;}}
+.editorial-list{display:flex; flex-direction:column;}
+.editorial-tab{display:flex; align-items:flex-start; gap:18px; text-align:left; width:100%; padding:22px 4px; border-top:1px solid var(--line); background:transparent; cursor:pointer; transition:transform .3s cubic-bezier(0.22,1,0.36,1); min-height:44px;}
+.editorial-list .editorial-tab:last-child{border-bottom:1px solid var(--line);}
+.editorial-tab.is-active{transform:translateX(6px);}
+.editorial-tab-num{font-family:var(--numeric); font-size:1.25rem; color:var(--ink-dim); flex-shrink:0; min-width:2.2ch; transition:color .3s ease; padding-top:2px;}
+.editorial-tab.is-active .editorial-tab-num{color:var(--gold-deep);}
+.editorial-tab-body{display:flex; flex-direction:column; gap:6px;}
+.editorial-tab-title{font-family:var(--display); font-weight:400; font-size:clamp(1.15rem,2vw,1.5rem); color:var(--ink-dim); transition:color .3s ease; line-height:1.15; max-width:20ch;}
+.editorial-tab.is-active .editorial-tab-title{color:var(--black);}
+.editorial-tab-reveal{display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s cubic-bezier(0.22,1,0.36,1);}
+.editorial-tab.is-active .editorial-tab-reveal{grid-template-rows:1fr;}
+.editorial-tab-reveal-inner{overflow:hidden;}
+.editorial-tab-desc{display:block; font-size:.9rem; color:var(--ink-dim); opacity:0; transition:opacity .25s ease; margin-top:2px;}
+.editorial-tab .link-more{opacity:0; transition:opacity .25s ease; margin-top:6px; display:inline-flex;}
+.editorial-tab.is-active .editorial-tab-desc{opacity:1; transition-delay:.08s;}
+.editorial-tab.is-active .link-more{opacity:1; transition-delay:.08s;}
+.editorial-visual{position:relative; border-radius:6px; overflow:hidden; min-height:340px; background:var(--charcoal);}
+.editorial-visual-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .3s ease;}
+.editorial-visual-img.is-active{opacity:1;}
+@media (max-width:900px){
+  .editorial-visual{display:none;}
+  .editorial-list{flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; gap:14px; padding:2px 2px 12px;}
+  .editorial-tab{flex-direction:column; flex:0 0 82%; scroll-snap-align:start; background:var(--white); border:1px solid var(--line); border-radius:8px; padding:26px 22px; gap:10px; transform:none !important;}
+  .lugar .editorial-tab{background:var(--white);}
+  .ecosistema .editorial-tab{background:var(--white);}
+  .editorial-tab-reveal{grid-template-rows:1fr !important;}
+  .editorial-tab-desc, .editorial-tab .link-more{opacity:1 !important; overflow:visible;}
+  .editorial-tab-title{color:var(--black) !important;}
+  .editorial-tab-num{color:var(--gold-deep) !important;}
+}
+
+/* ---------- 7 ÁREAS — sticky showcase (intervención principal) ---------- */
+.areas-showcase{display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:12px;}
+@media (max-width:900px){.areas-showcase{display:block;}}
+.areas-sticky{position:sticky; top:88px; align-self:start; height:66vh; min-height:360px; border-radius:6px; overflow:hidden;}
+@media (max-width:900px){.areas-sticky{display:none;}}
+.areas-sticky-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .5s ease;}
+.areas-sticky-img.is-active{opacity:.5;}
+.areas-sticky-overlay{position:absolute; inset:0; background:linear-gradient(180deg, oklch(0 0 0/.1) 0%, oklch(0 0 0/.72) 100%);}
+.areas-sticky-content{position:absolute; left:32px; right:32px; bottom:32px; z-index:2;}
+.areas-sticky-progress{display:block; font-family:var(--numeric); font-size:.9rem; letter-spacing:.1em; color:var(--ivory-dim); margin-bottom:6px;}
+.areas-sticky-num{display:block; font-family:var(--numeric); font-size:3.4rem; color:var(--gold); line-height:1; margin-bottom:6px;}
+/* min-height en rem fijo (antes em, heredaba el 16px del body — muchísimo
+   más chico que el texto real de ~2.1rem, así que un título de 2 líneas
+   como "Cultura y proyección global" se recortaba contra el panel). */
+.areas-sticky-title-wrap{position:relative; min-height:5.2rem;}
+.areas-sticky-title{position:absolute; left:0; top:0; opacity:0; transform:translateY(10px); transition:opacity .4s ease, transform .4s ease; font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,2.8vw,2.1rem); line-height:1.15; color:var(--white); max-width:16ch;}
+.areas-sticky-title.is-active{opacity:1; transform:none;}
+.areas-rows{display:flex; flex-direction:column;}
+.area-row{padding:52px 0; border-top:1px solid oklch(1 0 0/.08); opacity:.4; transition:opacity .4s ease; display:flex; align-items:center; gap:18px;}
+.areas-rows .area-row:last-child{border-bottom:1px solid oklch(1 0 0/.08);}
+.area-row.is-active{opacity:1;}
+.area-row-num{font-family:var(--numeric); font-size:1.3rem; color:var(--gold); min-width:2.4ch; flex-shrink:0;}
+.area-row-icon{height:32px; width:32px; object-fit:contain; opacity:.85; flex-shrink:0;}
+.area-row-mobile-img{display:none;}
+.area-row p{color:var(--white); font-family:var(--display); font-weight:400; font-size:clamp(1.1rem,2.4vw,1.45rem); max-width:22ch;}
+@media (max-width:900px){
+  .areas-rows{flex-direction:row; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; padding:2px 2px 12px;}
+  .area-row{flex:0 0 78%; scroll-snap-align:start; flex-direction:column; align-items:flex-start; border:1px solid oklch(1 0 0/.14); border-radius:10px; padding:22px; opacity:1; gap:12px;}
+  .area-row-mobile-img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:6px;}
+  .area-row-icon{display:none;}
+}
+
+/* ---------- PET — secuencia con el lenguaje real de la página ---------- */
+.pet-stage{color:var(--ivory-dim); font-weight:700; transition:color .5s ease;}
+.pet-stage.is-lit{color:var(--gold-light);}
+
+/* ---------- SELECCIÓN INTERNACIONAL — Big Type moderado + pilares progresivos ---------- */
+.seleccion h2{font-size:clamp(2.3rem,5.2vw,3.4rem);}
+.sel-list li{opacity:0; transform:translateY(14px); transition:opacity .5s cubic-bezier(0.22,1,0.36,1), transform .5s cubic-bezier(0.22,1,0.36,1);}
+.sel-list.is-visible li{opacity:1; transform:none;}
+.sel-list.is-visible li:nth-child(1){transition-delay:.05s;}
+.sel-list.is-visible li:nth-child(2){transition-delay:.15s;}
+.sel-list.is-visible li:nth-child(3){transition-delay:.25s;}
+.sel-list.is-visible li:nth-child(4){transition-delay:.35s;}
+.sel-list.is-visible li:nth-child(5){transition-delay:.45s;}
+
+/* ---------- HISTORIAS/VOCES — zoom mínimo + quote reveal ---------- */
+.voz-photo{transition:transform .4s cubic-bezier(0.22,1,0.36,1);}
+.voz-card:hover .voz-photo, .voz-card:focus-within .voz-photo{transform:scale(1.025);}
+.voz-card p.quote{transition:transform .3s ease;}
+.voz-card:hover p.quote, .voz-card:focus-within p.quote{transform:translateY(-2px);}
+
+/* ---------- MARCAS ALIADAS — detalle institucional fino ---------- */
+.marcas-grid img{transition:filter .2s ease, transform .2s ease;}
+.marcas-grid img:hover, .marcas-grid img:focus-visible{transform:translateY(-2px);}
+
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important;}
   .hero-content > *{opacity:1 !important; transform:none !important;}
+  .hero h1{opacity:1 !important; clip-path:none !important;}
+  .hero .sub-quote::before{width:44px !important;}
+  [data-motion="reveal"]{opacity:1 !important; transform:none !important;}
+  .areas-sticky-title{opacity:1 !important; transform:none !important;}
+  .sel-list li{opacity:1 !important; transform:none !important;}
 }
 </style>
 </head>
@@ -367,7 +479,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         </a>
       </div>
       <div class="hero-marquee" aria-hidden="true">
-        <div class="marquee-track">
+        <div class="marquee-track hero-camera-push">
           <div class="marquee-col marquee-up">
             <div class="marquee-group">
               <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg" alt="" loading="lazy">
@@ -410,27 +522,55 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap">
       <span class="eyebrow" data-i18n="nav.lugar">Encuentra tu lugar</span>
       <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); max-width:16ch;" data-i18n="lugar.h2">¿Qué quieres hacer en 11 Cracks?</h2>
-      <div class="lugar-grid">
-        <div class="lugar-card">
-          <h3 data-i18n="lugar.card1.h3">Lleva 11 Cracks a tu club</h3>
-          <p data-i18n="lugar.card1.p">Convierte la cancha en un espacio de formación, seguimiento y desarrollo integral.</p>
-          <a class="link-more" href="soy-club.html" data-i18n="lugar.card1.cta">Soy Club →</a>
+      <div class="editorial-selector" data-selector="lugar">
+        <div class="editorial-list" role="tablist" aria-label="Elige tu perfil en 11 Cracks">
+          <button class="editorial-tab is-active" type="button" role="tab" aria-selected="true" data-tab-index="0">
+            <span class="editorial-tab-num">01</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="lugar.card1.h3">Lleva 11 Cracks a tu club</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="lugar.card1.p">Convierte la cancha en un espacio de formación, seguimiento y desarrollo integral.</span>
+                <a class="link-more" href="soy-club.html" data-i18n="lugar.card1.cta">Soy Club →</a>
+              </span></span>
+            </span>
+          </button>
+          <button class="editorial-tab" type="button" role="tab" aria-selected="false" data-tab-index="1">
+            <span class="editorial-tab-num">02</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="lugar.card2.h3">Crece dentro y fuera de la cancha</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="lugar.card2.p">Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades.</span>
+                <a class="link-more" href="soy-deportista.html" data-i18n="lugar.card2.cta">Soy Deportista →</a>
+              </span></span>
+            </span>
+          </button>
+          <button class="editorial-tab" type="button" role="tab" aria-selected="false" data-tab-index="2">
+            <span class="editorial-tab-num">03</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="lugar.card3.h3">Convierte tu marca en impacto</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="lugar.card3.p">Conecta tus recursos y beneficios con deportistas, familias y comunidades.</span>
+                <a class="link-more" href="soy-aliado.html" data-i18n="lugar.card3.cta">Quiero ser aliado →</a>
+              </span></span>
+            </span>
+          </button>
+          <button class="editorial-tab" type="button" role="tab" aria-selected="false" data-tab-index="3">
+            <span class="editorial-tab-num">04</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="lugar.card4.h3">Ayuda a un deportista a seguir formándose</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="lugar.card4.p">Tu apoyo puede ayudar a cubrir su proceso formativo dentro de 11 Cracks.</span>
+                <a class="link-more" href="plan-padrino.html" data-i18n="lugar.card4.cta">Quiero apoyar →</a>
+                <span class="label-small">Plan Padrino</span>
+              </span></span>
+            </span>
+          </button>
         </div>
-        <div class="lugar-card">
-          <h3 data-i18n="lugar.card2.h3">Crece dentro y fuera de la cancha</h3>
-          <p data-i18n="lugar.card2.p">Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades.</p>
-          <a class="link-more" href="soy-deportista.html" data-i18n="lugar.card2.cta">Soy Deportista →</a>
-        </div>
-        <div class="lugar-card">
-          <h3 data-i18n="lugar.card3.h3">Convierte tu marca en impacto</h3>
-          <p data-i18n="lugar.card3.p">Conecta tus recursos y beneficios con deportistas, familias y comunidades.</p>
-          <a class="link-more" href="soy-aliado.html" data-i18n="lugar.card3.cta">Quiero ser aliado →</a>
-        </div>
-        <div class="lugar-card">
-          <h3 data-i18n="lugar.card4.h3">Ayuda a un deportista a seguir formándose</h3>
-          <p data-i18n="lugar.card4.p">Tu apoyo puede ayudar a cubrir su proceso formativo dentro de 11 Cracks.</p>
-          <a class="link-more" href="plan-padrino.html" data-i18n="lugar.card4.cta">Quiero apoyar →</a>
-          <span class="label-small">Plan Padrino</span>
+        <div class="editorial-visual" aria-hidden="true">
+          <img class="editorial-visual-img is-active" data-tab-index="0" src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/bg_teams.png" alt="" loading="lazy">
+          <img class="editorial-visual-img" data-tab-index="1" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_4.jpg" alt="" loading="lazy">
+          <img class="editorial-visual-img" data-tab-index="2" src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/slide_5.jpg" alt="" loading="lazy">
+          <img class="editorial-visual-img" data-tab-index="3" src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/slide_6.jpg" alt="" loading="lazy">
         </div>
       </div>
     </div>
@@ -439,7 +579,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ QUIÉNES SOMOS ============ -->
   <section class="somos" id="somos">
     <div class="wrap">
-      <div class="founder-quote">
+      <div class="founder-quote" data-motion="reveal">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba">
         <div>
           <blockquote data-i18n="somos.quote">"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo."</blockquote>
@@ -447,7 +587,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         </div>
       </div>
       <div class="somos-grid">
-        <div>
+        <div data-motion="reveal">
           <span class="eyebrow" data-i18n="somos.eyebrow">Quiénes somos</span>
           <h2 data-i18n="somos.h2">Una infraestructura socioeducativa que nace en la cancha.</h2>
         </div>
@@ -470,7 +610,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <p class="somos-video-caption" data-i18n="somos.video_caption">Voces reales del territorio donde nace 11 Cracks — el propósito, contado por quienes lo viven.</p>
       </div>
 
-      <div class="somos-purpose">
+      <div class="somos-purpose" data-motion="reveal">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cta_image.png" alt="Deportista formándose en el programa 11 Cracks">
         <div>
           <h3 data-i18n="somos.purpose_h3">Generación cero excusas. Cien oportunidades.</h3>
@@ -489,14 +629,74 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <h2 data-i18n="areas.h2">Siete áreas de formación, un mismo jugador integral.</h2>
         </div>
       </div>
-      <div class="areas-grid">
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon.png" alt=""><p data-i18n="areas.item1">Finanzas deportivas</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-4.png" alt=""><p data-i18n="areas.item2">Marketing deportivo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-1.png" alt=""><p data-i18n="areas.item3">Bilingüismo y trilingüismo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-5.png" alt=""><p data-i18n="areas.item4">Cultura y proyección global</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-2.png" alt=""><p data-i18n="areas.item5">Salud mental y bienestar</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-6.png" alt=""><p data-i18n="areas.item6">Alto rendimiento deportivo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-3.png" alt=""><p data-i18n="areas.item7">Deporte comprometido con el planeta</p></div>
+      <div class="areas-showcase" data-areas-total="7">
+        <div class="areas-sticky">
+          <img class="areas-sticky-img is-active" data-area-index="0" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="1" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_2.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="2" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_3.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="3" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/noso_val_3.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="4" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/padres_banner_2.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="5" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_4.jpg" alt="" loading="lazy">
+          <img class="areas-sticky-img" data-area-index="6" src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/slide_6.jpg" alt="" loading="lazy">
+          <div class="areas-sticky-overlay"></div>
+          <div class="areas-sticky-content">
+            <span class="areas-sticky-progress">01 / 07</span>
+            <span class="areas-sticky-num">01</span>
+            <div class="areas-sticky-title-wrap">
+              <span class="areas-sticky-title is-active" data-area-index="0" data-i18n="areas.item1">Finanzas deportivas</span>
+              <span class="areas-sticky-title" data-area-index="1" data-i18n="areas.item2">Marketing deportivo</span>
+              <span class="areas-sticky-title" data-area-index="2" data-i18n="areas.item3">Bilingüismo y trilingüismo</span>
+              <span class="areas-sticky-title" data-area-index="3" data-i18n="areas.item4">Cultura y proyección global</span>
+              <span class="areas-sticky-title" data-area-index="4" data-i18n="areas.item5">Salud mental y bienestar</span>
+              <span class="areas-sticky-title" data-area-index="5" data-i18n="areas.item6">Alto rendimiento deportivo</span>
+              <span class="areas-sticky-title" data-area-index="6" data-i18n="areas.item7">Deporte comprometido con el planeta</span>
+            </div>
+          </div>
+        </div>
+        <div class="areas-rows">
+          <div class="area-row is-active" data-area-index="0">
+            <span class="area-row-num">01</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item1">Finanzas deportivas</p>
+          </div>
+          <div class="area-row" data-area-index="1">
+            <span class="area-row-num">02</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-4.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_2.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item2">Marketing deportivo</p>
+          </div>
+          <div class="area-row" data-area-index="2">
+            <span class="area-row-num">03</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-1.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_3.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item3">Bilingüismo y trilingüismo</p>
+          </div>
+          <div class="area-row" data-area-index="3">
+            <span class="area-row-num">04</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-5.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/noso_val_3.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item4">Cultura y proyección global</p>
+          </div>
+          <div class="area-row" data-area-index="4">
+            <span class="area-row-num">05</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-2.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/padres_banner_2.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item5">Salud mental y bienestar</p>
+          </div>
+          <div class="area-row" data-area-index="5">
+            <span class="area-row-num">06</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-6.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_4.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item6">Alto rendimiento deportivo</p>
+          </div>
+          <div class="area-row" data-area-index="6">
+            <span class="area-row-num">07</span>
+            <img class="area-row-icon" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-3.png" alt="">
+            <img class="area-row-mobile-img" src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/slide_6.jpg" alt="" loading="lazy">
+            <p data-i18n="areas.item7">Deporte comprometido con el planeta</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -560,22 +760,36 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap">
       <h2 data-i18n="marcas.h2">Marcas aliadas</h2>
       <p class="lede" data-i18n="marcas.lede">Organizaciones que creen en el poder del deporte y la educación para transformar vidas y construir un futuro sostenible.</p>
-      <div class="marcas-grid">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="Blow Up">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="IPS MVS — Más valor a tu salud">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_3.png" alt="Instafest Awards">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_4.png" alt="Smartfit">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_5.png" alt="SADI — Sistema Administrativo de Información">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_6.png" alt="rmd — Estrategias que Transforman">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_7.png" alt="Quick Learning English Community">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_8.png" alt="Enjoy">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_9.png" alt="Kwel Social">
+      <div class="marcas-marquee" aria-label="Marcas aliadas de 11 Cracks">
+        <div class="marcas-grid marcas-track">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="Blow Up">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="IPS MVS — Más valor a tu salud">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_3.png" alt="Instafest Awards">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_4.png" alt="Smartfit">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_5.png" alt="SADI — Sistema Administrativo de Información">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_6.png" alt="rmd — Estrategias que Transforman">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_7.png" alt="Quick Learning English Community">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_8.png" alt="Enjoy">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_9.png" alt="Kwel Social">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_3.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_4.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_5.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_6.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_7.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_8.png" alt="" aria-hidden="true">
+          <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_9.png" alt="" aria-hidden="true">
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ STATEMENT — CÓMO DESARROLLAMOS / NEUROCRACKS ============ -->
   <section class="statement">
+    <div class="statement-heart-wrap">
+      <img class="statement-heart" src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/bg_training.png" alt="" aria-hidden="true">
+    </div>
     <div class="wrap">
       <span class="eyebrow on-dark" data-i18n="statement.eyebrow">Cómo formamos · NeuroCracks</span>
       <h2 data-i18n="statement.h2">Entrenamiento desde las neuronas del corazón</h2>
@@ -590,30 +804,52 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <span class="eyebrow" data-i18n="ecosistema.eyebrow">Apoyo y oportunidades</span>
         <h2 style="font-size:clamp(1.9rem,4vw,2.5rem);" data-i18n="ecosistema.h2">Tres mecanismos de apoyo que conectan tu desarrollo con respaldo real.</h2>
       </div>
-      <div>
-        <div class="eco-item">
-          <h3 data-i18n="ecosistema.item1.h3">Hambre cero</h3>
-          <p data-i18n="ecosistema.item1.p">Trabajamos junto a escuelas, clubes, familias, empresas y aliados sociales para contribuir a la seguridad alimentaria de niños, jóvenes y comunidades vinculadas al deporte formativo.</p>
-          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item1.cta">Conocer más →</a>
+      <div class="editorial-selector" data-selector="ecosistema" style="margin-top:0;">
+        <div class="editorial-list" role="tablist" aria-label="Mecanismos de apoyo de 11 Cracks">
+          <button class="editorial-tab is-active" type="button" role="tab" aria-selected="true" data-tab-index="0">
+            <span class="editorial-tab-num">01</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="ecosistema.item1.h3">Hambre cero</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="ecosistema.item1.p">Trabajamos junto a escuelas, clubes, familias, empresas y aliados sociales para contribuir a la seguridad alimentaria de niños, jóvenes y comunidades vinculadas al deporte formativo.</span>
+                <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item1.cta">Conocer más →</a>
+              </span></span>
+            </span>
+          </button>
+          <button class="editorial-tab" type="button" role="tab" aria-selected="false" data-tab-index="1">
+            <span class="editorial-tab-num">02</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="ecosistema.item2.h3">Beneficios que acompañan tu camino</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="ecosistema.item2.p">Accede a descuentos, apoyos y oportunidades disponibles dentro de la red 11 Cracks, construidos junto a clubes, aliados y marcas — no es dinero libre ni un saldo retirable, sino una red de respaldo que se activa según cada convenio.</span>
+                <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item2.cta">Descubrir beneficios →</a>
+                <span class="label-small">Billetera Solidaria 11 Cracks</span>
+              </span></span>
+            </span>
+          </button>
+          <button class="editorial-tab" type="button" role="tab" aria-selected="false" data-tab-index="2">
+            <span class="editorial-tab-num">03</span>
+            <span class="editorial-tab-body">
+              <span class="editorial-tab-title" data-i18n="ecosistema.item3.h3">Tu progreso puede abrir nuevas puertas</span>
+              <span class="editorial-tab-reveal"><span class="editorial-tab-reveal-inner">
+                <span class="editorial-tab-desc" data-i18n="ecosistema.item3.p">Postúlate a becas, visorías y procesos de crecimiento disponibles dentro de la red 11 Cracks — accesos sujetos a evaluación y cupos, no automáticos.</span>
+                <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item3.cta">Explorar oportunidades →</a>
+                <span class="label-small">Oportunidades 11 Cracks</span>
+              </span></span>
+            </span>
+          </button>
         </div>
-        <div class="eco-item">
-          <h3 data-i18n="ecosistema.item2.h3">Beneficios que acompañan tu camino</h3>
-          <p data-i18n="ecosistema.item2.p">Accede a descuentos, apoyos y oportunidades disponibles dentro de la red 11 Cracks, construidos junto a clubes, aliados y marcas — no es dinero libre ni un saldo retirable, sino una red de respaldo que se activa según cada convenio.</p>
-          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item2.cta">Descubrir beneficios →</a>
-          <span class="label-small">Billetera Solidaria 11 Cracks</span>
-        </div>
-        <div class="eco-item">
-          <h3 data-i18n="ecosistema.item3.h3">Tu progreso puede abrir nuevas puertas</h3>
-          <p data-i18n="ecosistema.item3.p">Postúlate a becas, visorías y procesos de crecimiento disponibles dentro de la red 11 Cracks — accesos sujetos a evaluación y cupos, no automáticos.</p>
-          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item3.cta">Explorar oportunidades →</a>
-          <span class="label-small">Oportunidades 11 Cracks</span>
+        <div class="editorial-visual" aria-hidden="true">
+          <img class="editorial-visual-img is-active" data-tab-index="0" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/noso_val_1.jpg" alt="" loading="lazy">
+          <img class="editorial-visual-img" data-tab-index="1" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/quipo_bene_1.jpg" alt="" loading="lazy">
+          <img class="editorial-visual-img" data-tab-index="2" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/quipo_bene_3.jpg" alt="" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ MOMENTO EDITORIAL — PET ============ -->
-  <section class="pet-moment">
+  <section class="pet-moment" data-motion="reveal-graphic">
     <svg class="bg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;">
       <rect width="400" height="300" fill="none"/>
       <g stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.5">
@@ -623,7 +859,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap">
       <span class="eyebrow on-dark" data-i18n="pet.eyebrow">De la formación a la acción · PET</span>
       <h2 data-i18n="pet.h2">Tu club también juega por el planeta.</h2>
-      <p data-i18n="pet.p">Lo que se forma en las siete áreas se vuelve práctica: los clubes participan en procesos de reciclaje y economía circular que convierten residuos en insumos deportivos, con los mismos jóvenes como protagonistas del proceso.</p>
+      <p data-i18n="pet.p">Lo que se forma en las siete áreas se vuelve práctica: los clubes participan en procesos de <span class="pet-stage" data-stage="1">reciclaje</span> y <span class="pet-stage" data-stage="2">economía circular</span> que convierten residuos en <span class="pet-stage" data-stage="3">insumos deportivos</span>, con los mismos jóvenes como protagonistas del proceso.</p>
     </div>
   </section>
 
@@ -635,7 +871,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <span class="eyebrow on-dark" data-i18n="seleccion.eyebrow">Programa insignia</span>
         <h2 data-i18n="seleccion.h2">Selección Internacional 11 Cracks</h2>
         <p class="lede" style="color:var(--ivory-dim); margin-bottom:24px;" data-i18n="seleccion.lede">Un cupo limitado para el talento que ya destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
-        <ul class="sel-list">
+        <ul class="sel-list" data-motion="reveal-graphic">
           <li data-i18n="seleccion.li1">Idiomas y comunicación global</li>
           <li data-i18n="seleccion.li2">Liderazgo e inteligencia emocional</li>
           <li data-i18n="seleccion.li3">Emprendimiento deportivo</li>
@@ -649,7 +885,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ CLOSE / CONTACTO ============ -->
   <section class="close-cta" id="contacto">
     <div class="close-grid">
-      <div class="close-text">
+      <div class="close-text" data-motion="reveal">
         <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
         <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
         <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento</a>
@@ -664,6 +900,10 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 
 <footer>
   <div class="wrap">
+    <div class="footer-brand-block">
+      <img src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/logo.svg" alt="Eleven Cracks">
+      <p data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
+    </div>
     <div class="footer-grid">
       <div>
         <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
@@ -683,7 +923,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <h4 data-i18n="footer.h_contacto">Contacto</h4>
         <a href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
         <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></svg></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><g transform="translate(3.35,0)"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></g></svg></a>
           <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
         </div>
@@ -779,19 +1019,164 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // .hero-bg/.phero-bg = parallax "clásico" desde el tope de la página (fórmula
+  // original, con scrollY absoluto). .statement-heart-wrap se suma aparte porque
+  // vive a mitad de página — ahí el parallax tiene que salir de la posición del
+  // propio elemento en el viewport, no del scroll absoluto (si no, ya estaría
+  // siempre al tope del límite de 90px antes de que se vea siquiera).
   var heroBg = document.querySelector('.hero-bg, .phero-bg');
-  if (!heroBg || reduceMotion) return;
+  var heartLayers = document.querySelectorAll('.statement-heart-wrap');
+  if ((!heroBg && !heartLayers.length) || reduceMotion) return;
   var ticking = false;
   function updateParallax(){
-    var y = window.scrollY || window.pageYOffset;
-    var shift = Math.min(y * 0.18, 90);
-    heroBg.style.transform = 'translateY(' + shift + 'px)';
+    if (heroBg) {
+      var y = window.scrollY || window.pageYOffset;
+      var shift = Math.min(y * 0.18, 90);
+      heroBg.style.transform = 'translateY(' + shift + 'px)';
+    }
+    heartLayers.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      var shift = Math.max(-50, Math.min(rect.top * 0.12, 50));
+      el.style.transform = 'translateY(' + shift + 'px)';
+    });
     ticking = false;
   }
   window.addEventListener('scroll', function(){
     if (!ticking) { window.requestAnimationFrame(updateParallax); ticking = true; }
   }, { passive: true });
   updateParallax();
+})();
+</script>
+
+<!-- Capa de motion e interacción (Home) — funciones separadas por responsabilidad,
+     todas no-op si el elemento correspondiente no existe en la página. -->
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  // ---- Reveal genérico: fade+rise una sola vez al entrar en viewport ----
+  function initReveals(){
+    var els = document.querySelectorAll('[data-motion="reveal"]');
+    if (!els.length) return;
+    if (reduceMotion || !hasIO) { els.forEach(function(el){ el.classList.add('is-visible'); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  // ---- Reveal "gráfico": no atenúa el propio elemento, solo habilita hijos
+  // (red de nodos NeuroCracks, líneas de PET, pilares de Selección) ----
+  function initGraphicReveals(){
+    var els = document.querySelectorAll('[data-motion="reveal-graphic"]');
+    if (!els.length) return;
+    if (reduceMotion || !hasIO) {
+      els.forEach(function(el){ el.classList.add('is-visible'); lightPetStages(el); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          lightPetStages(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  // PET: enciende reciclaje → economía circular → insumos deportivos en secuencia,
+  // usando el copy real ya presente en el párrafo (nada de texto nuevo).
+  function lightPetStages(root){
+    var stages = root.querySelectorAll('.pet-stage');
+    if (!stages.length) return;
+    stages.forEach(function(stage, i){
+      var delay = reduceMotion ? 0 : i * 350;
+      window.setTimeout(function(){ stage.classList.add('is-lit'); }, delay);
+    });
+  }
+
+  // ---- Selector editorial compartido: "Encuentra tu lugar" y "Ecosistema" ----
+  // Responde a click (todo dispositivo), focus (teclado) y hover (solo puntero fino).
+  function initEditorialSelectors(){
+    var roots = document.querySelectorAll('.editorial-selector');
+    if (!roots.length) return;
+    var hoverCapable = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+    roots.forEach(function(root){
+      var tabs = root.querySelectorAll('.editorial-tab');
+      var imgs = root.querySelectorAll('.editorial-visual-img');
+
+      function activate(idx){
+        tabs.forEach(function(tab){
+          var active = tab.getAttribute('data-tab-index') === String(idx);
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        imgs.forEach(function(img){
+          img.classList.toggle('is-active', img.getAttribute('data-tab-index') === String(idx));
+        });
+      }
+
+      tabs.forEach(function(tab){
+        var idx = tab.getAttribute('data-tab-index');
+        tab.addEventListener('click', function(){ activate(idx); });
+        tab.addEventListener('focus', function(){ activate(idx); });
+        if (hoverCapable) tab.addEventListener('mouseenter', function(){ activate(idx); });
+      });
+    });
+  }
+
+  // ---- 7 Áreas: sticky showcase — el panel activo cambia según qué fila
+  // cruza el centro del viewport. Sin sticky en mobile (CSS lo oculta;
+  // aquí solo evitamos observar de más). ----
+  function initTrainingAreasShowcase(){
+    var showcase = document.querySelector('.areas-showcase');
+    if (!showcase) return;
+    var rows = showcase.querySelectorAll('.area-row');
+    var stickyImgs = showcase.querySelectorAll('.areas-sticky-img');
+    var stickyTitles = showcase.querySelectorAll('.areas-sticky-title');
+    var numEl = showcase.querySelector('.areas-sticky-num');
+    var progressEl = showcase.querySelector('.areas-sticky-progress');
+    var total = rows.length;
+
+    function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+    function activate(idx){
+      rows.forEach(function(r){ r.classList.toggle('is-active', r.getAttribute('data-area-index') === String(idx)); });
+      stickyImgs.forEach(function(im){ im.classList.toggle('is-active', im.getAttribute('data-area-index') === String(idx)); });
+      stickyTitles.forEach(function(t){ t.classList.toggle('is-active', t.getAttribute('data-area-index') === String(idx)); });
+      if (numEl) numEl.textContent = pad(parseInt(idx, 10) + 1);
+      if (progressEl) progressEl.textContent = pad(parseInt(idx, 10) + 1) + ' / ' + pad(total);
+    }
+
+    activate(0);
+    if (!hasIO || window.matchMedia('(max-width:900px)').matches) return; // mobile: scroll-snap, sin sticky
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) activate(entry.target.getAttribute('data-area-index'));
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+    rows.forEach(function(r){ io.observe(r); });
+  }
+
+  function init(){
+    initReveals();
+    initGraphicReveals();
+    initEditorialSelectors();
+    initTrainingAreasShowcase();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 
@@ -879,7 +1264,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'ecosistema.item3.cta': 'Explore opportunities →',
     'pet.eyebrow': 'From training to action · PET',
     'pet.h2': 'Your club also plays for the planet.',
-    'pet.p': 'What is taught across the seven areas becomes practice: clubs take part in recycling and circular economy processes that turn waste into sports materials, with young people themselves as the protagonists.',
+    'pet.p': 'What is taught across the seven areas becomes practice: clubs take part in <span class="pet-stage" data-stage="1">recycling</span> and <span class="pet-stage" data-stage="2">circular economy</span> processes that turn waste into <span class="pet-stage" data-stage="3">sports materials</span>, with young people themselves as the protagonists.',
     'seleccion.eyebrow': 'Flagship program',
     'seleccion.h2': '11 Cracks International Selection',
     'seleccion.lede': 'A limited number of spots for talent that already stands out within the ecosystem, with its own five training pillars.',
@@ -981,7 +1366,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'ecosistema.item3.cta': '探索机会 →',
     'pet.eyebrow': '从培训到行动 · PET',
     'pet.h2': '你的俱乐部也在为地球而战。',
-    'pet.p': '七大培训领域所学最终转化为实践：俱乐部参与回收与循环经济流程，将废弃物转化为体育物资，而青少年正是这一过程的主角。',
+    'pet.p': '七大培训领域所学最终转化为实践：俱乐部参与<span class="pet-stage" data-stage="1">回收</span>与<span class="pet-stage" data-stage="2">循环经济</span>流程，将废弃物转化为<span class="pet-stage" data-stage="3">体育物资</span>，而青少年正是这一过程的主角。',
     'seleccion.eyebrow': '旗舰项目',
     'seleccion.h2': '11 Cracks 国际精英选拔',
     'seleccion.lede': '面向生态系统内已崭露头角的人才，名额有限，拥有专属的五大培养支柱。',
