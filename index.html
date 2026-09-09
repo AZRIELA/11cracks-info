@@ -296,14 +296,21 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .marcas-grid img{height:120px; width:auto; flex-shrink:0;}
 @media (max-width:700px){.marcas-grid img{height:88px;}}
 
-/* ---------- FOOTER HEADER: cabecera de marca, conclusión del relato ---------- */
-.footer-header{position:relative; overflow:hidden; padding:64px 0 40px; border-bottom:1px solid oklch(1 0 0 / 0.08);}
-.footer-header .wrap{position:relative; z-index:2; max-width:640px;}
-.close-bridge-mark{position:absolute; top:50%; right:6%; transform:translateY(-50%); font-family:var(--numeric); font-size:min(11vw,150px); line-height:1; color:var(--white); opacity:0.05; z-index:-1; pointer-events:none; user-select:none;}
-.footer-header-rule{display:block; width:44px; height:2px; background:var(--gold); margin-bottom:16px;}
-.footer-header h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(1.7rem,3.2vw,2.3rem); line-height:1.05; margin-bottom:10px; color:var(--white);}
-.footer-header .close-sub{font-size:1rem; color:var(--ivory-dim); margin-bottom:20px;}
-@media (max-width:700px){.footer-header{padding:48px 0 32px;}}
+/* ---------- FOOTER HEADER: cierre editorial horizontal, no un módulo/card ---------- */
+.footer-header{padding:52px 0; border-bottom:1px solid oklch(1 0 0 / 0.07);}
+.footer-header-grid{display:grid; grid-template-columns:7fr 5fr; gap:40px; align-items:center;}
+.footer-header-text h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(2.2rem,5.5vw,4.75rem); line-height:0.98; max-width:9ch; margin-bottom:14px; color:var(--white);}
+.footer-header-text .close-sub{font-size:1rem; color:var(--ivory-dim);}
+.footer-header-cta{display:flex; justify-content:flex-end;}
+.footer-header-link{color:var(--gold-light); font-weight:600; font-size:1.05rem; display:inline-flex; align-items:center; gap:6px; transition:color .2s ease, gap .2s ease; white-space:nowrap;}
+.footer-header-link:hover, .footer-header-link:focus-visible{color:var(--gold); gap:10px;}
+.footer-header-link:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
+@media (max-width:700px){
+  .footer-header{padding:40px 0;}
+  .footer-header-grid{grid-template-columns:1fr; gap:20px;}
+  .footer-header-text h2{max-width:none;}
+  .footer-header-cta{justify-content:flex-start;}
+}
 
 /* ---------- FOOTER: utilidad, en flujo normal ---------- */
 footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; padding:0 0 28px;}
@@ -932,12 +939,14 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 <!-- ============ FOOTER — cabecera de marca (conclusión) + navegación (utilidad) ============ -->
 <footer id="contacto">
   <div class="footer-header">
-    <div class="wrap">
-      <span class="close-bridge-mark" aria-hidden="true">11</span>
-      <span class="footer-header-rule" aria-hidden="true"></span>
-      <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
-      <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
-      <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento</a>
+    <div class="wrap footer-header-grid">
+      <div class="footer-header-text">
+        <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
+        <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
+      </div>
+      <div class="footer-header-cta">
+        <a class="footer-header-link" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento ↗</a>
+      </div>
     </div>
   </div>
   <div class="wrap footer-body">
@@ -1345,7 +1354,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'seleccion.cta': 'Discover the International Selection →',
     'close.h2': 'That is 11 Cracks',
     'close.sub': 'A place to inspire humanity.',
-    'close.cta': 'Join the movement',
+    'close.cta': 'Join the movement ↗',
     'footer.seleccion': 'International Selection',
     'footer.h_comunidad': 'Community',
     'footer.padres': 'Parents',
@@ -1448,7 +1457,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'seleccion.cta': '了解国际精英选拔 →',
     'close.h2': '这就是11 Cracks',
     'close.sub': '一个激励人类的地方。',
-    'close.cta': '加入这场运动',
+    'close.cta': '加入这场运动 ↗',
     'footer.seleccion': '国际选拔',
     'footer.h_comunidad': '社区',
     'footer.padres': '家长',
