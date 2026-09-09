@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For a Better World — Eleven Cracks</title>
-<meta name="description" content="Seis frentes, un mismo propósito: educación, medio ambiente, economía, cultura, salud y sociedad dentro del ecosistema 11 Cracks.">
+<title>Medio Ambiente — For a Better World — Eleven Cracks</title>
+<meta name="description" content="Medio Ambiente: economía circular desde la cancha — uniformes, reciclaje y conciencia ambiental en cada proceso de 11 Cracks.">
 <link rel="icon" href="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cropped-Favicon-32x32.png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bebas+Neue&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ============ TOKENS — mismos de Home / internas ============ */
 :root{
-  --black:        oklch(0.134 0 90);      /* #080808 */
-  --surface-1:    oklch(0.178 0 90);      /* #111111 */
-  --surface-2:    oklch(0.218 0 90);      /* #1A1A1A */
+  --black:        oklch(0.134 0 90);
+  --surface-1:    oklch(0.178 0 90);
+  --surface-2:    oklch(0.218 0 90);
   --charcoal:     var(--surface-2);
-  --white:        oklch(1 0 0);           /* #FFFFFF */
+  --white:        oklch(1 0 0);
   --ivory-dim:    oklch(1 0 0 / 0.72);
-  --gold:         oklch(0.771 0.092 79);  /* #D4AE6F — dorado institucional */
+  --gold:         oklch(0.771 0.092 79);
   --gold-light:   oklch(0.88 0.07 79);
   --gold-deep:    oklch(0.55 0.08 79);
   --gold-dim:     oklch(0.771 0.092 79 / 0.14);
-  --gold-action:  oklch(0.772 0.159 81);  /* #E8A800 — dorado de acción/foco, usar poco */
+  --gold-action:  oklch(0.772 0.159 81);
   --ink:          oklch(0.134 0 90);
   --ink-dim:      oklch(0.134 0 90 / 0.68);
   --line:         oklch(0.134 0 90 / 0.1);
@@ -51,12 +50,8 @@ section{padding:128px 0;}
 .btn:focus-visible{transform:translateY(-2px);}
 .link-more{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem; color:var(--black); border-bottom:1.5px solid var(--gold); padding-bottom:2px; cursor:pointer;}
 .link-more:hover{color:var(--gold-deep);}
-
-/* ---------- SKIP LINK ---------- */
 .skip-link{position:absolute; left:-999px; top:0; background:var(--gold); color:var(--black); padding:12px 18px; z-index:999; font-weight:600;}
 .skip-link:focus{left:16px; top:16px;}
-
-/* ---------- NAV ---------- */
 nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-bottom:1px solid oklch(1 0 0 / 0.1);}
 .mainnav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
 .logo img{height:34px; width:auto;}
@@ -86,60 +81,48 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
   .dropdown-toggle{width:100%; justify-content:space-between;}
   .dropdown-menu{margin-top:8px; border:none; padding:0 0 0 14px; min-width:0; background:transparent;}
 }
-
-/* ---------- PAGE HERO ---------- */
-.phero{position:relative; min-height:62vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
+.phero{position:relative; min-height:66vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
 .phero-bg{position:absolute; top:-12%; left:0; right:0; height:124%; will-change:transform; background-size:cover; background-position:center 30%; background-image:url('https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_1.jpg');}
-.phero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.16 0.003 92 / 0.25) 0%, oklch(0.16 0.003 92 / 0.94) 96%);}
+.phero-bg::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.134 0 90 / 0.25) 0%, oklch(0.134 0 90 / 0.94) 96%);}
 .phero-content{position:relative; z-index:2; padding:64px 0 60px;}
 .breadcrumb{display:inline-flex; align-items:center; gap:8px; font-size:.85rem; color:var(--ivory-dim); margin-bottom:28px;}
 .breadcrumb:hover{color:var(--gold-light);}
-.phero h1{font-size:clamp(2.2rem,6vw,4.2rem); max-width:18ch; margin-bottom:20px;}
-.phero .lede{color:var(--ivory-dim); font-size:1.08rem; max-width:60ch;}
+.phero h1{font-size:clamp(2.4rem,6.5vw,4.6rem); max-width:16ch; margin-bottom:20px;}
+.phero .lede{color:var(--ivory-dim); font-size:1.08rem; max-width:56ch;}
 .phero-content > *{opacity:0; animation:heroReveal .8s cubic-bezier(0.16,1,0.3,1) forwards;}
 .phero-content > *:nth-child(1){animation-delay:.1s;}
 .phero-content > *:nth-child(2){animation-delay:.26s;}
 .phero-content > *:nth-child(3){animation-delay:.42s;}
 .phero-content > *:nth-child(4){animation-delay:.58s;}
-.phero-content > *:nth-child(5){animation-delay:.74s;}
 @keyframes heroReveal{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
-
-
-/* ---------- MANIFIESTO ---------- */
-
-/* ---------- SEIS FRENTES ---------- */
-.frentes{background:var(--charcoal); color:var(--white);}
-.frentes-head{max-width:640px; margin-bottom:48px;}
-.frentes-head h2{font-size:clamp(1.9rem,4vw,2.7rem);}
-.frentes-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:oklch(1 0 0 / 0.1);}
-@media (max-width:900px){.frentes-grid{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:560px){.frentes-grid{grid-template-columns:1fr;}}
-.frente-card{background:var(--charcoal); padding:32px 26px; display:flex; flex-direction:column; gap:10px;}
-.frente-card .num{font-family:var(--numeric); font-size:1.1rem; color:var(--gold);}
-.frente-card h3{font-family:var(--body); font-weight:700; font-size:1.05rem; color:var(--white);}
-.frente-card p{color:var(--ivory-dim); font-size:.92rem;}
-.frente-card--link{cursor:pointer; transition:background .2s ease;}
-.frente-card--link:hover{background:oklch(1 0 0 / 0.06);}
-.frente-card-cta{font-size:.85rem; font-weight:600; color:var(--gold-light); margin-top:4px;}
-
-/* ---------- ENLACE A ÁREAS DE FORMACIÓN ---------- */
-.puente{background:var(--white); text-align:center;}
-.puente h2{font-size:clamp(1.5rem,3vw,2rem); max-width:26ch; margin:0 auto 20px;}
-
-/* ---------- VISIÓN 2026-2027 ---------- */
-.vision{background:var(--black); color:var(--white);}
-.vision h2{font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:44px; max-width:16ch;}
-.vision-list{display:flex; flex-direction:column;}
-.vision-line{font-family:var(--display); font-weight:500; font-size:clamp(1.2rem,3.2vw,2rem); padding:22px 0; border-bottom:1px solid oklch(1 0 0 / 0.12); opacity:0; transform:translateY(16px); transition:opacity .6s cubic-bezier(0.16,1,0.3,1), transform .6s cubic-bezier(0.16,1,0.3,1);}
-.vision-line.visible{opacity:1; transform:translateY(0);}
-.vision-line .verb{color:var(--gold);}
-@media (prefers-reduced-motion: reduce){.vision-line{opacity:1; transform:none; transition:none;}}
-
-/* ---------- CLOSE / CTA FINAL ---------- */
+.intro{background:var(--white);}
+.intro .wrap{max-width:800px;}
+.intro h2{font-size:clamp(1.7rem,3.4vw,2.4rem); margin-bottom:20px;}
+.frente-block{position:relative; background:var(--black); color:var(--white); overflow:hidden;}
+.frente-block .wrap{position:relative; z-index:2; max-width:760px;}
+.frente-block h2{font-size:clamp(2rem,4.4vw,3.2rem); margin-bottom:24px;}
+.frente-block .lede{color:var(--ivory-dim); font-size:1.1rem; margin-bottom:56px;}
+.frente-ejes{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:oklch(1 0 0 / 0.1); max-width:none;}
+@media (max-width:560px){.frente-ejes{grid-template-columns:1fr;}}
+.frente-eje{background:var(--black); padding:28px 22px;}
+.frente-eje h3{font-family:var(--body); font-weight:700; font-size:.98rem; color:var(--white); margin-bottom:8px;}
+.frente-eje p{color:var(--ivory-dim); font-size:.9rem;}
+.galeria{background:var(--white);}
+.galeria-head{max-width:640px; margin-bottom:36px;}
+.galeria-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);}
+.galeria-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+@media (max-width:760px){.galeria-grid{grid-template-columns:1fr;}}
+.galeria-grid img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:6px;}
+.historias-link{background:var(--gold-dim); text-align:center;}
+.historias-link h2{font-size:clamp(1.4rem,2.8vw,1.9rem); max-width:28ch; margin:0 auto 20px;}
+.frentes-nav{background:var(--charcoal); color:var(--white);}
+.frentes-nav-head{margin-bottom:28px;}
+.frentes-pills{display:flex; flex-wrap:wrap; gap:10px;}
+.frente-pill{font-size:.85rem; font-weight:600; padding:10px 18px; border-radius:999px; border:1px solid oklch(1 0 0 / 0.18); color:var(--ivory-dim); transition:all .2s ease;}
+.frente-pill:hover{border-color:var(--gold); color:var(--gold-light);}
+.frente-pill.active{background:var(--gold); color:var(--black); border-color:var(--gold);}
 .close-cta{background:var(--black); color:var(--white); text-align:center;}
 .close-cta h2{font-size:clamp(1.9rem,4.6vw,2.8rem); max-width:20ch; margin:0 auto 30px;}
-
-/* ---------- FOOTER ---------- */
 footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
 .footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
 @media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
@@ -156,7 +139,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 .social-icon:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
 @media (max-width:760px){.social-icon{width:44px; height:44px;}}
 .footer-bottom{border-top:1px solid oklch(1 0 0 / 0.12); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; opacity:.7;}
-
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important; animation:none !important;}
   .phero-content > *{opacity:1 !important; transform:none !important;}
@@ -199,84 +181,88 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 
   <!-- ============ HERO ============ -->
   <section class="phero">
-    <div class="phero-bg" role="img" aria-label="Jóvenes deportistas en un escenario formativo de 11 Cracks"></div>
+    <div class="phero-bg" role="img" aria-label="Uniformes y materiales deportivos de 11 Cracks"></div>
     <div class="wrap phero-content">
-      <a class="breadcrumb" href="index.html">&larr; Volver a inicio</a>
-      <span class="eyebrow on-dark">For a Better World</span>
-      <h1>Seis frentes, un mismo propósito.</h1>
-      <p class="lede">Educación, medio ambiente, economía, cultura, salud y sociedad — así es como 11 Cracks entiende su impacto más allá de la cancha.</p>
+      <a class="breadcrumb" href="for-a-better-world.html">&larr; For a Better World</a>
+      <span class="eyebrow on-dark">For a Better World · Medio Ambiente</span>
+      <h1>Medio Ambiente</h1>
+      <p class="lede">Economía circular desde la cancha: uniformes, reciclaje y conciencia ambiental en cada proceso.</p>
     </div>
   </section>
 
-  <!-- ============ SEIS FRENTES ============ -->
-  <section class="frentes">
+  <!-- ============ INTRODUCCIÓN ============ -->
+  <section class="intro">
     <div class="wrap">
-      <div class="frentes-head">
-        <span class="eyebrow on-dark">Los seis frentes</span>
-        <h2>Una misma cancha, seis maneras de dejar huella.</h2>
-      </div>
-      <div class="frentes-grid">
-        <a class="frente-card frente-card--link" href="educacion.html">
-          <span class="num">01</span>
-          <h3>Educación</h3>
-          <p>Aprender desde el corazón, en jornada complementaria al entrenamiento, sin escritorios.</p>
-          <span class="frente-card-cta">Conocer Educación →</span>
-        </a>
-        <a class="frente-card frente-card--link" href="medio-ambiente.html">
-          <span class="num">02</span>
-          <h3>Medio Ambiente</h3>
-          <p>Economía circular desde la cancha: uniformes, reciclaje y conciencia ambiental en cada proceso.</p>
-          <span class="frente-card-cta">Conocer Medio Ambiente →</span>
-        </a>
-        <a class="frente-card frente-card--link" href="economia.html">
-          <span class="num">03</span>
-          <h3>Economía</h3>
-          <p>Clubes, empresas, talento e inversión, articulados en comunidades que crecen juntas.</p>
-          <span class="frente-card-cta">Conocer Economía →</span>
-        </a>
-        <a class="frente-card frente-card--link" href="cultura.html">
-          <span class="num">04</span>
-          <h3>Cultura</h3>
-          <p>Intercambio, idiomas y conexiones entre jóvenes, clubes y países.</p>
-          <span class="frente-card-cta">Conocer Cultura →</span>
-        </a>
-        <a class="frente-card frente-card--link" href="salud.html">
-          <span class="num">05</span>
-          <h3>Salud</h3>
-          <p>Hábitos saludables y acompañamiento físico y emocional entre clubes y comunidades.</p>
-          <span class="frente-card-cta">Conocer Salud →</span>
-        </a>
-        <a class="frente-card frente-card--link" href="sociedad.html">
-          <span class="num">06</span>
-          <h3>Sociedad</h3>
-          <p>No somos un club, somos una comunidad que juega, aprende y crece junta.</p>
-          <span class="frente-card-cta">Conocer Sociedad →</span>
-        </a>
+      <span class="eyebrow">Qué significa este frente</span>
+      <h2>Lo que se entrena también puede cuidar el planeta.</h2>
+      <p class="lede">Dentro de 11 Cracks, Medio Ambiente conecta la práctica deportiva con procesos de reciclaje y economía circular, con los mismos jóvenes como protagonistas.</p>
+    </div>
+  </section>
+
+  <!-- ============ EJES ============ -->
+  <section class="frente-block">
+    <div class="wrap">
+      <span class="eyebrow on-dark">De botella a uniforme</span>
+      <h2>La sostenibilidad se aprende haciendo, no solo enseñando.</h2>
+      <p class="lede">Los residuos se convierten en insumos deportivos a través de un proceso en el que los clubes y los jóvenes participan directamente.</p>
+      <div class="frente-ejes">
+        <div class="frente-eje">
+          <h3>Reciclaje PET</h3>
+          <p>Botellas recicladas que se transforman en material para uniformes.</p>
+        </div>
+        <div class="frente-eje">
+          <h3>Conciencia ambiental</h3>
+          <p>El cuidado del planeta se practica dentro de la dinámica de entrenamiento.</p>
+        </div>
+        <div class="frente-eje">
+          <h3>Participación de clubes y jóvenes</h3>
+          <p>Los mismos deportistas son protagonistas del proceso de reciclaje.</p>
+        </div>
+        <div class="frente-eje">
+          <h3>Economía circular</h3>
+          <p>Los residuos se convierten en recursos, no en desecho.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ PUENTE A ÁREAS DE FORMACIÓN ============ -->
-  <section class="puente">
+  <!-- ============ GALERÍA ============ -->
+  <section class="galeria">
     <div class="wrap">
-      <span class="eyebrow">De la intención a la práctica</span>
-      <h2>Estos seis frentes se entrenan todos los días en las 7 áreas de formación 11 Cracks.</h2>
-      <a class="link-more" href="index.html#areas">Ver las áreas de formación →</a>
+      <div class="galeria-head">
+        <span class="eyebrow">En imágenes</span>
+        <h2>La sostenibilidad, integrada al deporte.</h2>
+      </div>
+      <div class="galeria-grid">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/slide_6.jpg" alt="Deportista de 11 Cracks entrenando con uniforme institucional">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/slide_2.jpg" alt="Uniforme deportivo con presentación institucional">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cta_image.png" alt="Deportista formándose en el programa 11 Cracks">
+      </div>
     </div>
   </section>
 
-  <!-- ============ VISIÓN 2026-2027 ============ -->
-  <section class="vision">
+  <!-- ============ HISTORIAS (enlace) ============ -->
+  <section class="historias-link">
     <div class="wrap">
-      <span class="eyebrow on-dark">2026 — 2027</span>
-      <h2>La evolución e innovación del deporte.</h2>
-      <div class="vision-list" id="visionList">
-        <div class="vision-line">Un <span class="verb">entrenamiento</span> puede convertirse en una clase.</div>
-        <div class="vision-line">Un <span class="verb">club</span> puede convertirse en una comunidad.</div>
-        <div class="vision-line">Una <span class="verb">camiseta</span> puede convertirse en una oportunidad.</div>
-        <div class="vision-line">Una <span class="verb">botella reciclada</span> puede convertirse en educación.</div>
-        <div class="vision-line">Un <span class="verb">jugador</span> puede convertirse en un ser integral.</div>
-        <div class="vision-line">Un <span class="verb">territorio</span> puede conectarse con el mundo.</div>
+      <span class="eyebrow">Historias reales</span>
+      <h2>Conoce las historias de quienes viven este ecosistema todos los días.</h2>
+      <a class="link-more" href="historias.html">Ver historias reales →</a>
+    </div>
+  </section>
+
+  <!-- ============ NAVEGACIÓN TRANSVERSAL ============ -->
+  <section class="frentes-nav">
+    <div class="wrap">
+      <div class="frentes-nav-head">
+        <span class="eyebrow on-dark">For a Better World</span>
+      </div>
+      <div class="frentes-pills">
+        <a class="frente-pill" href="educacion.html">Educación</a>
+        <a class="frente-pill active" href="medio-ambiente.html">Medio Ambiente</a>
+        <a class="frente-pill" href="for-a-better-world.html">Economía</a>
+        <a class="frente-pill" href="for-a-better-world.html">Cultura</a>
+        <a class="frente-pill" href="for-a-better-world.html">Salud</a>
+        <a class="frente-pill" href="sociedad.html">Sociedad</a>
       </div>
     </div>
   </section>
@@ -357,36 +343,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 })();
 </script>
 
-<!--
-  AUDITORÍA DE CONTENIDO — for-a-better-world.html (creada 2026-09-08)
-
-  ORIGEN: página nueva, construida a partir de un marco ("For a Better World", 6 frentes:
-  Educación/Ambiente/Economía/Cultura/Salud/Sociedad) que la usuaria confirmó como válido y real
-  para 11 Cracks, aunque no aparece publicado en el sitio en vivo (11cracksglobal.com) al momento
-  de esta auditoría.
-
-  SE USÓ: nombres de los 6 frentes + descripciones generales sin cifras (tomadas de un concepto
-  de home alternativo revisado con la usuaria). El párrafo "¿Cómo aportamos al mundo?" y la frase
-  "Las piernas se cansan más rápido que el conocimiento" también vienen de esa misma fuente y no
-  afirman datos verificables — se tratan como lenguaje de marca, no como hechos.
-
-  SE EXCLUYÓ deliberadamente por no estar verificado (mismo criterio que el resto del sitio):
-  - Cifras específicas por frente (71% de recursos donados, 510 horas de certificación, 80
-    jugadores certificados, etc.)
-  - "Historias" con fecha por frente — eran notas de blog inventadas, no existen en el sitio real
-  - Galerías de fotos y grids de video por frente — no hay activos reales confirmados para esto
-  - La cita atribuida al "CEO" NO se repite aquí — ya vive, confirmada por la usuaria y atribuida
-    a Victor Córdoba (Fundador), en la sección "Quiénes somos" de index.html. No se duplica.
-
-  Esta página convive con "Áreas de formación" (index.html#areas, 7 ítems, 100% verificados desde
-  el sitio en vivo) sin reemplazarla: For a Better World es el marco de propósito/impacto: Áreas
-  de formación es el contenido curricular que se entrena con el deportista. Se agregó un enlace
-  puente entre ambas para que no se lean como cosas distintas o contradictorias.
-
-  Si en el futuro se confirman cifras o historias reales por frente, esta página es el lugar para
-  incorporarlas — no antes.
--->
-
 <script>
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -406,23 +362,13 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 })();
 </script>
 
-<script>
-(function(){
-  var lines = document.querySelectorAll('.vision-line');
-  if (!lines.length) return;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) { lines.forEach(function(l){ l.classList.add('visible'); }); return; }
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        var idx = Array.prototype.indexOf.call(lines, entry.target);
-        setTimeout(function(){ entry.target.classList.add('visible'); }, idx * 110);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  lines.forEach(function(l){ observer.observe(l); });
-})();
-</script>
+<!--
+  AUDITORÍA DE CONTENIDO — medio-ambiente.html (creada 2026-09-09, Fase 6 del Brief Maestro)
+
+  Sin proyecto destacado ni video por no existir contenido real validado específico de
+  este frente. La narrativa "de botella a uniforme" se usa como descripción de proceso
+  (no como cifra), consistente con el Brief Maestro. No se usaron fotos de stock
+  genéricas (agua/planeta) — se usaron fotos reales de uniformes/materiales del sitio.
+-->
 </body>
 </html>
