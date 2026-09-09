@@ -90,6 +90,7 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .nav-links > a:not(.btn):hover{color:var(--gold-light);}
 .nav-utility{opacity:.75;}
 .nav-utility:hover{opacity:1;}
+.nav-utility.social-icon{opacity:1;}
 .nav-mobile-controls{display:none; align-items:center; gap:10px;}
 .nav-toggle{display:flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; gap:5px;}
 .nav-toggle span, .nav-toggle::before, .nav-toggle::after{content:''; display:block; width:20px; height:2px; background:var(--white);}
@@ -115,8 +116,6 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 a.lang-option:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
 .lang-option .lang-code{font-family:var(--numeric); font-size:.78rem; opacity:.6; letter-spacing:.03em;}
 .lang-option.active .lang-code{opacity:1; color:var(--gold-light);}
-.lang-option.is-pending{opacity:.4; cursor:default;}
-.lang-option .lang-pending{font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
 @media (min-width:1280px){
   .dropdown-menu{display:block; position:absolute; top:100%; left:50%; padding-top:14px; box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity .16s ease, transform .16s ease, visibility .16s;}
   .nav-dropdown.open .dropdown-menu, .nav-dropdown:hover .dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
@@ -484,8 +483,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
           <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
           <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
-          <span class="lang-option is-pending" aria-disabled="true">Português <span class="lang-code">PT</span><span class="lang-pending">Próximamente</span></span>
-          <span class="lang-option is-pending" aria-disabled="true">Italiano <span class="lang-code">IT</span><span class="lang-pending">Próximamente</span></span>
+          <a href="#" data-lang="pt" class="lang-option">Português <span class="lang-code">PT</span></a>
+          <a href="#" data-lang="it" class="lang-option">Italiano <span class="lang-code">IT</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -505,11 +504,11 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
           <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
           <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
-          <span class="lang-option is-pending" aria-disabled="true">Português <span class="lang-code">PT</span><span class="lang-pending">Próximamente</span></span>
-          <span class="lang-option is-pending" aria-disabled="true">Italiano <span class="lang-code">IT</span><span class="lang-pending">Próximamente</span></span>
+          <a href="#" data-lang="pt" class="lang-option">Português <span class="lang-code">PT</span></a>
+          <a href="#" data-lang="it" class="lang-option">Italiano <span class="lang-code">IT</span></a>
         </div>
       </div>
-      <a class="nav-utility" href="#contacto" data-i18n="nav.contacto">Contacto</a>
+      <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle cta-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
           <span data-i18n="nav.lugar">Encuentra tu lugar</span>
@@ -1490,6 +1489,212 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'footer.h_contacto': '联系方式',
     'footer.escribenos': '联系我们',
     'footer.categories': '教育 · 环境 · 经济 · 文化 · 健康 · 社会'
+  };
+
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw_all': 'Ver todas as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'hero.h1': 'Como contribuímos para o mundo?',
+    'hero.lede': 'Damos valor e ferramentas aos treinadores que um dia foram nossos próprios treinadores, e um futuro de esperança ao atleta. Essa é a nossa paixão: conectar o ambiente com quem constrói grandeza, e abrir o esporte a um mundo de possibilidades infinitas, longe da escassez.',
+    'hero.pullquote': '"O esporte é a entrada da vida, não a vida em si."',
+    'hero.subquote': 'As pernas cansam mais rápido do que o conhecimento.',
+    'lugar.h2': 'O que você quer fazer na 11 Cracks?',
+    'lugar.card1.h3': 'Leve a 11 Cracks para o seu clube',
+    'lugar.card1.p': 'Transforme o campo em um espaço de treinamento, acompanhamento e desenvolvimento integral.',
+    'lugar.card1.cta': 'Sou um Clube →',
+    'lugar.card2.h3': 'Cresça dentro e fora de campo',
+    'lugar.card2.p': 'Treine, aprenda, acompanhe seu progresso e prepare-se para novas oportunidades.',
+    'lugar.card2.cta': 'Sou um Atleta →',
+    'lugar.card3.h3': 'Transforme sua marca em impacto',
+    'lugar.card3.p': 'Conecte seus recursos e benefícios com atletas, famílias e comunidades.',
+    'lugar.card3.cta': 'Quero ser um parceiro →',
+    'lugar.card4.h3': 'Ajude um atleta a continuar crescendo',
+    'lugar.card4.p': 'Seu apoio pode ajudar a cobrir o processo de formação dele dentro da 11 Cracks.',
+    'lugar.card4.cta': 'Quero apoiar →',
+    'somos.quote': '"Toda vez que passo por um campo, lembro, com emoção e nostalgia, de sonhar quando criança em me tornar um atleta profissional. No dia em que assinei meu primeiro contrato, senti felicidade, mas também muita nostalgia ao ver tantos colegas que se perderam para o esporte de elite, e pior ainda, para a própria vida. Entre eles, perdi um grande amigo. Esse é o nosso desejo e a nossa saudade."',
+    'somos.cite_role': 'Fundador, 11 Cracks',
+    'somos.eyebrow': 'Quem somos',
+    'somos.h2': 'Uma infraestrutura socioeducativa nascida em campo.',
+    'somos.lede': 'Nosso propósito é que cada ambiente esportivo se torne uma sala de aula viva da Inteligência Múltipla NeuroCracks, onde crianças e jovens aprendem enquanto treinam, competem e constroem um projeto de vida com propósito.',
+    'somos.sound_activate': 'Ativar som',
+    'somos.video_caption': 'Vozes reais do território onde a 11 Cracks nasceu — o propósito, contado por quem o vive.',
+    'somos.purpose_h3': 'Geração zero desculpas. Cem oportunidades.',
+    'somos.purpose_p': 'Por anos, muitos ambientes esportivos focaram apenas na possibilidade de se tornar profissional, fazendo do esporte um caminho de "tudo ou nada" para milhares de jovens. Nós abrimos mais cem caminhos.',
+    'areas.eyebrow': 'O que a 11 Cracks desenvolve',
+    'areas.h2': 'Sete áreas de formação, um jogador completo.',
+    'areas.item1': 'Finanças esportivas',
+    'areas.item2': 'Marketing esportivo',
+    'areas.item3': 'Bilinguismo e trilinguismo',
+    'areas.item4': 'Cultura e visão global',
+    'areas.item5': 'Saúde mental e bem-estar',
+    'areas.item6': 'Alto rendimento esportivo',
+    'areas.item7': 'Esporte comprometido com o planeta',
+    'fabw.h2': 'Seis frentes, um único propósito.',
+    'fabw.lede': 'Educação, meio ambiente, economia, cultura, saúde e sociedade: seis formas pelas quais a 11 Cracks transforma a formação em impacto além do campo.',
+    'fabw.cta': 'Conhecer For a Better World →',
+    'voces.eyebrow': 'Histórias reais',
+    'voces.h2': 'O que a 11 Cracks mudou, em suas próprias palavras.',
+    'voces.q1': 'No programa da 11 Cracks encontrei um lugar para melhorar minha habilidade esportiva, mas descobri a paixão pelos negócios e o amor pelos idiomas.',
+    'voces.q2': 'Antes de conhecer a 11 Crack\'s Foundation, minha existência se baseava em "futebol ou nada", já que venho de um lugar com poucas oportunidades. Hoje, aos 17 anos, sou jogador profissional de futebol e agente de mudança em meu território, Tumaco, Nariño.',
+    'voces.q3': 'Sempre sonhei em jogar futebol profissional, superando as barreiras de gênero, até me tornar a primeira preparadora física mulher da MLS e parte da seleção dos EUA.',
+    'voces.q4': 'A moda, para mim, é um estilo de vida. Um atleta deve ser um competidor em campo, e uma influência positiva pela forma como se veste na sociedade.',
+    'marcas.h2': 'Marcas parceiras',
+    'marcas.lede': 'Organizações que acreditam no poder do esporte e da educação para transformar vidas e construir um futuro sustentável.',
+    'statement.eyebrow': 'Como formamos · NeuroCracks',
+    'statement.h2': 'Treinamento a partir dos neurônios do coração',
+    'statement.lede': 'Formação emocional, disciplina, valores e mentalidade competitiva saudável — em cada sessão, não apenas no discurso.',
+    'ecosistema.eyebrow': 'Apoio e oportunidades',
+    'ecosistema.h2': 'Três mecanismos de apoio que conectam seu desenvolvimento com respaldo real.',
+    'ecosistema.item1.h3': 'Fome zero',
+    'ecosistema.item1.p': 'Trabalhamos junto a escolas, clubes, famílias, empresas e parceiros sociais para contribuir com a segurança alimentar de crianças, jovens e comunidades ligadas ao esporte de base.',
+    'ecosistema.item1.cta': 'Saiba mais →',
+    'ecosistema.item2.h3': 'Benefícios que acompanham seu caminho',
+    'ecosistema.item2.p': 'Acesse descontos, apoios e oportunidades disponíveis dentro da rede 11 Cracks, construídos junto a clubes, parceiros e marcas — não é dinheiro livre nem um saldo sacável, mas sim uma rede de apoio ativada conforme cada convênio.',
+    'ecosistema.item2.cta': 'Descobrir benefícios →',
+    'ecosistema.item3.h3': 'Seu progresso pode abrir novas portas',
+    'ecosistema.item3.p': 'Candidate-se a bolsas, processos de observação e oportunidades de crescimento disponíveis dentro da rede 11 Cracks — acesso sujeito a avaliação e disponibilidade, não automático.',
+    'ecosistema.item3.cta': 'Explorar oportunidades →',
+    'pet.eyebrow': 'Da formação à ação · PET',
+    'pet.h2': 'Seu clube também joga pelo planeta.',
+    'pet.p': 'O que se aprende nas sete áreas se torna prática: os clubes participam de processos de <span class="pet-stage" data-stage="1">reciclagem</span> e <span class="pet-stage" data-stage="2">economia circular</span> que transformam resíduos em <span class="pet-stage" data-stage="3">insumos esportivos</span>, com os próprios jovens como protagonistas do processo.',
+    'seleccion.eyebrow': 'Programa emblemático',
+    'seleccion.h2': 'Seleção Internacional 11 Cracks',
+    'seleccion.lede': 'Um número limitado de vagas para talentos que já se destacam dentro do ecossistema, com cinco pilares de formação próprios.',
+    'seleccion.li1': 'Idiomas e comunicação global',
+    'seleccion.li2': 'Liderança e inteligência emocional',
+    'seleccion.li3': 'Empreendedorismo esportivo',
+    'seleccion.li4': 'Marketing e marca pessoal',
+    'seleccion.li5': 'Experiência e cultura internacional',
+    'seleccion.cta': 'Conhecer a Seleção Internacional →',
+    'close.h2': 'Isso é 11&nbsp;Cracks',
+    'close.sub': 'Um lugar para inspirar a humanidade.',
+    'close.cta': 'Junte-se ao movimento ↗',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Fale conosco',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'hero.h1': 'Come contribuiamo al mondo?',
+    'hero.lede': "Diamo valore e strumenti agli allenatori che un tempo sono stati i nostri stessi allenatori, e un futuro di speranza all'atleta. Questa è la nostra passione: collegare l'ambiente con chi costruisce grandezza, e aprire lo sport a un mondo di infinite possibilità, lontano dalla scarsità.",
+    'hero.pullquote': '"Lo sport è l\'anticipo della vita, non la vita stessa."',
+    'hero.subquote': 'Le gambe si stancano più in fretta della conoscenza.',
+    'lugar.h2': 'Cosa vuoi fare in 11 Cracks?',
+    'lugar.card1.h3': 'Porta 11 Cracks nel tuo club',
+    'lugar.card1.p': 'Trasforma il campo in uno spazio di formazione, monitoraggio e sviluppo integrale.',
+    'lugar.card1.cta': 'Sono un Club →',
+    'lugar.card2.h3': 'Cresci dentro e fuori dal campo',
+    'lugar.card2.p': 'Allenati, impara, monitora i tuoi progressi e preparati per nuove opportunità.',
+    'lugar.card2.cta': 'Sono un Atleta →',
+    'lugar.card3.h3': 'Trasforma il tuo brand in impatto',
+    'lugar.card3.p': 'Collega le tue risorse e i tuoi benefici con atleti, famiglie e comunità.',
+    'lugar.card3.cta': 'Voglio diventare un partner →',
+    'lugar.card4.h3': 'Aiuta un atleta a continuare a crescere',
+    'lugar.card4.p': "Il tuo sostegno può aiutare a coprire il suo percorso di formazione all'interno di 11 Cracks.",
+    'lugar.card4.cta': 'Voglio sostenere →',
+    'somos.quote': "\"Ogni volta che passo vicino a un campo, ricordo, con emozione e nostalgia, di aver sognato da bambino di diventare un atleta professionista. Il giorno in cui ho firmato il mio primo contratto ho provato felicità, ma anche molta nostalgia nel vedere tanti compagni persi per lo sport d'élite, e peggio ancora, per la vita stessa. Tra loro ho perso un grande amico. Questo è il nostro desiderio e il nostro rimpianto.\"",
+    'somos.cite_role': 'Fondatore, 11 Cracks',
+    'somos.eyebrow': 'Chi siamo',
+    'somos.h2': "Un'infrastruttura socio-educativa nata in campo.",
+    'somos.lede': "Il nostro scopo è che ogni contesto sportivo diventi un'aula viva dell'Intelligenza Multipla NeuroCracks, dove bambini e giovani imparano mentre si allenano, competono e costruiscono un progetto di vita con uno scopo.",
+    'somos.sound_activate': 'Attiva audio',
+    'somos.video_caption': 'Voci reali del territorio dove è nata 11 Cracks — lo scopo, raccontato da chi lo vive.',
+    'somos.purpose_h3': 'Generazione zero scuse. Cento opportunità.',
+    'somos.purpose_p': 'Per anni, molti contesti sportivi si sono concentrati solo sulla possibilità di diventare professionisti, trasformando lo sport in un percorso "tutto o niente" per migliaia di giovani. Noi apriamo altri cento percorsi.',
+    'areas.eyebrow': 'Cosa sviluppa 11 Cracks',
+    'areas.h2': 'Sette aree di formazione, un giocatore completo.',
+    'areas.item1': 'Finanza sportiva',
+    'areas.item2': 'Marketing sportivo',
+    'areas.item3': 'Bilinguismo e trilinguismo',
+    'areas.item4': 'Cultura e visione globale',
+    'areas.item5': 'Salute mentale e benessere',
+    'areas.item6': 'Alte prestazioni sportive',
+    'areas.item7': 'Sport impegnato per il pianeta',
+    'fabw.h2': 'Sei fronti, un unico scopo.',
+    'fabw.lede': 'Educazione, ambiente, economia, cultura, salute e società: sei modi in cui 11 Cracks trasforma la formazione in impatto oltre il campo.',
+    'fabw.cta': 'Scopri For a Better World →',
+    'voces.eyebrow': 'Storie vere',
+    'voces.h2': 'Ciò che 11 Cracks ha cambiato, nelle loro stesse parole.',
+    'voces.q1': "Nel programma 11 Cracks ho trovato un posto per migliorare la mia abilità sportiva, ma ho scoperto la passione per il mondo degli affari e l'amore per le lingue.",
+    'voces.q2': 'Prima di conoscere la 11 Crack\'s Foundation, la mia esistenza si basava su "calcio o niente", visto che vengo da un luogo con poche opportunità. Oggi, a 17 anni, sono un calciatore professionista e un agente di cambiamento nel mio territorio, Tumaco, Nariño.',
+    'voces.q3': 'Ho sempre sognato di giocare a calcio professionistico, superando le barriere di genere, fino a diventare la prima preparatrice atletica donna della MLS e parte della nazionale statunitense.',
+    'voces.q4': "La moda, per me, è uno stile di vita. Un atleta deve essere un competitore in campo, e un'influenza positiva nel modo in cui si presenta nella società.",
+    'marcas.h2': 'Marchi partner',
+    'marcas.lede': "Organizzazioni che credono nel potere dello sport e dell'istruzione per trasformare vite e costruire un futuro sostenibile.",
+    'statement.eyebrow': 'Come formiamo · NeuroCracks',
+    'statement.h2': 'Allenamento dai neuroni del cuore',
+    'statement.lede': 'Formazione emotiva, disciplina, valori e una mentalità competitiva sana — in ogni sessione, non solo a parole.',
+    'ecosistema.eyebrow': 'Supporto e opportunità',
+    'ecosistema.h2': 'Tre meccanismi di supporto che collegano la tua crescita a un sostegno reale.',
+    'ecosistema.item1.h3': 'Fame zero',
+    'ecosistema.item1.p': 'Lavoriamo insieme a scuole, club, famiglie, aziende e partner sociali per contribuire alla sicurezza alimentare di bambini, giovani e comunità legate allo sport di base.',
+    'ecosistema.item1.cta': 'Scopri di più →',
+    'ecosistema.item2.h3': 'Benefici che accompagnano il tuo percorso',
+    'ecosistema.item2.p': "Accedi a sconti, supporti e opportunità disponibili all'interno della rete 11 Cracks, costruiti insieme a club, partner e marchi — non è denaro libero né un saldo prelevabile, ma una rete di supporto attivata secondo ogni accordo.",
+    'ecosistema.item2.cta': 'Scopri i benefici →',
+    'ecosistema.item3.h3': 'Il tuo progresso può aprire nuove porte',
+    'ecosistema.item3.p': "Candidati per borse di studio, processi di scouting e opportunità di crescita disponibili all'interno della rete 11 Cracks — accesso soggetto a valutazione e disponibilità, non automatico.",
+    'ecosistema.item3.cta': 'Esplora le opportunità →',
+    'pet.eyebrow': "Dalla formazione all'azione · PET",
+    'pet.h2': 'Il tuo club gioca anche per il pianeta.',
+    'pet.p': 'Ciò che si impara nelle sette aree diventa pratica: i club partecipano a processi di <span class="pet-stage" data-stage="1">riciclo</span> ed <span class="pet-stage" data-stage="2">economia circolare</span> che trasformano i rifiuti in <span class="pet-stage" data-stage="3">materiali sportivi</span>, con gli stessi giovani come protagonisti del processo.',
+    'seleccion.eyebrow': 'Programma di punta',
+    'seleccion.h2': 'Selezione Internazionale 11 Cracks',
+    'seleccion.lede': "Un numero limitato di posti per i talenti che già si distinguono all'interno dell'ecosistema, con cinque pilastri di formazione propri.",
+    'seleccion.li1': 'Lingue e comunicazione globale',
+    'seleccion.li2': 'Leadership e intelligenza emotiva',
+    'seleccion.li3': 'Imprenditoria sportiva',
+    'seleccion.li4': 'Marketing e marchio personale',
+    'seleccion.li5': 'Esperienza e cultura internazionale',
+    'seleccion.cta': 'Scopri la Selezione Internazionale →',
+    'close.h2': 'Questo è 11&nbsp;Cracks',
+    'close.sub': "Un luogo per ispirare l'umanità.",
+    'close.cta': 'Unisciti al movimento ↗',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società'
   };
 
   document.querySelectorAll('[data-i18n]').forEach(function(el){
