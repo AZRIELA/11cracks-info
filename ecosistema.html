@@ -8,23 +8,27 @@
 <link rel="icon" href="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cropped-Favicon-32x32.png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend+Deca:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bebas+Neue&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============ TOKENS — mismos de Home / internas ============ */
 :root{
-  --black:        oklch(0.16 0.003 92);
-  --charcoal:     oklch(0.22 0.004 92);
-  --white:        oklch(1 0 0);
+  --black:        oklch(0.134 0 90);      /* #080808 */
+  --surface-1:    oklch(0.178 0 90);      /* #111111 */
+  --surface-2:    oklch(0.218 0 90);      /* #1A1A1A */
+  --charcoal:     var(--surface-2);
+  --white:        oklch(1 0 0);           /* #FFFFFF */
   --ivory-dim:    oklch(1 0 0 / 0.72);
-  --gold:         oklch(0.78 0.09 72);
-  --gold-light:   oklch(0.90 0.06 78);
-  --gold-deep:    oklch(0.55 0.08 72);
-  --gold-dim:     oklch(0.78 0.09 72 / 0.14);
-  --ink:          oklch(0.16 0.003 92);
-  --ink-dim:      oklch(0.16 0.003 92 / 0.68);
-  --line:         oklch(0.16 0.003 92 / 0.1);
-  --display: 'Bebas Neue', sans-serif;
-  --body: 'Lexend Deca', sans-serif;
+  --gold:         oklch(0.771 0.092 79);  /* #D4AE6F — dorado institucional */
+  --gold-light:   oklch(0.88 0.07 79);
+  --gold-deep:    oklch(0.55 0.08 79);
+  --gold-dim:     oklch(0.771 0.092 79 / 0.14);
+  --gold-action:  oklch(0.772 0.159 81);  /* #E8A800 — dorado de acción/foco, usar poco */
+  --ink:          oklch(0.134 0 90);
+  --ink-dim:      oklch(0.134 0 90 / 0.68);
+  --line:         oklch(0.134 0 90 / 0.1);
+  --display: 'Barlow Condensed', sans-serif;
+  --body: 'Geist', sans-serif;
+  --numeric: 'Bebas Neue', sans-serif;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -32,7 +36,7 @@ body{font-family:var(--body); background:var(--white); color:var(--ink); line-he
 h1,h2,h3,h4{font-family:var(--display); font-weight:400; line-height:0.96; letter-spacing:.01em;}
 p{max-width:62ch;}
 a{color:inherit; text-decoration:none;}
-a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:2px;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--gold-action); outline-offset:3px; border-radius:2px;}
 img{max-width:100%; display:block;}
 button{font-family:var(--body); border:none; background:none; cursor:pointer;}
 .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
@@ -42,8 +46,8 @@ button{font-family:var(--body); border:none; background:none; cursor:pointer;}
 section{padding:128px 0;}
 @media (max-width:700px){section{padding:72px 0;}}
 .lede{font-size:1.05rem; color:var(--ink-dim); max-width:60ch;}
-.btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--black); padding:14px 26px; font-weight:600; font-size:.92rem; border-radius:999px; transition:background .2s ease, transform .2s ease, box-shadow .2s ease; cursor:pointer; white-space:nowrap;}
-.btn:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 24px oklch(0.78 0.09 72 / 0.35);}
+.btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold-action); color:var(--black); padding:14px 26px; font-weight:600; font-size:.92rem; border-radius:999px; transition:background .2s ease, transform .2s ease, box-shadow .2s ease; cursor:pointer; white-space:nowrap;}
+.btn:hover{background:oklch(0.83 0.15 81); transform:translateY(-2px); box-shadow:0 10px 24px oklch(0.772 0.159 81 / 0.35);}
 .btn:focus-visible{transform:translateY(-2px);}
 .link-more{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem; color:var(--black); border-bottom:1.5px solid var(--gold); padding-bottom:2px; cursor:pointer;}
 .link-more:hover{color:var(--gold-deep);}
@@ -203,7 +207,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       <a class="breadcrumb" href="index.html">&larr; Volver a inicio</a>
       <span class="eyebrow on-dark">Ecosistema · 11 Cracks</span>
       <h1>Apoyo y oportunidades más allá del entrenamiento</h1>
-      <p class="lede">Tres frentes que conectan tu desarrollo con respaldo real, dentro y fuera de la cancha.</p>
+      <p class="lede">Tres mecanismos de apoyo que conectan tu desarrollo con respaldo real, dentro y fuera de la cancha.</p>
     </div>
   </section>
 
@@ -211,7 +215,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="frentes">
     <div class="wrap">
       <div class="frentes-head">
-        <span class="eyebrow">Tres frentes</span>
+        <span class="eyebrow">Tres mecanismos de apoyo</span>
         <h2>La nutrición también es entrenamiento.</h2>
       </div>
       <div class="frentes-list">
@@ -237,8 +241,8 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <div>
             <p>Convierte la inversión deportiva en apoyo real para escuelas y clubes: no es dinero libre ni un saldo retirable, sino una red de respaldo que se activa según cada convenio.</p>
             <ul>
-              <li>Uniformes y presentación institucional</li>
-              <li>Balones, conos, petos y material de entrenamiento</li>
+              <li>Uniformes, balones y material de entrenamiento</li>
+              <li>Descuentos, productos y experiencias de marcas aliadas</li>
               <li>Dotación para escuelas deportivas comunitarias</li>
             </ul>
           </div>
@@ -276,7 +280,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       <div class="momento">
         <span class="eyebrow on-dark">Sostenibilidad · PET</span>
         <h3>Tu club también juega por el planeta</h3>
-        <p>Los eventos NeuroCracks incluyen experiencias de conciencia ambiental y reciclaje PET — la sostenibilidad se aprende haciendo, no solo enseñando.</p>
+        <p>Los clubes participan en procesos de reciclaje y economía circular integrados a su dinámica de entrenamiento — no solo en eventos puntuales — con los mismos deportistas como protagonistas del proceso.</p>
       </div>
       <div class="momento">
         <span class="eyebrow on-dark">Programa insignia</span>
@@ -325,7 +329,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <a href="padres.html">Padres</a>
         <a href="soy-club.html">Equipos</a>
         <a href="soy-aliado.html">Marcas</a>
-        <a href="noticias.html">Noticias</a>
       </div>
       <div>
         <h4>Contacto</h4>
@@ -399,9 +402,14 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   fuente verificable, mismo hallazgo que en Soy Club) no se repitieron tal cual; se generalizó a
   "acompañamiento académico y deportivo" / no se prometió una credencial específica.
 
-  CONSERVADO sin cambios de fondo — descripciones de Hambre Cero, los bienes/servicios que cubre
-  Billetera Solidaria (uniformes, balones, dotación), Eventos NeuroCracks y la conexión con PET
-  (reciclaje) — ninguno tenía cifras ni promesas financieras.
+  CONSERVADO sin cambios de fondo — descripciones de Hambre Cero, Eventos NeuroCracks — ninguno
+  tenía cifras ni promesas financieras.
+
+  DECISIÓN (addendum del Brief Maestro) — Billetera Solidaria no debe quedar reducida a dotación
+  deportiva: se agregó "descuentos, productos y experiencias de marcas aliadas" (ya verificado en
+  soy-aliado.html) a su lista de beneficios. PET no debe quedar reducido a eventos puntuales: se
+  reescribió para reflejar participación continua de los clubes en reciclaje/economía circular,
+  consistente con el mismo ajuste hecho en soy-club.html.
 -->
 
 <script>
