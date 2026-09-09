@@ -186,6 +186,17 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .area-item img{height:40px; width:40px; object-fit:contain;}
 .area-item p{color:var(--ivory-dim); font-size:.95rem; max-width:20ch;}
 
+/* ---------- FOR A BETTER WORLD (teaser) ---------- */
+.fabw-teaser{background:var(--white);}
+.fabw-head{max-width:640px; margin-bottom:44px;}
+.fabw-head h2{font-size:clamp(1.9rem,4vw,2.7rem); margin-bottom:14px;}
+.fabw-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); margin-bottom:32px;}
+@media (max-width:760px){.fabw-grid{grid-template-columns:repeat(2,1fr);}}
+.fabw-item{background:var(--white); padding:32px 24px; display:flex; flex-direction:column; gap:10px; transition:background .2s ease;}
+.fabw-item:hover{background:var(--gold-dim);}
+.fabw-item .num{font-family:var(--numeric); font-size:1rem; color:var(--gold-deep);}
+.fabw-item h3{font-family:var(--body); font-weight:700; font-size:1.05rem; color:var(--black);}
+
 /* ---------- VOCES / TESTIMONIOS ---------- */
 .voces{background:var(--white);}
 .voces-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px;}
@@ -289,6 +300,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="nav-links" id="navLinks">
       <a href="#somos">Nosotros</a>
       <a href="#ecosistema">Ecosistema</a>
+      <a href="#for-a-better-world">For a Better World</a>
       <a href="historias.html">Historias</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
@@ -455,6 +467,26 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-6.png" alt=""><p>Alto rendimiento deportivo</p></div>
         <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-3.png" alt=""><p>Deporte comprometido con el planeta</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR A BETTER WORLD (teaser) ============ -->
+  <section class="fabw-teaser" id="for-a-better-world">
+    <div class="wrap">
+      <div class="fabw-head">
+        <span class="eyebrow">For a Better World</span>
+        <h2>Seis frentes, un mismo propósito.</h2>
+        <p class="lede">Educación, medio ambiente, economía, cultura, salud y sociedad: seis formas en las que 11 Cracks convierte la formación en impacto más allá de la cancha.</p>
+      </div>
+      <div class="fabw-grid">
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">01</span><h3>Educación</h3></a>
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">02</span><h3>Medio Ambiente</h3></a>
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">03</span><h3>Economía</h3></a>
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">04</span><h3>Cultura</h3></a>
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">05</span><h3>Salud</h3></a>
+        <a class="fabw-item" href="for-a-better-world.html"><span class="num">06</span><h3>Sociedad</h3></a>
+      </div>
+      <a class="link-more" href="for-a-better-world.html">Conocer For a Better World →</a>
     </div>
   </section>
 
