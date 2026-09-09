@@ -247,13 +247,13 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .fabw-count i{font-style:normal; font-size:.5em; color:var(--ink-dim); opacity:.55;}
 @media (max-width:760px){.fabw-head{flex-direction:column; align-items:flex-start; gap:12px;} .fabw-count{font-size:2rem;}}
 .fabw-index{display:flex; flex-direction:column; border-top:1px solid var(--line); margin-bottom:24px;}
-.fabw-row{display:flex; align-items:center; gap:20px; padding:16px 4px; border-bottom:1px solid var(--line); text-decoration:none; transition:transform .25s cubic-bezier(0.22,1,0.36,1), background .25s ease;}
-.fabw-row-num{font-family:var(--numeric); font-size:1.7rem; color:var(--gold-deep); width:3ch; flex-shrink:0;}
-.fabw-row h3{font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:.01em; font-size:clamp(1.4rem,2.8vw,2.05rem); color:var(--black); flex:1;}
-.fabw-row-arrow{font-size:1.2rem; color:var(--gold); opacity:0; transform:translateX(-6px); transition:opacity .25s ease, transform .25s ease;}
-.fabw-row:hover, .fabw-row:focus-visible{background:var(--gold-dim); transform:translateX(12px);}
-.fabw-row:hover .fabw-row-arrow, .fabw-row:focus-visible .fabw-row-arrow{opacity:1; transform:none;}
-@media (max-width:640px){.fabw-row{gap:12px; padding:18px 2px;} .fabw-row-arrow{display:none;}}
+.fabw-row{display:flex; align-items:flex-start; gap:20px; padding:18px 4px; border-bottom:1px solid var(--line);}
+.fabw-row-num{font-family:var(--numeric); font-size:1.7rem; color:var(--gold-deep); width:3ch; flex-shrink:0; padding-top:2px;}
+.fabw-row-body{flex:1;}
+.fabw-row h3{font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:.01em; font-size:clamp(1.4rem,2.8vw,2.05rem); color:var(--black); margin-bottom:4px;}
+.fabw-row-desc{font-size:.9rem; color:var(--ink-dim); max-width:56ch;}
+.fabw-row-link{margin-top:10px;}
+@media (max-width:640px){.fabw-row{gap:12px; padding:16px 2px;}}
 
 /* ---------- VOCES / TESTIMONIOS ---------- */
 .voces{background:var(--white);}
@@ -796,12 +796,49 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
         <span class="fabw-count" aria-hidden="true">01<i>/06</i></span>
       </div>
       <div class="fabw-index">
-        <a class="fabw-row" href="educacion.html"><span class="fabw-row-num">01</span><h3 data-i18n="nav.fabw_educacion">Educación</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
-        <a class="fabw-row" href="medio-ambiente.html"><span class="fabw-row-num">02</span><h3 data-i18n="nav.fabw_ambiente">Medio Ambiente</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
-        <a class="fabw-row" href="economia.html"><span class="fabw-row-num">03</span><h3 data-i18n="nav.fabw_economia">Economía</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
-        <a class="fabw-row" href="cultura.html"><span class="fabw-row-num">04</span><h3 data-i18n="nav.fabw_cultura">Cultura</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
-        <a class="fabw-row" href="salud.html"><span class="fabw-row-num">05</span><h3 data-i18n="nav.fabw_salud">Salud</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
-        <a class="fabw-row" href="sociedad.html"><span class="fabw-row-num">06</span><h3 data-i18n="nav.fabw_sociedad">Sociedad</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
+        <div class="fabw-row">
+          <span class="fabw-row-num">01</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_educacion">Educación</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.educ_desc">Formación complementaria, idiomas aplicados al deporte, habilidades para la vida y conocimiento aplicado.</p>
+          </div>
+        </div>
+        <div class="fabw-row">
+          <span class="fabw-row-num">02</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_ambiente">Medio Ambiente</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.amb_desc">Reciclaje PET, conciencia ambiental, participación de clubes y jóvenes, y economía circular.</p>
+          </div>
+        </div>
+        <div class="fabw-row">
+          <span class="fabw-row-num">03</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_economia">Economía</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.econ_desc">Clubes y empresas, talento, empleabilidad y emprendimiento, y comunidades que crecen juntas.</p>
+          </div>
+        </div>
+        <div class="fabw-row">
+          <span class="fabw-row-num">04</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_cultura">Cultura</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.cult_desc">Intercambio cultural, idiomas y Trilingüismo Sport, convivencia y experiencias internacionales.</p>
+          </div>
+        </div>
+        <div class="fabw-row">
+          <span class="fabw-row-num">05</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_salud">Salud</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.salud_desc">Salud mental, nutrición, actividad física y entornos de crecimiento integral.</p>
+          </div>
+        </div>
+        <div class="fabw-row">
+          <span class="fabw-row-num">06</span>
+          <div class="fabw-row-body">
+            <h3 data-i18n="nav.fabw_sociedad">Sociedad</h3>
+            <p class="fabw-row-desc" data-i18n="fabw.sociedad_desc">Espacios seguros, inclusión, convivencia y comunidad, voluntariado y oportunidades — Territorios de Paz.</p>
+            <a class="fabw-row-link link-more" href="sociedad.html" data-i18n="fabw.sociedad_cta">Conocer Territorios de Paz →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1381,6 +1418,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'fabw.h2': 'Six fronts, one purpose.',
     'fabw.lede': 'Education, environment, economy, culture, health and society: six ways 11 Cracks turns training into impact beyond the field.',
     'fabw.cta': 'Explore For a Better World →',
+    'fabw.educ_desc': 'Complementary learning, languages applied to sport, life skills and applied knowledge.',
+    'fabw.amb_desc': 'PET recycling, environmental awareness, club and youth participation, and circular economy.',
+    'fabw.econ_desc': 'Clubs and companies, talent, employability and entrepreneurship, and communities that grow together.',
+    'fabw.cult_desc': 'Cultural exchange, languages and Sport Trilingualism, coexistence and international experiences.',
+    'fabw.salud_desc': 'Mental health, nutrition, physical activity and environments for holistic growth.',
+    'fabw.sociedad_desc': 'Safe spaces, inclusion, coexistence and community, volunteering and opportunities — Peace Territories.',
+    'fabw.sociedad_cta': 'Discover Peace Territories →',
     'voces.eyebrow': 'Real stories',
     'voces.h2': 'What 11 Cracks changed, in their own words.',
     'voces.q1': 'In the 11 Cracks program I found a place to improve my sporting ability, but I discovered a passion for business and a love for languages.',
@@ -1484,6 +1528,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'fabw.h2': '六大领域，同一使命。',
     'fabw.lede': '教育、环境、经济、文化、健康与社会：11 Cracks将培训转化为球场之外影响力的六种方式。',
     'fabw.cta': '了解 For a Better World →',
+    'fabw.educ_desc': '融入训练的补充学习、体育场景中的应用语言、生活技能与应用知识。',
+    'fabw.amb_desc': 'PET回收、环保意识、俱乐部与青少年的参与，以及循环经济。',
+    'fabw.econ_desc': '俱乐部与企业、人才培养、就业能力与创业，以及共同成长的社区。',
+    'fabw.cult_desc': '文化交流、语言与体育三语能力、友善共处与国际经历。',
+    'fabw.salud_desc': '心理健康、营养、身体活动与全面成长的环境。',
+    'fabw.sociedad_desc': '安全空间、包容、共处与社区、志愿服务与机会——和平领域。',
+    'fabw.sociedad_cta': '了解和平领域 →',
     'voces.eyebrow': '真实故事',
     'voces.h2': '11 Cracks带来的改变，由他们亲口讲述。',
     'voces.q1': '在11 Cracks项目中，我不仅提升了运动能力，还发现了对商业的热情和对语言的热爱。',
@@ -1587,6 +1638,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'fabw.h2': 'Seis frentes, um único propósito.',
     'fabw.lede': 'Educação, meio ambiente, economia, cultura, saúde e sociedade: seis formas pelas quais a 11 Cracks transforma a formação em impacto além do campo.',
     'fabw.cta': 'Conhecer For a Better World →',
+    'fabw.educ_desc': 'Formação complementar, idiomas aplicados ao esporte, habilidades para a vida e conhecimento aplicado.',
+    'fabw.amb_desc': 'Reciclagem de PET, consciência ambiental, participação de clubes e jovens, e economia circular.',
+    'fabw.econ_desc': 'Clubes e empresas, talento, empregabilidade e empreendedorismo, e comunidades que crescem juntas.',
+    'fabw.cult_desc': 'Intercâmbio cultural, idiomas e Trilinguismo Sport, convivência e experiências internacionais.',
+    'fabw.salud_desc': 'Saúde mental, nutrição, atividade física e ambientes de crescimento integral.',
+    'fabw.sociedad_desc': 'Espaços seguros, inclusão, convivência e comunidade, voluntariado e oportunidades — Territórios de Paz.',
+    'fabw.sociedad_cta': 'Conhecer Territórios de Paz →',
     'voces.eyebrow': 'Histórias reais',
     'voces.h2': 'O que a 11 Cracks mudou, em suas próprias palavras.',
     'voces.q1': 'No programa da 11 Cracks encontrei um lugar para melhorar minha habilidade esportiva, mas descobri a paixão pelos negócios e o amor pelos idiomas.',
@@ -1690,6 +1748,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'fabw.h2': 'Sei fronti, un unico scopo.',
     'fabw.lede': 'Educazione, ambiente, economia, cultura, salute e società: sei modi in cui 11 Cracks trasforma la formazione in impatto oltre il campo.',
     'fabw.cta': 'Scopri For a Better World →',
+    'fabw.educ_desc': 'Formazione complementare, lingue applicate allo sport, competenze di vita e conoscenza applicata.',
+    'fabw.amb_desc': 'Riciclo PET, consapevolezza ambientale, partecipazione di club e giovani, ed economia circolare.',
+    'fabw.econ_desc': 'Club e aziende, talento, occupabilità e imprenditorialità, e comunità che crescono insieme.',
+    'fabw.cult_desc': 'Scambio culturale, lingue e Trilinguismo Sport, convivenza ed esperienze internazionali.',
+    'fabw.salud_desc': 'Salute mentale, nutrizione, attività fisica e ambienti di crescita integrale.',
+    'fabw.sociedad_desc': 'Spazi sicuri, inclusione, convivenza e comunità, volontariato e opportunità — Territori di Pace.',
+    'fabw.sociedad_cta': 'Scopri i Territori di Pace →',
     'voces.eyebrow': 'Storie vere',
     'voces.h2': 'Ciò che 11 Cracks ha cambiato, nelle loro stesse parole.',
     'voces.q1': "Nel programma 11 Cracks ho trovato un posto per migliorare la mia abilità sportiva, ma ho scoperto la passione per il mondo degli affari e l'amore per le lingue.",
