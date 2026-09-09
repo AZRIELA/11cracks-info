@@ -182,7 +182,21 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="nav-links" id="navLinks">
       <a href="nosotros.html">Nosotros</a>
       <a href="ecosistema.html">Ecosistema</a>
-      <a href="for-a-better-world.html">For a Better World</a>
+      <div class="nav-dropdown" id="fabwDropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
+          For a Better World
+          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <div class="dropdown-menu" id="fabwMenu">
+          <a href="for-a-better-world.html">Ver todos los frentes</a>
+          <a href="educacion.html">Educación</a>
+          <a href="medio-ambiente.html">Medio Ambiente</a>
+          <a href="economia.html">Economía</a>
+          <a href="cultura.html">Cultura</a>
+          <a href="salud.html">Salud</a>
+          <a href="sociedad.html">Sociedad</a>
+        </div>
+      </div>
       <a href="historias.html">Historias</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
@@ -359,12 +373,22 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   links.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
   });
-  var dd = document.getElementById('navDropdown');
-  var ddToggle = dd.querySelector('.dropdown-toggle');
-  ddToggle.addEventListener('click', function(e){
-    e.stopPropagation();
-    var open = dd.classList.toggle('open');
-    ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  dropdowns.forEach(function(dd){
+    var ddToggle = dd.querySelector('.dropdown-toggle');
+    ddToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = dd.classList.toggle('open');
+      ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      dropdowns.forEach(function(other){
+        if (other !== dd) { other.classList.remove('open'); other.querySelector('.dropdown-toggle').setAttribute('aria-expanded','false'); }
+      });
+    });
+  });
+  document.addEventListener('click', function(e){
+    dropdowns.forEach(function(dd){
+      if (!dd.contains(e.target)) { dd.classList.remove('open'); dd.querySelector('.dropdown-toggle').setAttribute('aria-expanded','false'); }
+    });
   });
   document.addEventListener('click', function(e){
     if (!dd.contains(e.target)) { dd.classList.remove('open'); ddToggle.setAttribute('aria-expanded','false'); }
