@@ -59,16 +59,18 @@ section{padding:128px 0;}
   .pet-moment{padding:32px 0;}
 }
 .lede{font-size:1.05rem; color:var(--ink-dim); max-width:60ch;}
-.btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold-action); color:var(--black); padding:14px 26px; font-weight:600; font-size:.92rem; border-radius:999px; transition:background .2s ease, transform .2s ease, box-shadow .2s ease; cursor:pointer; white-space:nowrap;}
-.btn:hover{background:oklch(0.83 0.15 81); transform:translateY(-2px); box-shadow:0 10px 24px oklch(0.772 0.159 81 / 0.35);}
+/* ---------- SISTEMA DE ACCIONES: Primary / Secondary / Editorial / Utility ---------- */
+/* Primary: conversión principal. Único uso de --gold-action. */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--gold-action); color:var(--black); height:54px; padding:0 26px; font-weight:600; font-size:.92rem; border-radius:9px; transition:background .2s ease, transform .2s ease, box-shadow .2s ease; cursor:pointer; white-space:nowrap;}
+.btn:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 24px oklch(0.772 0.159 81 / 0.35);}
 .btn:focus-visible{transform:translateY(-2px);}
-.btn.ghost{background:transparent; color:var(--white); border:1.5px solid oklch(1 0 0 / 0.4);}
-.btn.ghost:hover{background:oklch(1 0 0 / 0.1); border-color:var(--white);}
-.btn.dark{background:var(--black); color:var(--white);}
-.btn.dark:hover{background:var(--charcoal);}
-.btn.support{background:transparent; color:var(--gold-light); border:1.5px solid var(--gold);}
-.btn.support:hover{background:oklch(0.78 0.09 72 / 0.12); border-color:var(--gold-light); transform:translateY(-1px);}
+/* Secondary: importante pero no dominante. Borde en Brand Gold, nunca relleno dorado. */
+.btn.ghost, .btn.support{background:transparent; color:var(--white); border:1px solid var(--gold); height:52px; padding:0 25px;}
+.btn.ghost:hover, .btn.support:hover{background:var(--gold-dim); border-color:var(--gold-light); color:var(--gold-light); transform:translateY(-1px);}
+.btn.support{color:var(--gold-light);}
 .btn.support svg{width:16px; height:16px; flex-shrink:0;}
+.btn.dark{background:var(--black); color:var(--white); border:1px solid oklch(1 0 0 / 0.18);}
+.btn.dark:hover{background:var(--charcoal);}
 .btn[aria-disabled="true"]{opacity:.55; cursor:not-allowed;}
 .btn[aria-disabled="true"]:hover{background:transparent; transform:none;}
 .link-more{display:inline-flex; align-items:center; gap:6px; font-weight:600; font-size:.9rem; color:var(--black); border-bottom:1.5px solid var(--gold); padding-bottom:2px; cursor:pointer;}
@@ -99,8 +101,9 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .dropdown-toggle:hover{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
 .dropdown-toggle svg{width:10px; height:10px; transition:transform .2s; flex-shrink:0;}
 .nav-dropdown.open .dropdown-toggle svg, .nav-dropdown:hover .dropdown-toggle svg{transform:rotate(180deg);}
-.lang-toggle{padding:9px 14px; font-family:var(--numeric); letter-spacing:.03em;}
-.cta-toggle{background:var(--gold-action); color:var(--black); border-color:var(--gold-action);}
+.lang-toggle{padding:9px 14px;}
+.lang-globe{width:16px; height:16px; flex-shrink:0;}
+.cta-toggle{background:var(--gold-action); color:var(--black); border-color:var(--gold-action); border-radius:9px;}
 .cta-toggle:hover{background:var(--gold-light); border-color:var(--gold-light); color:var(--black);}
 .nav-dropdown.open .cta-toggle, .nav-dropdown:hover .cta-toggle{background:var(--gold-light); border-color:var(--gold-light); color:var(--black);}
 .dropdown-menu a[data-lang]{cursor:pointer;}
@@ -114,8 +117,9 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .lang-menu{min-width:200px;}
 .lang-option{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; border-radius:6px; font-size:.88rem; font-weight:600; color:var(--ivory-dim);}
 a.lang-option:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
-.lang-option .lang-code{font-family:var(--numeric); font-size:.78rem; opacity:.6; letter-spacing:.03em;}
-.lang-option.active .lang-code{opacity:1; color:var(--gold-light);}
+.lang-option .lang-check{color:var(--gold-light); opacity:0; font-size:.9rem;}
+.lang-option.active{color:var(--white);}
+.lang-option.active .lang-check{opacity:1;}
 @media (min-width:1280px){
   .dropdown-menu{display:block; position:absolute; top:100%; left:50%; padding-top:14px; box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity .16s ease, transform .16s ease, visibility .16s;}
   .nav-dropdown.open .dropdown-menu, .nav-dropdown:hover .dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
@@ -347,11 +351,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 .footer-grid a:hover::before, .footer-grid a:focus-visible::before{width:8px;}
 .footer-grid a:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
 .social-icons{display:flex; gap:10px;}
-.social-icon{width:42px; height:42px; border-radius:50%; border:1px solid oklch(1 0 0 / 0.18); display:inline-flex; align-items:center; justify-content:center; color:var(--ivory-dim); background:transparent; cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;}
+.social-icon{width:44px; height:44px; border-radius:50%; border:1px solid oklch(1 0 0 / 0.18); display:inline-flex; align-items:center; justify-content:center; color:var(--ivory-dim); background:transparent; cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;}
 .social-icon svg{width:18px; height:18px;}
 .social-icon:hover, .social-icon:focus-visible{background:var(--gold); border-color:var(--gold); color:var(--black); transform:translateY(-2px); box-shadow:0 6px 16px oklch(0.78 0.09 72 / 0.35);}
 .social-icon:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
-@media (max-width:760px){.social-icon{width:44px; height:44px;}}
 .footer-bottom{border-top:1px solid oklch(1 0 0 / 0.12); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; opacity:.7;}
 
 /* ============ MOTION SYSTEM — reveals genéricos, reutilizables por toda la página ============ */
@@ -475,16 +478,17 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </a>
     <div class="nav-mobile-controls">
       <div class="nav-dropdown lang-dropdown lang-dropdown-mobile" id="langDropdownMobile">
-        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenuMobile" aria-label="Cambiar idioma">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenuMobile" aria-label="Seleccionar idioma / Select language">
+          <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
           <span class="lang-current">ES</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu lang-menu" id="langMenuMobile">
-          <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
-          <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
-          <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
-          <a href="#" data-lang="pt" class="lang-option">Português <span class="lang-code">PT</span></a>
-          <a href="#" data-lang="it" class="lang-option">Italiano <span class="lang-code">IT</span></a>
+          <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -496,16 +500,17 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
       <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       <div class="nav-dropdown lang-dropdown lang-dropdown-desktop" id="langDropdown">
-        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
-          <span class="lang-current">ES</span>
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
+          <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
+          <span class="lang-current">Español</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu lang-menu" id="langMenu">
-          <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
-          <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
-          <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
-          <a href="#" data-lang="pt" class="lang-option">Português <span class="lang-code">PT</span></a>
-          <a href="#" data-lang="it" class="lang-option">Italiano <span class="lang-code">IT</span></a>
+          <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -1702,6 +1707,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
   });
 
+  var LANG_NAMES = { es: 'Español', en: 'English', zh: '中文', pt: 'Português', it: 'Italiano' };
+
   function applyLang(lang){
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
@@ -1710,7 +1717,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
+    document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
+    document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){
       a.classList.toggle('active', a.getAttribute('data-lang') === lang);
     });
@@ -1726,7 +1734,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
   var saved = 'es';
   try { saved = localStorage.getItem('site_lang') || 'es'; } catch(e){}
-  if (saved !== 'es') { applyLang(saved); }
+  applyLang(saved);
 })();
 </script>
 </body>
