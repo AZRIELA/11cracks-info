@@ -287,30 +287,30 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .marcas-grid img{height:120px; width:auto; flex-shrink:0;}
 @media (max-width:700px){.marcas-grid img{height:88px;}}
 
-/* ---------- SUPERFOOTER: transición-foto + footer integrados ---------- */
-.superfooter{background:var(--black); color:var(--ivory-dim); font-size:.85rem;}
-.superfooter > .wrap{padding:56px 24px 28px;}
-.sf-photo{position:relative; height:clamp(240px,42vw,520px); overflow:hidden;}
-.sf-photo img{width:100%; height:100%; object-fit:cover; display:block;}
-.sf-photo-overlay{position:absolute; inset:0; display:flex; align-items:flex-end; background:linear-gradient(180deg, oklch(0.16 0.003 92 / 0) 0%, oklch(0.16 0.003 92 / 0.4) 48%, var(--black) 92%);}
-.sf-photo-overlay .wrap{padding-bottom:36px;}
-.superfooter h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(2.2rem,5.4vw,4rem); line-height:0.96; max-width:11ch; margin-bottom:12px; color:var(--white);}
-.superfooter .close-sub{font-size:1.1rem; color:var(--ivory-dim); max-width:34ch; margin-bottom:22px;}
-@media (max-width:640px){.sf-photo-overlay .wrap{padding-bottom:24px;}}
-.footer-brand-block{margin-bottom:40px; padding-bottom:36px; border-bottom:1px solid oklch(1 0 0 / 0.1); display:flex; align-items:center; gap:24px; flex-wrap:wrap;}
+/* ---------- CIERRE: pausa emocional, sin foto, sin card ---------- */
+.close-statement{background:var(--black); color:var(--white); text-align:center; padding:120px 0;}
+.close-statement .wrap{max-width:620px;}
+.close-statement h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(1.8rem,3.6vw,2.6rem); line-height:1.05; margin-bottom:14px; color:var(--white);}
+.close-statement .close-sub{font-size:1.05rem; color:var(--ivory-dim); margin:0 auto 28px;}
+@media (max-width:700px){.close-statement{padding:80px 0;}}
+
+/* ---------- FOOTER: utilidad, en flujo normal ---------- */
+footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; padding:56px 0 28px;}
+.footer-brand-block{margin-bottom:40px; padding-bottom:36px; border-bottom:1px solid oklch(1 0 0 / 0.1); display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;}
 .footer-brand-block img{height:30px; width:auto;}
-.footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
-@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);} .footer-brand-block{flex-direction:column; align-items:flex-start;}}
+.footer-contact{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+.footer-contact-link{color:var(--ivory-dim); font-size:.85rem; font-weight:600; opacity:.85; transition:color .2s ease, opacity .2s ease;}
+.footer-contact-link:hover, .footer-contact-link:focus-visible{color:var(--gold-light); opacity:1;}
+.footer-contact-link:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
+.footer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:32px;}
+@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);} .footer-brand-block{flex-direction:column; align-items:flex-start;} .footer-contact{width:100%; justify-content:space-between;}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
 .footer-grid a::before{content:""; position:absolute; left:-12px; top:50%; width:0; height:1px; background:var(--gold-light); transform:translateY(-50%); transition:width .2s ease;}
 .footer-grid a:hover, .footer-grid a:focus-visible{opacity:1; color:var(--gold-light); transform:translateX(3px);}
 .footer-grid a:hover::before, .footer-grid a:focus-visible::before{width:8px;}
-.footer-grid a.social-icon::before{content:none;}
-.footer-grid a.social-icon:hover, .footer-grid a.social-icon:focus-visible{transform:translateY(-2px);}
 .footer-grid a:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
-.social-icons{display:flex; gap:10px; margin-top:14px;}
-.footer-grid a.social-icon{display:inline-flex; margin-bottom:0;}
+.social-icons{display:flex; gap:10px;}
 .social-icon{width:42px; height:42px; border-radius:50%; border:1px solid oklch(1 0 0 / 0.18); display:inline-flex; align-items:center; justify-content:center; color:var(--ivory-dim); background:transparent; cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;}
 .social-icon svg{width:18px; height:18px;}
 .social-icon:hover, .social-icon:focus-visible{background:var(--gold); border-color:var(--gold); color:var(--black); transform:translateY(-2px); box-shadow:0 6px 16px oklch(0.78 0.09 72 / 0.35);}
@@ -908,21 +908,28 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 
 </main>
 
-<!-- ============ SUPERFOOTER: CLOSE-CTA + FOOTER INTEGRADOS ============ -->
-<footer class="superfooter" id="contacto">
-  <div class="sf-photo" data-motion="reveal">
-    <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/noso_val_1.jpg" alt="Equipo de 11 Cracks celebrando en la cancha">
-    <div class="sf-photo-overlay">
-      <div class="wrap">
-        <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
-        <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
-        <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento</a>
-      </div>
-    </div>
+<!-- ============ CIERRE — PAUSA EMOCIONAL (sin foto, sin card) ============ -->
+<section class="close-statement" id="contacto">
+  <div class="wrap">
+    <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
+    <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
+    <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento</a>
   </div>
+</section>
+
+<!-- ============ FOOTER — UTILIDAD, flujo normal ============ -->
+<footer>
   <div class="wrap">
     <div class="footer-brand-block">
       <img src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/logo.svg" alt="Eleven Cracks">
+      <div class="footer-contact">
+        <a class="footer-contact-link" href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
+        <div class="social-icons">
+          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><g transform="translate(3.35,0)"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></g></svg></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
     </div>
     <div class="footer-grid">
       <div>
@@ -938,15 +945,6 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
         <a href="padres.html" data-i18n="footer.padres">Padres</a>
         <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
         <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
-      </div>
-      <div>
-        <h4 data-i18n="footer.h_contacto">Contacto</h4>
-        <a href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
-        <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><g transform="translate(3.35,0)"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></g></svg></a>
-          <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
-        </div>
       </div>
       <div>
         <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
