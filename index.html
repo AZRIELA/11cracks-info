@@ -340,10 +340,9 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 .footer-contact-link{color:var(--ivory-dim); font-size:.85rem; font-weight:600; opacity:.85; transition:color .2s ease, opacity .2s ease;}
 .footer-contact-link:hover, .footer-contact-link:focus-visible{color:var(--gold-light); opacity:1;}
 .footer-contact-link:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
-.footer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.footer-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
 .footer-body > .footer-split{margin-bottom:32px; padding-bottom:32px; border-bottom:1px solid oklch(1 0 0 / 0.1);}
-@media (max-width:760px){.footer-grid{grid-template-columns:repeat(3,1fr); gap:16px;}}
-@media (max-width:560px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:400px){.footer-grid{grid-template-columns:1fr; gap:16px;}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
 .footer-grid a::before{content:""; position:absolute; left:-12px; top:50%; width:0; height:1px; background:var(--gold-light); transform:translateY(-50%); transition:width .2s ease;}
@@ -496,8 +495,6 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     <div class="nav-links" id="navLinks">
       <a href="#somos" data-i18n="nav.nosotros">Nosotros</a>
       <a href="#ecosistema" data-i18n="nav.ecosistema">Ecosistema</a>
-      <a href="historias.html" data-i18n="nav.historias">Historias</a>
-      <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
       <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       <div class="nav-dropdown lang-dropdown lang-dropdown-desktop" id="langDropdown">
         <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
@@ -524,7 +521,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -789,7 +786,6 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
         <a class="fabw-row" href="salud.html"><span class="fabw-row-num">05</span><h3 data-i18n="nav.fabw_salud">Salud</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
         <a class="fabw-row" href="sociedad.html"><span class="fabw-row-num">06</span><h3 data-i18n="nav.fabw_sociedad">Sociedad</h3><span class="fabw-row-arrow" aria-hidden="true">→</span></a>
       </div>
-      <a class="link-more" href="for-a-better-world.html" data-i18n="fabw.cta">Conocer For a Better World →</a>
     </div>
   </section>
 
@@ -993,15 +989,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
           <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
           <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-          <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
-          <a href="historias.html" data-i18n="nav.historias">Historias</a>
           <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
-        </div>
-        <div>
-          <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
-          <a href="padres.html" data-i18n="footer.padres">Padres</a>
-          <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
-          <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
         </div>
         <div>
           <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
@@ -1009,7 +997,6 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>

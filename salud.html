@@ -129,7 +129,7 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .close-cta{background:var(--black); color:var(--white); text-align:center;}
 .close-cta h2{font-size:clamp(1.9rem,4.6vw,2.8rem); max-width:20ch; margin:0 auto 30px;}
 footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
-.footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
+.footer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:32px;}
 @media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
@@ -162,23 +162,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="nav-links" id="navLinks">
       <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
       <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-      <a href="historias.html" data-i18n="nav.historias">Historias</a>
-      <div class="nav-dropdown" id="fabwDropdown">
-        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
-          <span data-i18n="nav.fabw">For a Better World</span>
-          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
-        </button>
-        <div class="dropdown-menu" id="fabwMenu">
-          <a href="for-a-better-world.html" data-i18n="nav.fabw_all">Ver todos los frentes</a>
-          <a href="educacion.html" data-i18n="nav.fabw_educacion">Educación</a>
-          <a href="medio-ambiente.html" data-i18n="nav.fabw_ambiente">Medio Ambiente</a>
-          <a href="economia.html" data-i18n="nav.fabw_economia">Economía</a>
-          <a href="cultura.html" data-i18n="nav.fabw_cultura">Cultura</a>
-          <a href="salud.html" data-i18n="nav.fabw_salud">Salud</a>
-          <a href="sociedad.html" data-i18n="nav.fabw_sociedad">Sociedad</a>
-          <a href="historias.html" data-i18n="nav.historias">Historias</a>
-        </div>
-      </div>
+      <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
           <span data-i18n="nav.lugar">Encuentra tu lugar</span>
@@ -189,11 +173,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
       <div class="nav-dropdown" id="langDropdown">
-        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
           <span id="langLabel">ES</span>
         </button>
@@ -214,7 +198,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="phero">
     <div class="phero-bg" role="img" aria-label="Entrenador acompañando emocionalmente a un joven deportista"></div>
     <div class="wrap phero-content">
-      <a class="breadcrumb" href="for-a-better-world.html">&larr; For a Better World</a>
+      <a class="breadcrumb" href="index.html#for-a-better-world">&larr; For a Better World</a>
       <span class="eyebrow on-dark" data-i18n="salud.hero_eyebrow">For a Better World · Salud</span>
       <h1 data-i18n="salud.hero_h1">Salud</h1>
       <p class="lede" data-i18n="salud.hero_lede">Hábitos saludables y acompañamiento físico y emocional entre clubes y comunidades.</p>
@@ -277,7 +261,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap">
       <span class="eyebrow" data-i18n="historias.eyebrow">Historias reales</span>
       <h2 data-i18n="historias.h2">Conoce las historias de quienes viven este ecosistema todos los días.</h2>
-      <a class="link-more" href="historias.html" data-i18n="historias.cta">Ver historias reales →</a>
+      <a class="link-more" href="index.html#voces" data-i18n="historias.cta">Ver historias reales →</a>
     </div>
   </section>
 
@@ -315,15 +299,14 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
         <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
         <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-        <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
-        <a href="historias.html" data-i18n="nav.historias">Historias</a>
         <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       </div>
       <div>
         <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
-        <a href="padres.html" data-i18n="footer.padres">Padres</a>
-        <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
-        <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
+        <a href="soy-club.html" data-i18n="footer.equipos">Soy Club</a>
+        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+        <a href="soy-aliado.html" data-i18n="footer.marcas">Soy Aliado</a>
+        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Plan Padrino</a>
       </div>
       <div>
         <h4 data-i18n="footer.h_contacto">Contacto</h4>
@@ -333,14 +316,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
         </div>
-      </div>
-      <div>
-        <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
-        <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
-        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
-        <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
-        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-        <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
       </div>
     </div>
     <div class="footer-bottom">

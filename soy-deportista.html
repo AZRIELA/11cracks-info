@@ -149,7 +149,7 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
-.footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:32px;}
+.footer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:32px;}
 @media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
@@ -183,23 +183,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="nav-links" id="navLinks">
       <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
       <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-      <a href="historias.html" data-i18n="nav.historias">Historias</a>
-      <div class="nav-dropdown" id="fabwDropdown">
-        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
-          <span data-i18n="nav.fabw">For a Better World</span>
-          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
-        </button>
-        <div class="dropdown-menu" id="fabwMenu">
-          <a href="for-a-better-world.html" data-i18n="nav.fabw_all">Ver todos los frentes</a>
-          <a href="educacion.html" data-i18n="nav.fabw_educacion">Educación</a>
-          <a href="medio-ambiente.html" data-i18n="nav.fabw_ambiente">Medio Ambiente</a>
-          <a href="economia.html" data-i18n="nav.fabw_economia">Economía</a>
-          <a href="cultura.html" data-i18n="nav.fabw_cultura">Cultura</a>
-          <a href="salud.html" data-i18n="nav.fabw_salud">Salud</a>
-          <a href="sociedad.html" data-i18n="nav.fabw_sociedad">Sociedad</a>
-          <a href="historias.html" data-i18n="nav.historias">Historias</a>
-        </div>
-      </div>
+      <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
           <span data-i18n="nav.lugar">Encuentra tu lugar</span>
@@ -210,11 +194,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
       <div class="nav-dropdown" id="langDropdown">
-        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
           <span id="langLabel">ES</span>
         </button>
@@ -338,6 +322,36 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     </div>
   </section>
 
+  <!-- ============ PARA MADRES, PADRES Y FAMILIAS ============ -->
+  <section class="obtiene" id="familias">
+    <div class="wrap">
+      <div class="obtiene-head">
+        <span class="eyebrow" data-i18n="familias.eyebrow">Padres · 11 Cracks</span>
+        <h2 data-i18n="familias.h2">Para madres, padres y familias</h2>
+        <p class="lede" data-i18n="familias.lede">Preparamos a los niños y jóvenes con planes de bilingüismo, entrenamiento mental, visión empresarial y nutrición deportiva. El deporte es el punto de partida, la vida es el destino.</p>
+      </div>
+      <div class="obtiene-grid">
+        <div class="obtiene-item">
+          <h3 data-i18n="familias.item1_h3">Bilingüismo</h3>
+          <p data-i18n="familias.item1_p">Clases de inglés y portugués orientadas al mundo del deporte y los negocios.</p>
+        </div>
+        <div class="obtiene-item">
+          <h3 data-i18n="familias.item2_h3">Entrenamiento mental</h3>
+          <p data-i18n="familias.item2_p">Técnicas de neurociencia aplicada al deporte para desarrollar resiliencia, foco y mentalidad ganadora.</p>
+        </div>
+        <div class="obtiene-item">
+          <h3 data-i18n="familias.item3_h3">Visión empresarial</h3>
+          <p data-i18n="familias.item3_p">Talleres de finanzas básicas y emprendimiento para convertir su pasión en un proyecto de vida.</p>
+        </div>
+        <div class="obtiene-item">
+          <h3 data-i18n="familias.item4_h3">Nutrición deportiva</h3>
+          <p data-i18n="familias.item4_p">Guías y talleres de alimentación saludable para potenciar el rendimiento físico y académico.</p>
+        </div>
+      </div>
+      <a class="btn" style="margin-top:32px;" href="https://www.11cracksglobal.com/contacto/" data-i18n="familias.cta">Quiero inscribir a mi hijo</a>
+    </div>
+  </section>
+
   <!-- ============ CIERRE ============ -->
   <section class="close-cta">
     <div class="wrap">
@@ -355,15 +369,14 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
         <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
         <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-        <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
-        <a href="historias.html" data-i18n="nav.historias">Historias</a>
         <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       </div>
       <div>
         <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
-        <a href="padres.html" data-i18n="footer.padres">Padres</a>
-        <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
-        <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
+        <a href="soy-club.html" data-i18n="footer.equipos">Soy Club</a>
+        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+        <a href="soy-aliado.html" data-i18n="footer.marcas">Soy Aliado</a>
+        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Plan Padrino</a>
       </div>
       <div>
         <h4 data-i18n="footer.h_contacto">Contacto</h4>
@@ -373,14 +386,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
           <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
         </div>
-      </div>
-      <div>
-        <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
-        <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
-        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
-        <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
-        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
-        <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
       </div>
     </div>
     <div class="footer-bottom">
