@@ -80,6 +80,11 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .dropdown-toggle:hover{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
 .dropdown-toggle svg{width:10px; height:10px; transition:transform .2s;}
 .nav-dropdown.open .dropdown-toggle svg, .nav-dropdown:hover .dropdown-toggle svg{transform:rotate(180deg);}
+.lang-toggle{padding:9px 14px;}
+.lang-toggle svg{width:16px; height:16px;}
+.nav-dropdown.open .lang-toggle svg, .nav-dropdown:hover .lang-toggle svg{transform:none;}
+.dropdown-menu a[data-lang]{cursor:pointer;}
+.dropdown-menu a[data-lang].active{color:var(--gold-light);}
 .nav-dropdown.open .dropdown-toggle, .nav-dropdown:hover .dropdown-toggle{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
 .dropdown-menu{display:none; background:var(--charcoal); border:1px solid oklch(1 0 0 / 0.12); border-radius:8px; padding:8px; min-width:230px;}
 .nav-dropdown.open .dropdown-menu{display:block;}
@@ -298,38 +303,49 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     <div class="nav-links" id="navLinks">
-      <a href="#somos">Nosotros</a>
-      <a href="#ecosistema">Ecosistema</a>
+      <a href="#somos" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="#ecosistema" data-i18n="nav.ecosistema">Ecosistema</a>
+      <a href="historias.html" data-i18n="nav.historias">Historias</a>
       <div class="nav-dropdown" id="fabwDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
-          For a Better World
+          <span data-i18n="nav.fabw">For a Better World</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu" id="fabwMenu">
-          <a href="#for-a-better-world">Ver todos los frentes</a>
-          <a href="educacion.html">Educación</a>
-          <a href="medio-ambiente.html">Medio Ambiente</a>
-          <a href="economia.html">Economía</a>
-          <a href="cultura.html">Cultura</a>
-          <a href="salud.html">Salud</a>
-          <a href="sociedad.html">Sociedad</a>
+          <a href="#for-a-better-world" data-i18n="nav.fabw_all">Ver todos los frentes</a>
+          <a href="educacion.html" data-i18n="nav.fabw_educacion">Educación</a>
+          <a href="medio-ambiente.html" data-i18n="nav.fabw_ambiente">Medio Ambiente</a>
+          <a href="economia.html" data-i18n="nav.fabw_economia">Economía</a>
+          <a href="cultura.html" data-i18n="nav.fabw_cultura">Cultura</a>
+          <a href="salud.html" data-i18n="nav.fabw_salud">Salud</a>
+          <a href="sociedad.html" data-i18n="nav.fabw_sociedad">Sociedad</a>
         </div>
       </div>
-      <a href="historias.html">Historias</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
-          Encuentra tu lugar
+          <span data-i18n="nav.lugar">Encuentra tu lugar</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu" id="dropdownMenu">
-          <a href="soy-club.html">Soy Club</a>
-          <a href="soy-deportista.html">Soy Deportista</a>
-          <a href="soy-aliado.html">Soy Aliado</a>
-          <a href="plan-padrino.html">Quiero apoyar</a>
-          <a href="padres.html">Soy Padre/Madre</a>
+          <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
+          <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+          <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
+          <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
-      <a class="btn" href="#contacto">Contacto</a>
+      <div class="nav-dropdown" id="langDropdown">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
+          <span id="langLabel">ES</span>
+        </button>
+        <div class="dropdown-menu" id="langMenu">
+          <a href="#" data-lang="es">Español</a>
+          <a href="#" data-lang="en">English</a>
+          <a href="#" data-lang="zh">中文</a>
+        </div>
+      </div>
+      <a class="btn" href="#contacto" data-i18n="nav.contacto">Contacto</a>
     </div>
   </div>
 </nav>
@@ -341,11 +357,12 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="hero-grid">
       <div class="hero-content">
         <span class="eyebrow on-dark">Sport Student · NeuroCracks</span>
-        <h1>¿Cómo aportamos al mundo?</h1>
-        <p class="lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
-        <div class="pull-quote">"El deporte es la cuota inicial de la vida, no la vida."</div>
-        <div class="sub-quote">Las piernas se cansan más rápido que el conocimiento.</div>
-        <a class="hero-scroll-cue" href="#lugar">Encuentra tu lugar
+        <h1 data-i18n="hero.h1">¿Cómo aportamos al mundo?</h1>
+        <p class="lede" data-i18n="hero.lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
+        <div class="pull-quote" data-i18n="hero.pullquote">"El deporte es la cuota inicial de la vida, no la vida."</div>
+        <div class="sub-quote" data-i18n="hero.subquote">Las piernas se cansan más rápido que el conocimiento.</div>
+        <a class="hero-scroll-cue" href="#lugar">
+          <span data-i18n="nav.lugar">Encuentra tu lugar</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </a>
       </div>
@@ -391,28 +408,28 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ ENCUENTRA TU LUGAR EN 11 CRACKS ============ -->
   <section class="lugar" id="lugar">
     <div class="wrap">
-      <span class="eyebrow">Encuentra tu lugar</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); max-width:16ch;">¿Qué quieres hacer en 11 Cracks?</h2>
+      <span class="eyebrow" data-i18n="nav.lugar">Encuentra tu lugar</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); max-width:16ch;" data-i18n="lugar.h2">¿Qué quieres hacer en 11 Cracks?</h2>
       <div class="lugar-grid">
         <div class="lugar-card">
-          <h3>Lleva 11 Cracks a tu club</h3>
-          <p>Convierte la cancha en un espacio de formación, seguimiento y desarrollo integral.</p>
-          <a class="link-more" href="soy-club.html">Soy Club →</a>
+          <h3 data-i18n="lugar.card1.h3">Lleva 11 Cracks a tu club</h3>
+          <p data-i18n="lugar.card1.p">Convierte la cancha en un espacio de formación, seguimiento y desarrollo integral.</p>
+          <a class="link-more" href="soy-club.html" data-i18n="lugar.card1.cta">Soy Club →</a>
         </div>
         <div class="lugar-card">
-          <h3>Crece dentro y fuera de la cancha</h3>
-          <p>Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades.</p>
-          <a class="link-more" href="soy-deportista.html">Soy Deportista →</a>
+          <h3 data-i18n="lugar.card2.h3">Crece dentro y fuera de la cancha</h3>
+          <p data-i18n="lugar.card2.p">Entrena, aprende, descubre tu progreso y prepárate para nuevas oportunidades.</p>
+          <a class="link-more" href="soy-deportista.html" data-i18n="lugar.card2.cta">Soy Deportista →</a>
         </div>
         <div class="lugar-card">
-          <h3>Convierte tu marca en impacto</h3>
-          <p>Conecta tus recursos y beneficios con deportistas, familias y comunidades.</p>
-          <a class="link-more" href="soy-aliado.html">Quiero ser aliado →</a>
+          <h3 data-i18n="lugar.card3.h3">Convierte tu marca en impacto</h3>
+          <p data-i18n="lugar.card3.p">Conecta tus recursos y beneficios con deportistas, familias y comunidades.</p>
+          <a class="link-more" href="soy-aliado.html" data-i18n="lugar.card3.cta">Quiero ser aliado →</a>
         </div>
         <div class="lugar-card">
-          <h3>Ayuda a un deportista a seguir formándose</h3>
-          <p>Tu apoyo puede ayudar a cubrir su proceso formativo dentro de 11 Cracks.</p>
-          <a class="link-more" href="plan-padrino.html">Quiero apoyar →</a>
+          <h3 data-i18n="lugar.card4.h3">Ayuda a un deportista a seguir formándose</h3>
+          <p data-i18n="lugar.card4.p">Tu apoyo puede ayudar a cubrir su proceso formativo dentro de 11 Cracks.</p>
+          <a class="link-more" href="plan-padrino.html" data-i18n="lugar.card4.cta">Quiero apoyar →</a>
           <span class="label-small">Plan Padrino</span>
         </div>
       </div>
@@ -425,17 +442,17 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       <div class="founder-quote">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba">
         <div>
-          <blockquote>"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo."</blockquote>
-          <cite>Victor Córdoba<span>Fundador, 11 Cracks</span></cite>
+          <blockquote data-i18n="somos.quote">"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo."</blockquote>
+          <cite>Victor Córdoba<span data-i18n="somos.cite_role">Fundador, 11 Cracks</span></cite>
         </div>
       </div>
       <div class="somos-grid">
         <div>
-          <span class="eyebrow">Quiénes somos</span>
-          <h2>Una infraestructura socioeducativa que nace en la cancha.</h2>
+          <span class="eyebrow" data-i18n="somos.eyebrow">Quiénes somos</span>
+          <h2 data-i18n="somos.h2">Una infraestructura socioeducativa que nace en la cancha.</h2>
         </div>
         <div>
-          <p class="lede" style="margin-bottom:24px;">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
+          <p class="lede" style="margin-bottom:24px;" data-i18n="somos.lede">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
         </div>
       </div>
 
@@ -447,17 +464,17 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <button type="button" class="sound-toggle" id="soundToggle" aria-label="Activar sonido del video">
             <svg id="iconMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
             <svg id="iconUnmuted" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-            <span id="soundToggleLabel">Activar sonido</span>
+            <span id="soundToggleLabel" data-i18n="somos.sound_activate">Activar sonido</span>
           </button>
         </div>
-        <p class="somos-video-caption">Voces reales del territorio donde nace 11 Cracks — el propósito, contado por quienes lo viven.</p>
+        <p class="somos-video-caption" data-i18n="somos.video_caption">Voces reales del territorio donde nace 11 Cracks — el propósito, contado por quienes lo viven.</p>
       </div>
 
       <div class="somos-purpose">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cta_image.png" alt="Deportista formándose en el programa 11 Cracks">
         <div>
-          <h3>Generación cero excusas. Cien oportunidades.</h3>
-          <p class="lede">Durante años, muchos escenarios deportivos se enfocaron únicamente en la posibilidad de llegar al profesionalismo, haciendo que para miles de jóvenes el deporte pareciera un camino de "todo o nada". Nosotros abrimos cien caminos más.</p>
+          <h3 data-i18n="somos.purpose_h3">Generación cero excusas. Cien oportunidades.</h3>
+          <p class="lede" data-i18n="somos.purpose_p">Durante años, muchos escenarios deportivos se enfocaron únicamente en la posibilidad de llegar al profesionalismo, haciendo que para miles de jóvenes el deporte pareciera un camino de "todo o nada". Nosotros abrimos cien caminos más.</p>
         </div>
       </div>
     </div>
@@ -468,18 +485,18 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap">
       <div class="areas-head">
         <div>
-          <span class="eyebrow on-dark">Qué desarrolla 11 Cracks</span>
-          <h2>Siete áreas de formación, un mismo jugador integral.</h2>
+          <span class="eyebrow on-dark" data-i18n="areas.eyebrow">Qué desarrolla 11 Cracks</span>
+          <h2 data-i18n="areas.h2">Siete áreas de formación, un mismo jugador integral.</h2>
         </div>
       </div>
       <div class="areas-grid">
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon.png" alt=""><p>Finanzas deportivas</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-4.png" alt=""><p>Marketing deportivo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-1.png" alt=""><p>Bilingüismo y trilingüismo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-5.png" alt=""><p>Cultura y proyección global</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-2.png" alt=""><p>Salud mental y bienestar</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-6.png" alt=""><p>Alto rendimiento deportivo</p></div>
-        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-3.png" alt=""><p>Deporte comprometido con el planeta</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon.png" alt=""><p data-i18n="areas.item1">Finanzas deportivas</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-4.png" alt=""><p data-i18n="areas.item2">Marketing deportivo</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-1.png" alt=""><p data-i18n="areas.item3">Bilingüismo y trilingüismo</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-5.png" alt=""><p data-i18n="areas.item4">Cultura y proyección global</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-2.png" alt=""><p data-i18n="areas.item5">Salud mental y bienestar</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-6.png" alt=""><p data-i18n="areas.item6">Alto rendimiento deportivo</p></div>
+        <div class="area-item"><img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/Vectorhome_icon-3.png" alt=""><p data-i18n="areas.item7">Deporte comprometido con el planeta</p></div>
       </div>
     </div>
   </section>
@@ -488,50 +505,50 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="fabw-teaser" id="for-a-better-world">
     <div class="wrap">
       <div class="fabw-head">
-        <span class="eyebrow">For a Better World</span>
-        <h2>Seis frentes, un mismo propósito.</h2>
-        <p class="lede">Educación, medio ambiente, economía, cultura, salud y sociedad: seis formas en las que 11 Cracks convierte la formación en impacto más allá de la cancha.</p>
+        <span class="eyebrow" data-i18n="nav.fabw">For a Better World</span>
+        <h2 data-i18n="fabw.h2">Seis frentes, un mismo propósito.</h2>
+        <p class="lede" data-i18n="fabw.lede">Educación, medio ambiente, economía, cultura, salud y sociedad: seis formas en las que 11 Cracks convierte la formación en impacto más allá de la cancha.</p>
       </div>
       <div class="fabw-grid">
-        <a class="fabw-item" href="educacion.html"><span class="num">01</span><h3>Educación</h3></a>
-        <a class="fabw-item" href="medio-ambiente.html"><span class="num">02</span><h3>Medio Ambiente</h3></a>
-        <a class="fabw-item" href="economia.html"><span class="num">03</span><h3>Economía</h3></a>
-        <a class="fabw-item" href="cultura.html"><span class="num">04</span><h3>Cultura</h3></a>
-        <a class="fabw-item" href="salud.html"><span class="num">05</span><h3>Salud</h3></a>
-        <a class="fabw-item" href="sociedad.html"><span class="num">06</span><h3>Sociedad</h3></a>
+        <a class="fabw-item" href="educacion.html"><span class="num">01</span><h3 data-i18n="nav.fabw_educacion">Educación</h3></a>
+        <a class="fabw-item" href="medio-ambiente.html"><span class="num">02</span><h3 data-i18n="nav.fabw_ambiente">Medio Ambiente</h3></a>
+        <a class="fabw-item" href="economia.html"><span class="num">03</span><h3 data-i18n="nav.fabw_economia">Economía</h3></a>
+        <a class="fabw-item" href="cultura.html"><span class="num">04</span><h3 data-i18n="nav.fabw_cultura">Cultura</h3></a>
+        <a class="fabw-item" href="salud.html"><span class="num">05</span><h3 data-i18n="nav.fabw_salud">Salud</h3></a>
+        <a class="fabw-item" href="sociedad.html"><span class="num">06</span><h3 data-i18n="nav.fabw_sociedad">Sociedad</h3></a>
       </div>
-      <a class="link-more" href="for-a-better-world.html">Conocer For a Better World →</a>
+      <a class="link-more" href="for-a-better-world.html" data-i18n="fabw.cta">Conocer For a Better World →</a>
     </div>
   </section>
 
   <!-- ============ VOCES / TESTIMONIOS ============ -->
   <section class="voces" id="voces">
     <div class="wrap">
-      <span class="eyebrow">Historias reales</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); max-width:16ch;">Lo que 11 Cracks cambió, en sus propias palabras.</h2>
+      <span class="eyebrow" data-i18n="voces.eyebrow">Historias reales</span>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.7rem); max-width:16ch;" data-i18n="voces.h2">Lo que 11 Cracks cambió, en sus propias palabras.</h2>
       <div class="voces-grid">
         <div class="voz-card">
           <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_3.jpg" alt="Angie Julieth Quintero">
           <span class="quote-mark">"</span>
-          <p class="quote">Encontré en el programa de 11 cracks un lugar para mejorar mi habilidad deportiva, pero descubrí la pasión empresarial y el amor por los idiomas.</p>
+          <p class="quote" data-i18n="voces.q1">Encontré en el programa de 11 cracks un lugar para mejorar mi habilidad deportiva, pero descubrí la pasión empresarial y el amor por los idiomas.</p>
           <span class="name">Angie Julieth Quintero</span>
         </div>
         <div class="voz-card">
           <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_4.png" alt="Nezareth Segura">
           <span class="quote-mark">"</span>
-          <p class="quote">Antes de conocer 11 Crack's Foundation, mi existencia se fundamentaba en "fútbol o nada", ya que soy de un lugar de pocas oportunidades. Hoy, a mis 17 años, soy profesional del fútbol y agente de cambio en mi territorio, Tumaco, Nariño.</p>
+          <p class="quote" data-i18n="voces.q2">Antes de conocer 11 Crack's Foundation, mi existencia se fundamentaba en "fútbol o nada", ya que soy de un lugar de pocas oportunidades. Hoy, a mis 17 años, soy profesional del fútbol y agente de cambio en mi territorio, Tumaco, Nariño.</p>
           <span class="name">Nezareth Segura</span>
         </div>
         <div class="voz-card">
           <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_2.jpg" alt="Stephanie Alejandra">
           <span class="quote-mark">"</span>
-          <p class="quote">Siempre soñé con jugar fútbol profesional, superando las barreras de género, hasta que me convertí en la primera preparadora física mujer de la MLS y parte de la selección de U.S.A.</p>
+          <p class="quote" data-i18n="voces.q3">Siempre soñé con jugar fútbol profesional, superando las barreras de género, hasta que me convertí en la primera preparadora física mujer de la MLS y parte de la selección de U.S.A.</p>
           <span class="name">Stephanie Alejandra</span>
         </div>
         <div class="voz-card">
           <img class="voz-photo" src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/crack_image_1.jpg" alt="Juan Carlos Giraldo">
           <span class="quote-mark">"</span>
-          <p class="quote">La moda, para mí, es un estilo de vida. Un deportista debe ser un atleta en el campo, y un influyente positivo desde su vestir en la sociedad.</p>
+          <p class="quote" data-i18n="voces.q4">La moda, para mí, es un estilo de vida. Un deportista debe ser un atleta en el campo, y un influyente positivo desde su vestir en la sociedad.</p>
           <span class="name">Juan Carlos Giraldo</span>
         </div>
       </div>
@@ -541,8 +558,8 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ MARCAS ALIADAS ============ -->
   <section class="marcas" id="marcas">
     <div class="wrap">
-      <h2>Marcas aliadas</h2>
-      <p class="lede">Organizaciones que creen en el poder del deporte y la educación para transformar vidas y construir un futuro sostenible.</p>
+      <h2 data-i18n="marcas.h2">Marcas aliadas</h2>
+      <p class="lede" data-i18n="marcas.lede">Organizaciones que creen en el poder del deporte y la educación para transformar vidas y construir un futuro sostenible.</p>
       <div class="marcas-grid">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="Blow Up">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="IPS MVS — Más valor a tu salud">
@@ -560,9 +577,9 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ STATEMENT — CÓMO DESARROLLAMOS / NEUROCRACKS ============ -->
   <section class="statement">
     <div class="wrap">
-      <span class="eyebrow on-dark">Cómo formamos · NeuroCracks</span>
-      <h2>Entrenamiento desde las neuronas del corazón</h2>
-      <p class="lede" style="max-width:52ch; margin:0 auto; color:var(--ivory-dim);">Formación emocional, disciplina, valores y mentalidad competitiva saludable — en cada sesión, no solo en el discurso.</p>
+      <span class="eyebrow on-dark" data-i18n="statement.eyebrow">Cómo formamos · NeuroCracks</span>
+      <h2 data-i18n="statement.h2">Entrenamiento desde las neuronas del corazón</h2>
+      <p class="lede" style="max-width:52ch; margin:0 auto; color:var(--ivory-dim);" data-i18n="statement.lede">Formación emocional, disciplina, valores y mentalidad competitiva saludable — en cada sesión, no solo en el discurso.</p>
     </div>
   </section>
 
@@ -570,25 +587,25 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="ecosistema" id="ecosistema">
     <div class="wrap eco-grid">
       <div>
-        <span class="eyebrow">Apoyo y oportunidades</span>
-        <h2 style="font-size:clamp(1.9rem,4vw,2.5rem);">Tres mecanismos de apoyo que conectan tu desarrollo con respaldo real.</h2>
+        <span class="eyebrow" data-i18n="ecosistema.eyebrow">Apoyo y oportunidades</span>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.5rem);" data-i18n="ecosistema.h2">Tres mecanismos de apoyo que conectan tu desarrollo con respaldo real.</h2>
       </div>
       <div>
         <div class="eco-item">
-          <h3>Hambre cero</h3>
-          <p>Trabajamos junto a escuelas, clubes, familias, empresas y aliados sociales para contribuir a la seguridad alimentaria de niños, jóvenes y comunidades vinculadas al deporte formativo.</p>
-          <a class="link-more" href="ecosistema.html">Conocer más →</a>
+          <h3 data-i18n="ecosistema.item1.h3">Hambre cero</h3>
+          <p data-i18n="ecosistema.item1.p">Trabajamos junto a escuelas, clubes, familias, empresas y aliados sociales para contribuir a la seguridad alimentaria de niños, jóvenes y comunidades vinculadas al deporte formativo.</p>
+          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item1.cta">Conocer más →</a>
         </div>
         <div class="eco-item">
-          <h3>Beneficios que acompañan tu camino</h3>
-          <p>Accede a descuentos, apoyos y oportunidades disponibles dentro de la red 11 Cracks, construidos junto a clubes, aliados y marcas — no es dinero libre ni un saldo retirable, sino una red de respaldo que se activa según cada convenio.</p>
-          <a class="link-more" href="ecosistema.html">Descubrir beneficios →</a>
+          <h3 data-i18n="ecosistema.item2.h3">Beneficios que acompañan tu camino</h3>
+          <p data-i18n="ecosistema.item2.p">Accede a descuentos, apoyos y oportunidades disponibles dentro de la red 11 Cracks, construidos junto a clubes, aliados y marcas — no es dinero libre ni un saldo retirable, sino una red de respaldo que se activa según cada convenio.</p>
+          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item2.cta">Descubrir beneficios →</a>
           <span class="label-small">Billetera Solidaria 11 Cracks</span>
         </div>
         <div class="eco-item">
-          <h3>Tu progreso puede abrir nuevas puertas</h3>
-          <p>Postúlate a becas, visorías y procesos de crecimiento disponibles dentro de la red 11 Cracks — accesos sujetos a evaluación y cupos, no automáticos.</p>
-          <a class="link-more" href="ecosistema.html">Explorar oportunidades →</a>
+          <h3 data-i18n="ecosistema.item3.h3">Tu progreso puede abrir nuevas puertas</h3>
+          <p data-i18n="ecosistema.item3.p">Postúlate a becas, visorías y procesos de crecimiento disponibles dentro de la red 11 Cracks — accesos sujetos a evaluación y cupos, no automáticos.</p>
+          <a class="link-more" href="ecosistema.html" data-i18n="ecosistema.item3.cta">Explorar oportunidades →</a>
           <span class="label-small">Oportunidades 11 Cracks</span>
         </div>
       </div>
@@ -604,9 +621,9 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       </g>
     </svg>
     <div class="wrap">
-      <span class="eyebrow on-dark">De la formación a la acción · PET</span>
-      <h2>Tu club también juega por el planeta.</h2>
-      <p>Lo que se forma en las siete áreas se vuelve práctica: los clubes participan en procesos de reciclaje y economía circular que convierten residuos en insumos deportivos, con los mismos jóvenes como protagonistas del proceso.</p>
+      <span class="eyebrow on-dark" data-i18n="pet.eyebrow">De la formación a la acción · PET</span>
+      <h2 data-i18n="pet.h2">Tu club también juega por el planeta.</h2>
+      <p data-i18n="pet.p">Lo que se forma en las siete áreas se vuelve práctica: los clubes participan en procesos de reciclaje y economía circular que convierten residuos en insumos deportivos, con los mismos jóvenes como protagonistas del proceso.</p>
     </div>
   </section>
 
@@ -615,15 +632,15 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="wrap sel-grid">
       <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/seleccion_ineter.png" alt="Jugadores de la Selección Internacional 11 Cracks">
       <div>
-        <span class="eyebrow on-dark">Programa insignia</span>
-        <h2>Selección Internacional 11 Cracks</h2>
-        <p class="lede" style="color:var(--ivory-dim); margin-bottom:24px;">Un cupo limitado para el talento que ya destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
+        <span class="eyebrow on-dark" data-i18n="seleccion.eyebrow">Programa insignia</span>
+        <h2 data-i18n="seleccion.h2">Selección Internacional 11 Cracks</h2>
+        <p class="lede" style="color:var(--ivory-dim); margin-bottom:24px;" data-i18n="seleccion.lede">Un cupo limitado para el talento que ya destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
         <ul class="sel-list">
-          <li>Idiomas y comunicación global</li>
-          <li>Liderazgo e inteligencia emocional</li>
-          <li>Emprendimiento deportivo</li>
-          <li>Marketing y marca personal</li>
-          <li>Experiencia y cultura internacional</li>
+          <li data-i18n="seleccion.li1">Idiomas y comunicación global</li>
+          <li data-i18n="seleccion.li2">Liderazgo e inteligencia emocional</li>
+          <li data-i18n="seleccion.li3">Emprendimiento deportivo</li>
+          <li data-i18n="seleccion.li4">Marketing y marca personal</li>
+          <li data-i18n="seleccion.li5">Experiencia y cultura internacional</li>
         </ul>
       </div>
     </div>
@@ -633,9 +650,9 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="close-cta" id="contacto">
     <div class="close-grid">
       <div class="close-text">
-        <h2>Eso es 11 Cracks</h2>
-        <p class="close-sub">Un lugar para inspirar la humanidad.</p>
-        <a class="btn" href="https://www.11cracksglobal.com/contacto/">Súmate al movimiento</a>
+        <h2 data-i18n="close.h2">Eso es 11 Cracks</h2>
+        <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
+        <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento</a>
       </div>
       <div class="close-photo">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/noso_val_1.jpg" alt="Equipo de 11 Cracks celebrando en la cancha">
@@ -649,22 +666,22 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h4>Eleven Cracks</h4>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="ecosistema.html">Ecosistema</a>
-        <a href="for-a-better-world.html">For a Better World</a>
-        <a href="historias.html">Historias</a>
-        <a href="seleccion-internacional.html">Selección Internacional</a>
+        <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
+        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
+        <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
+        <a href="historias.html" data-i18n="nav.historias">Historias</a>
+        <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       </div>
       <div>
-        <h4>Comunidad</h4>
-        <a href="padres.html">Padres</a>
-        <a href="soy-club.html">Equipos</a>
-        <a href="soy-aliado.html">Marcas</a>
+        <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
+        <a href="padres.html" data-i18n="footer.padres">Padres</a>
+        <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
+        <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
       </div>
       <div>
-        <h4>Contacto</h4>
-        <a href="https://www.11cracksglobal.com/contacto/">Escríbenos</a>
+        <h4 data-i18n="footer.h_contacto">Contacto</h4>
+        <a href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
         <div class="social-icons">
           <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></svg></a>
           <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -672,17 +689,17 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         </div>
       </div>
       <div>
-        <h4>Encuentra tu lugar</h4>
-        <a href="soy-club.html">Soy Club</a>
-        <a href="soy-deportista.html">Soy Deportista</a>
-        <a href="soy-aliado.html">Soy Aliado</a>
-        <a href="plan-padrino.html">Quiero apoyar</a>
-        <a href="padres.html">Soy Padre/Madre</a>
+        <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
+        <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
+        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+        <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
+        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+        <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Eleven Cracks · Sport Student</span>
-      <span>Educación · Medio ambiente · Economía · Cultura · Salud · Sociedad</span>
+      <span data-i18n="footer.copyright">© 2026 Eleven Cracks · Sport Student</span>
+      <span data-i18n="footer.categories">Educación · Medio ambiente · Economía · Cultura · Salud · Sociedad</span>
     </div>
   </div>
 </footer>
@@ -714,9 +731,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     dropdowns.forEach(function(dd){
       if (!dd.contains(e.target)) { dd.classList.remove('open'); dd.querySelector('.dropdown-toggle').setAttribute('aria-expanded','false'); }
     });
-  });
-  document.addEventListener('click', function(e){
-    if (!dd.contains(e.target)) { dd.classList.remove('open'); ddToggle.setAttribute('aria-expanded','false'); }
   });
 
   var video = document.getElementById('somosVideo');
@@ -778,6 +792,251 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     if (!ticking) { window.requestAnimationFrame(updateParallax); ticking = true; }
   }, { passive: true });
   updateParallax();
+})();
+</script>
+
+<script>
+(function(){
+  var STRINGS = { es: {}, en: {}, zh: {} };
+
+  STRINGS.en = {
+    'nav.nosotros': 'About Us',
+    'nav.ecosistema': 'Ecosystem',
+    'nav.historias': 'Stories',
+    'nav.fabw_all': 'See all six fronts',
+    'nav.fabw_educacion': 'Education',
+    'nav.fabw_ambiente': 'Environment',
+    'nav.fabw_economia': 'Economy',
+    'nav.fabw_cultura': 'Culture',
+    'nav.fabw_salud': 'Health',
+    'nav.fabw_sociedad': 'Society',
+    'nav.lugar': 'Find your place',
+    'nav.lugar_club': "I'm a Club",
+    'nav.lugar_deportista': "I'm an Athlete",
+    'nav.lugar_aliado': "I'm a Partner",
+    'nav.lugar_apoyar': 'I want to support',
+    'nav.lugar_padres': "I'm a Parent",
+    'nav.contacto': 'Contact',
+    'hero.h1': 'How do we give back to the world?',
+    'hero.lede': 'We give value and tools to the coaches who were once our own coaches, and a hopeful future to the athlete. That is our passion: connecting the environment with those who build greatness, and opening sport to a world of infinite possibilities, far from scarcity.',
+    'hero.pullquote': '"Sport is the down payment on life, not life itself."',
+    'hero.subquote': 'Legs get tired faster than knowledge does.',
+    'lugar.h2': 'What do you want to do at 11 Cracks?',
+    'lugar.card1.h3': 'Bring 11 Cracks to your club',
+    'lugar.card1.p': 'Turn the field into a space for training, follow-up and holistic development.',
+    'lugar.card1.cta': "I'm a Club →",
+    'lugar.card2.h3': 'Grow on and off the field',
+    'lugar.card2.p': 'Train, learn, track your progress and prepare for new opportunities.',
+    'lugar.card2.cta': "I'm an Athlete →",
+    'lugar.card3.h3': 'Turn your brand into impact',
+    'lugar.card3.p': 'Connect your resources and benefits with athletes, families and communities.',
+    'lugar.card3.cta': 'I want to become a partner →',
+    'lugar.card4.h3': 'Help an athlete keep growing',
+    'lugar.card4.p': 'Your support can help cover their training process within 11 Cracks.',
+    'lugar.card4.cta': 'I want to support →',
+    'somos.quote': '"Every time I walk past a field I remember, with emotion and nostalgia, dreaming as a kid of becoming a professional athlete. The day I signed my first contract I felt happiness, but also a lot of nostalgia seeing so many colleagues who got lost for elite sport, and worse still, for life itself. Among them I lost a great friend. That is our wish and our longing."',
+    'somos.cite_role': 'Founder, 11 Cracks',
+    'somos.eyebrow': 'Who we are',
+    'somos.h2': 'A socio-educational infrastructure born on the field.',
+    'somos.lede': 'Our purpose is for every sports setting to become a living classroom of NeuroCracks Multiple Intelligence, where children and young people learn while they train, compete, and build a purposeful life project.',
+    'somos.sound_activate': 'Turn on sound',
+    'somos.video_caption': 'Real voices from the territory where 11 Cracks was born — the purpose, told by those who live it.',
+    'somos.purpose_h3': 'Zero-excuse generation. A hundred opportunities.',
+    'somos.purpose_p': 'For years, many sports settings focused solely on the possibility of turning professional, making sport feel like an "all or nothing" path for thousands of young people. We open a hundred more paths.',
+    'areas.eyebrow': 'What 11 Cracks develops',
+    'areas.h2': 'Seven training areas, one well-rounded player.',
+    'areas.item1': 'Sports finance',
+    'areas.item2': 'Sports marketing',
+    'areas.item3': 'Bilingualism and trilingualism',
+    'areas.item4': 'Culture and global outlook',
+    'areas.item5': 'Mental health and wellbeing',
+    'areas.item6': 'High sports performance',
+    'areas.item7': 'Sport committed to the planet',
+    'fabw.h2': 'Six fronts, one purpose.',
+    'fabw.lede': 'Education, environment, economy, culture, health and society: six ways 11 Cracks turns training into impact beyond the field.',
+    'fabw.cta': 'Explore For a Better World →',
+    'voces.eyebrow': 'Real stories',
+    'voces.h2': 'What 11 Cracks changed, in their own words.',
+    'voces.q1': 'In the 11 Cracks program I found a place to improve my sporting ability, but I discovered a passion for business and a love for languages.',
+    'voces.q2': 'Before knowing 11 Crack’s Foundation, my life was built around "football or nothing," since I come from a place with few opportunities. Today, at 17, I am a professional footballer and an agent of change in my territory, Tumaco, Nariño.',
+    'voces.q3': 'I always dreamed of playing professional football, overcoming gender barriers, until I became the first female physical trainer in MLS and part of the U.S. national team.',
+    'voces.q4': 'Fashion, for me, is a way of life. An athlete should be a competitor on the field, and a positive influence through how they present themselves in society.',
+    'marcas.h2': 'Partner brands',
+    'marcas.lede': 'Organizations that believe in the power of sport and education to transform lives and build a sustainable future.',
+    'statement.eyebrow': 'How we train · NeuroCracks',
+    'statement.h2': 'Training from the neurons of the heart',
+    'statement.lede': 'Emotional development, discipline, values and a healthy competitive mindset — in every session, not just in words.',
+    'ecosistema.eyebrow': 'Support and opportunities',
+    'ecosistema.h2': 'Three support mechanisms connecting your growth with real backing.',
+    'ecosistema.item1.h3': 'Zero Hunger',
+    'ecosistema.item1.p': 'We work alongside schools, clubs, families, companies and social partners to contribute to the food security of children, young people and communities linked to grassroots sport.',
+    'ecosistema.item1.cta': 'Learn more →',
+    'ecosistema.item2.h3': 'Benefits that walk alongside you',
+    'ecosistema.item2.p': 'Access discounts, support and opportunities available within the 11 Cracks network, built together with clubs, partners and brands — this is not free cash or a withdrawable balance, but a support network activated according to each agreement.',
+    'ecosistema.item2.cta': 'Discover benefits →',
+    'ecosistema.item3.h3': 'Your progress can open new doors',
+    'ecosistema.item3.p': 'Apply for scholarships, scouting processes and growth opportunities available within the 11 Cracks network — access subject to evaluation and availability, not automatic.',
+    'ecosistema.item3.cta': 'Explore opportunities →',
+    'pet.eyebrow': 'From training to action · PET',
+    'pet.h2': 'Your club also plays for the planet.',
+    'pet.p': 'What is taught across the seven areas becomes practice: clubs take part in recycling and circular economy processes that turn waste into sports materials, with young people themselves as the protagonists.',
+    'seleccion.eyebrow': 'Flagship program',
+    'seleccion.h2': '11 Cracks International Selection',
+    'seleccion.lede': 'A limited number of spots for talent that already stands out within the ecosystem, with its own five training pillars.',
+    'seleccion.li1': 'Languages and global communication',
+    'seleccion.li2': 'Leadership and emotional intelligence',
+    'seleccion.li3': 'Sports entrepreneurship',
+    'seleccion.li4': 'Marketing and personal branding',
+    'seleccion.li5': 'International experience and culture',
+    'close.h2': 'That is 11 Cracks',
+    'close.sub': 'A place to inspire humanity.',
+    'close.cta': 'Join the movement',
+    'footer.seleccion': 'International Selection',
+    'footer.h_comunidad': 'Community',
+    'footer.padres': 'Parents',
+    'footer.equipos': 'Teams',
+    'footer.marcas': 'Brands',
+    'footer.h_contacto': 'Contact',
+    'footer.escribenos': 'Write to us',
+    'footer.categories': 'Education · Environment · Economy · Culture · Health · Society'
+  };
+
+  STRINGS.zh = {
+    'nav.nosotros': '关于我们',
+    'nav.ecosistema': '生态系统',
+    'nav.historias': '故事',
+    'nav.fabw_all': '查看全部六大领域',
+    'nav.fabw_educacion': '教育',
+    'nav.fabw_ambiente': '环境',
+    'nav.fabw_economia': '经济',
+    'nav.fabw_cultura': '文化',
+    'nav.fabw_salud': '健康',
+    'nav.fabw_sociedad': '社会',
+    'nav.lugar': '找到你的位置',
+    'nav.lugar_club': '我是俱乐部',
+    'nav.lugar_deportista': '我是运动员',
+    'nav.lugar_aliado': '我是合作伙伴',
+    'nav.lugar_apoyar': '我想提供支持',
+    'nav.lugar_padres': '我是家长',
+    'nav.contacto': '联系我们',
+    'hero.h1': '我们如何回馈世界？',
+    'hero.lede': '我们为曾经培养我们的教练提供价值与工具，也为运动员带来充满希望的未来。这是我们的热忱所在：让缔造伟大的人与周围环境相连，为体育打开一个充满无限可能、远离匮乏的世界。',
+    'hero.pullquote': '“体育是人生的首付款，而非人生本身。”',
+    'hero.subquote': '双腿会比知识更快地感到疲惫。',
+    'lugar.h2': '你想在11 Cracks做什么？',
+    'lugar.card1.h3': '把11 Cracks带入你的俱乐部',
+    'lugar.card1.p': '把球场变成集训练、跟踪与全面发展于一体的空间。',
+    'lugar.card1.cta': '我是俱乐部 →',
+    'lugar.card2.h3': '在球场内外共同成长',
+    'lugar.card2.p': '训练、学习、追踪进步，为新的机会做好准备。',
+    'lugar.card2.cta': '我是运动员 →',
+    'lugar.card3.h3': '让你的品牌产生影响力',
+    'lugar.card3.p': '将你的资源与权益连接到运动员、家庭和社区。',
+    'lugar.card3.cta': '我想成为合作伙伴 →',
+    'lugar.card4.h3': '帮助一名运动员持续成长',
+    'lugar.card4.p': '你的支持可以帮助支付他们在11 Cracks的培训过程。',
+    'lugar.card4.cta': '我想提供支持 →',
+    'somos.quote': '“每次经过球场，我都会满怀激动与怀念，想起小时候梦想成为职业运动员的自己。签下第一份职业合同的那天，我感到无比幸福，但也充满怀念——因为我看到太多同伴在追逐精英体育的路上迷失了方向，更糟糕的是，迷失了人生的方向。其中，我失去了一位挚友。这正是我们的心愿与渴望。”',
+    'somos.cite_role': '11 Cracks 创始人',
+    'somos.eyebrow': '关于我们',
+    'somos.h2': '一个诞生于球场的社会教育体系。',
+    'somos.lede': '我们的宗旨是让每一个运动场景都成为"NeuroCracks多元智能"的活课堂，让孩子和青少年在训练、比赛的同时学习成长，构建有意义的人生规划。',
+    'somos.sound_activate': '开启声音',
+    'somos.video_caption': '来自11 Cracks诞生之地的真实声音——由亲历者讲述我们的使命。',
+    'somos.purpose_h3': '零借口的一代，百种机会。',
+    'somos.purpose_p': '多年来，许多体育场景只关注成为职业运动员的可能性，让无数年轻人觉得体育是一条"全有或全无"的道路。我们要打开另外一百条道路。',
+    'areas.eyebrow': '11 Cracks培养的能力',
+    'areas.h2': '七大培训领域，塑造全面发展的球员。',
+    'areas.item1': '体育财务',
+    'areas.item2': '体育营销',
+    'areas.item3': '双语与三语能力',
+    'areas.item4': '文化与全球视野',
+    'areas.item5': '心理健康与幸福感',
+    'areas.item6': '高水平运动表现',
+    'areas.item7': '关爱地球的体育精神',
+    'fabw.h2': '六大领域，同一使命。',
+    'fabw.lede': '教育、环境、经济、文化、健康与社会：11 Cracks将培训转化为球场之外影响力的六种方式。',
+    'fabw.cta': '了解 For a Better World →',
+    'voces.eyebrow': '真实故事',
+    'voces.h2': '11 Cracks带来的改变，由他们亲口讲述。',
+    'voces.q1': '在11 Cracks项目中，我不仅提升了运动能力，还发现了对商业的热情和对语言的热爱。',
+    'voces.q2': '在认识11 Cracks基金会之前，我的人生信条是"足球或者一无所有"，因为我来自一个机会稀缺的地方。如今，17岁的我已成为职业足球运动员，也是我家乡图马科（纳里尼奥省）的变革推动者。',
+    'voces.q3': '我一直梦想着突破性别壁垒去踢职业足球，直到我成为美国职业大联盟（MLS）首位女性体能教练，并加入美国国家队。',
+    'voces.q4': '对我而言，时尚是一种生活方式。运动员不仅要在赛场上拼搏，还应通过自己的穿着在社会上传递积极影响力。',
+    'marcas.h2': '合作品牌',
+    'marcas.lede': '这些机构相信体育与教育的力量能够改变生命、共建可持续的未来。',
+    'statement.eyebrow': '我们的培养方式 · NeuroCracks',
+    'statement.h2': '源自心之神经元的训练',
+    'statement.lede': '情感培养、纪律、价值观与健康的竞争心态——落实在每一节训练中，而不仅仅是口号。',
+    'ecosistema.eyebrow': '支持与机会',
+    'ecosistema.h2': '三大支持机制，为你的成长提供切实保障。',
+    'ecosistema.item1.h3': '零饥饿',
+    'ecosistema.item1.p': '我们与学校、俱乐部、家庭、企业及社会合作伙伴携手，为参与青训体育的儿童、青少年及社区提供粮食保障支持。',
+    'ecosistema.item1.cta': '了解更多 →',
+    'ecosistema.item2.h3': '伴你成长的权益',
+    'ecosistema.item2.p': '获取11 Cracks网络内的折扣、支持与机会，这些均由俱乐部、合作伙伴与品牌共同构建——这并非自由现金或可提现余额，而是根据具体协议启动的支持网络。',
+    'ecosistema.item2.cta': '探索权益 →',
+    'ecosistema.item3.h3': '你的进步能开启新的大门',
+    'ecosistema.item3.p': '申请11 Cracks网络内的奖学金、球探选拔及成长机会——名额需经评估且有限，并非自动获得。',
+    'ecosistema.item3.cta': '探索机会 →',
+    'pet.eyebrow': '从培训到行动 · PET',
+    'pet.h2': '你的俱乐部也在为地球而战。',
+    'pet.p': '七大培训领域所学最终转化为实践：俱乐部参与回收与循环经济流程，将废弃物转化为体育物资，而青少年正是这一过程的主角。',
+    'seleccion.eyebrow': '旗舰项目',
+    'seleccion.h2': '11 Cracks 国际精英选拔',
+    'seleccion.lede': '面向生态系统内已崭露头角的人才，名额有限，拥有专属的五大培养支柱。',
+    'seleccion.li1': '语言与全球沟通能力',
+    'seleccion.li2': '领导力与情商',
+    'seleccion.li3': '体育创业精神',
+    'seleccion.li4': '市场营销与个人品牌',
+    'seleccion.li5': '国际经验与文化素养',
+    'close.h2': '这就是11 Cracks',
+    'close.sub': '一个激励人类的地方。',
+    'close.cta': '加入这场运动',
+    'footer.seleccion': '国际选拔',
+    'footer.h_comunidad': '社区',
+    'footer.padres': '家长',
+    'footer.equipos': '球队',
+    'footer.marcas': '品牌',
+    'footer.h_contacto': '联系方式',
+    'footer.escribenos': '联系我们',
+    'footer.categories': '教育 · 环境 · 经济 · 文化 · 健康 · 社会'
+  };
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
+  });
+
+  function applyLang(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var dict = STRINGS[lang] || {};
+      if (dict[key] !== undefined) { el.innerHTML = dict[key]; }
+      else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
+    });
+    document.documentElement.lang = lang;
+    var label = document.getElementById('langLabel');
+    if (label) label.textContent = lang.toUpperCase();
+    document.querySelectorAll('#langMenu a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('site_lang', lang); } catch(e){}
+  }
+
+  var langMenu = document.getElementById('langMenu');
+  if (langMenu) {
+    langMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        applyLang(a.getAttribute('data-lang'));
+      });
+    });
+  }
+
+  var saved = 'es';
+  try { saved = localStorage.getItem('site_lang') || 'es'; } catch(e){}
+  if (saved !== 'es') { applyLang(saved); }
 })();
 </script>
 </body>

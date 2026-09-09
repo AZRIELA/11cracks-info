@@ -176,6 +176,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     <div class="nav-links" id="navLinks">
       <a href="nosotros.html">Nosotros</a>
       <a href="ecosistema.html">Ecosistema</a>
+      <a href="historias.html">Historias</a>
       <div class="nav-dropdown" id="fabwDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
           For a Better World
@@ -191,7 +192,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <a href="sociedad.html">Sociedad</a>
         </div>
       </div>
-      <a href="historias.html">Historias</a>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
           Encuentra tu lugar
@@ -377,11 +377,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     dropdowns.forEach(function(dd){
       if (!dd.contains(e.target)) { dd.classList.remove('open'); dd.querySelector('.dropdown-toggle').setAttribute('aria-expanded','false'); }
     });
-  });
-  document.addEventListener('click', function(e){
-    if (!dd.contains(e.target)) { dd.classList.remove('open'); ddToggle.setAttribute('aria-expanded','false'); }
-  });
-})();
+  });})();
 </script>
 
 <!--
