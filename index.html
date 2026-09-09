@@ -105,12 +105,18 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .hero .pull-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem,4vw,2.8rem); color:var(--white); line-height:1.08; margin-bottom:24px;}
 .hero .sub-quote{font-family:var(--display); font-weight:400; font-size:clamp(1.2rem,2.2vw,1.5rem); color:var(--gold-light); line-height:1.2; position:relative; padding-top:20px;}
 .hero .sub-quote::before{content:''; position:absolute; top:0; left:0; width:44px; height:2px; background:var(--gold);}
+.hero-scroll-cue{display:inline-flex; align-items:center; gap:8px; margin-top:40px; font-size:.85rem; font-weight:600; color:var(--ivory-dim); transition:color .2s ease, gap .2s ease;}
+.hero-scroll-cue svg{width:10px; height:10px; animation:heroScrollBounce 1.8s ease-in-out infinite;}
+.hero-scroll-cue:hover{color:var(--gold-light); gap:12px;}
+@keyframes heroScrollBounce{0%,100%{transform:translateY(0);} 50%{transform:translateY(4px);}}
 .hero-content > *{opacity:0; animation:heroReveal .8s cubic-bezier(0.16,1,0.3,1) forwards;}
 .hero-content > *:nth-child(1){animation-delay:.1s;}
 .hero-content > *:nth-child(2){animation-delay:.28s;}
 .hero-content > *:nth-child(3){animation-delay:.46s;}
 .hero-content > *:nth-child(4){animation-delay:.64s;}
+.hero-content > *:nth-child(5){animation-delay:.82s;}
 @keyframes heroReveal{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
+@media (prefers-reduced-motion: reduce){.hero-scroll-cue svg{animation:none;}}
 
 /* ---------- HERO — marquee de fotos (mismo patrón del sitio en vivo) ---------- */
 .hero-marquee{position:relative; overflow:hidden; height:92vh;}
@@ -306,6 +312,9 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <p class="lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
         <div class="pull-quote">"El deporte es la cuota inicial de la vida, no la vida."</div>
         <div class="sub-quote">Las piernas se cansan más rápido que el conocimiento.</div>
+        <a class="hero-scroll-cue" href="#lugar">Encuentra tu lugar
+          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
+        </a>
       </div>
       <div class="hero-marquee" aria-hidden="true">
         <div class="marquee-track">
@@ -476,6 +485,25 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     </div>
   </section>
 
+  <!-- ============ MARCAS ALIADAS ============ -->
+  <section class="marcas" id="marcas">
+    <div class="wrap">
+      <h2>Marcas aliadas</h2>
+      <p class="lede">Organizaciones que creen en el poder del deporte y la educación para transformar vidas y construir un futuro sostenible.</p>
+      <div class="marcas-grid">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="Blow Up">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="IPS MVS — Más valor a tu salud">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_3.png" alt="Instafest Awards">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_4.png" alt="Smartfit">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_5.png" alt="SADI — Sistema Administrativo de Información">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_6.png" alt="rmd — Estrategias que Transforman">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_7.png" alt="Quick Learning English Community">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_8.png" alt="Enjoy">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_9.png" alt="Kwel Social">
+      </div>
+    </div>
+  </section>
+
   <!-- ============ STATEMENT — CÓMO DESARROLLAMOS / NEUROCRACKS ============ -->
   <section class="statement">
     <div class="wrap">
@@ -544,25 +572,6 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
           <li>Marketing y marca personal</li>
           <li>Experiencia y cultura internacional</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MARCAS ALIADAS ============ -->
-  <section class="marcas" id="marcas">
-    <div class="wrap">
-      <h2>Marcas aliadas</h2>
-      <p class="lede">Organizaciones que creen en el poder del deporte y la educación para transformar vidas y construir un futuro sostenible.</p>
-      <div class="marcas-grid">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_1.png" alt="Blow Up">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_2.png" alt="IPS MVS — Más valor a tu salud">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_3.png" alt="Instafest Awards">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/brand_4.png" alt="Smartfit">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_5.png" alt="SADI — Sistema Administrativo de Información">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_6.png" alt="rmd — Estrategias que Transforman">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_7.png" alt="Quick Learning English Community">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_8.png" alt="Enjoy">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/05/brand_9.png" alt="Kwel Social">
       </div>
     </div>
   </section>
