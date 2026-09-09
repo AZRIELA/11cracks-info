@@ -66,7 +66,7 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .nav-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; gap:5px;}
 .nav-toggle span, .nav-toggle::before, .nav-toggle::after{content:''; display:block; width:20px; height:2px; background:var(--white);}
 .nav-dropdown{position:relative;}
-.dropdown-toggle{display:inline-flex; align-items:center; gap:7px; cursor:pointer; background:oklch(1 0 0 / 0.05); border:1px solid oklch(1 0 0 / 0.16); border-radius:999px; font:inherit; font-size:.88rem; font-weight:600; color:var(--ivory-dim); padding:9px 16px; min-height:44px; transition:color .2s, background .2s, border-color .2s;}
+.dropdown-toggle{display:inline-flex; align-items:center; gap:7px; cursor:pointer; background:oklch(1 0 0 / 0.05); border:1px solid oklch(1 0 0 / 0.16); border-radius:999px; font:inherit; font-size:.88rem; font-weight:600; color:var(--ivory-dim); padding:9px 16px; min-height:44px; white-space:nowrap; transition:color .2s, background .2s, border-color .2s;}
 .dropdown-toggle:hover{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
 .dropdown-toggle svg{width:10px; height:10px; transition:transform .2s;}
 .nav-dropdown.open .dropdown-toggle svg, .nav-dropdown:hover .dropdown-toggle svg{transform:rotate(180deg);}
@@ -75,17 +75,22 @@ nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-
 .nav-dropdown.open .dropdown-menu{display:block;}
 .dropdown-menu a{display:block; padding:10px 14px; border-radius:6px; font-size:.88rem; font-weight:600; color:var(--ivory-dim);}
 .dropdown-menu a:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
-@media (min-width:901px){
+@media (min-width:1141px){
   .dropdown-menu{display:block; position:absolute; top:100%; left:50%; padding-top:14px; box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity .16s ease, transform .16s ease, visibility .16s;}
   .nav-dropdown.open .dropdown-menu, .nav-dropdown:hover .dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
 }
-@media (max-width:900px){
+@media (max-width:1140px){
   .nav-links{position:fixed; inset:0 0 0 auto; width:min(78vw,320px); height:100vh; background:var(--black); flex-direction:column; align-items:flex-start; padding:90px 28px 28px; gap:22px; transform:translateX(100%); transition:transform .3s ease; box-shadow:-8px 0 30px oklch(0 0 0 / 0.4); overflow-y:auto;}
   .nav-links.open{transform:translateX(0);}
   .nav-toggle{display:flex;}
   .dropdown-toggle{width:100%; justify-content:space-between;}
   .dropdown-menu{margin-top:8px; border:none; padding:0 0 0 14px; min-width:0; background:transparent;}
 }
+.lang-toggle{padding:9px 14px;}
+.lang-toggle svg{width:16px; height:16px;}
+.nav-dropdown.open .lang-toggle svg, .nav-dropdown:hover .lang-toggle svg{transform:none;}
+.dropdown-menu a[data-lang]{cursor:pointer;}
+.dropdown-menu a[data-lang].active{color:var(--gold-light);}
 
 /* ---------- PAGE HERO ---------- */
 .phero{position:relative; min-height:62vh; display:flex; align-items:flex-end; color:var(--white); overflow:hidden;}
@@ -173,38 +178,49 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
     <div class="nav-links" id="navLinks">
-      <a href="nosotros.html">Nosotros</a>
-      <a href="ecosistema.html">Ecosistema</a>
-      <a href="historias.html">Historias</a>
+      <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+      <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
+      <a href="historias.html" data-i18n="nav.historias">Historias</a>
       <div class="nav-dropdown" id="fabwDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
-          For a Better World
+          <span data-i18n="nav.fabw">For a Better World</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu" id="fabwMenu">
-          <a href="for-a-better-world.html">Ver todos los frentes</a>
-          <a href="educacion.html">Educación</a>
-          <a href="medio-ambiente.html">Medio Ambiente</a>
-          <a href="economia.html">Economía</a>
-          <a href="cultura.html">Cultura</a>
-          <a href="salud.html">Salud</a>
-          <a href="sociedad.html">Sociedad</a>
+          <a href="for-a-better-world.html" data-i18n="nav.fabw_all">Ver todos los frentes</a>
+          <a href="educacion.html" data-i18n="nav.fabw_educacion">Educación</a>
+          <a href="medio-ambiente.html" data-i18n="nav.fabw_ambiente">Medio Ambiente</a>
+          <a href="economia.html" data-i18n="nav.fabw_economia">Economía</a>
+          <a href="cultura.html" data-i18n="nav.fabw_cultura">Cultura</a>
+          <a href="salud.html" data-i18n="nav.fabw_salud">Salud</a>
+          <a href="sociedad.html" data-i18n="nav.fabw_sociedad">Sociedad</a>
         </div>
       </div>
       <div class="nav-dropdown" id="navDropdown">
         <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
-          Encuentra tu lugar
+          <span data-i18n="nav.lugar">Encuentra tu lugar</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu" id="dropdownMenu">
-          <a href="soy-club.html">Soy Club</a>
-          <a href="soy-deportista.html">Soy Deportista</a>
-          <a href="soy-aliado.html">Soy Aliado</a>
-          <a href="plan-padrino.html">Quiero apoyar</a>
-          <a href="padres.html">Soy Padre/Madre</a>
+          <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
+          <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+          <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
+          <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
-      <a class="btn" href="https://www.11cracksglobal.com/contacto/">Contacto</a>
+      <div class="nav-dropdown" id="langDropdown">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
+          <span id="langLabel">ES</span>
+        </button>
+        <div class="dropdown-menu" id="langMenu">
+          <a href="#" data-lang="es">Español</a>
+          <a href="#" data-lang="en">English</a>
+          <a href="#" data-lang="zh">中文</a>
+        </div>
+      </div>
+      <a class="btn" href="https://www.11cracksglobal.com/contacto/" data-i18n="nav.contacto">Contacto</a>
     </div>
   </div>
 </nav>
@@ -215,10 +231,10 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="phero">
     <div class="phero-bg" role="img" aria-label="Jóvenes deportistas en un escenario formativo de 11 Cracks"></div>
     <div class="wrap phero-content">
-      <a class="breadcrumb" href="index.html">&larr; Volver a inicio</a>
-      <span class="eyebrow on-dark">For a Better World</span>
-      <h1>Seis frentes, un mismo propósito.</h1>
-      <p class="lede">Educación, medio ambiente, economía, cultura, salud y sociedad — así es como 11 Cracks entiende su impacto más allá de la cancha.</p>
+      <a class="breadcrumb" href="index.html" data-i18n="hero.breadcrumb">&larr; Volver a inicio</a>
+      <span class="eyebrow on-dark" data-i18n="nav.fabw">For a Better World</span>
+      <h1 data-i18n="hero.h1">Seis frentes, un mismo propósito.</h1>
+      <p class="lede" data-i18n="hero.lede">Educación, medio ambiente, economía, cultura, salud y sociedad — así es como 11 Cracks entiende su impacto más allá de la cancha.</p>
     </div>
   </section>
 
@@ -226,45 +242,45 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <section class="frentes">
     <div class="wrap">
       <div class="frentes-head">
-        <span class="eyebrow on-dark">Los seis frentes</span>
-        <h2>Una misma cancha, seis maneras de dejar huella.</h2>
+        <span class="eyebrow on-dark" data-i18n="frentes.eyebrow">Los seis frentes</span>
+        <h2 data-i18n="frentes.h2">Una misma cancha, seis maneras de dejar huella.</h2>
       </div>
       <div class="frentes-grid">
         <a class="frente-card frente-card--link" href="educacion.html">
           <span class="num">01</span>
-          <h3>Educación</h3>
-          <p>Aprender desde el corazón, en jornada complementaria al entrenamiento, sin escritorios.</p>
-          <span class="frente-card-cta">Conocer Educación →</span>
+          <h3 data-i18n="nav.fabw_educacion">Educación</h3>
+          <p data-i18n="frentes.f1_p">Aprender desde el corazón, en jornada complementaria al entrenamiento, sin escritorios.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f1_cta">Conocer Educación →</span>
         </a>
         <a class="frente-card frente-card--link" href="medio-ambiente.html">
           <span class="num">02</span>
-          <h3>Medio Ambiente</h3>
-          <p>Economía circular desde la cancha: uniformes, reciclaje y conciencia ambiental en cada proceso.</p>
-          <span class="frente-card-cta">Conocer Medio Ambiente →</span>
+          <h3 data-i18n="nav.fabw_ambiente">Medio Ambiente</h3>
+          <p data-i18n="frentes.f2_p">Economía circular desde la cancha: uniformes, reciclaje y conciencia ambiental en cada proceso.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f2_cta">Conocer Medio Ambiente →</span>
         </a>
         <a class="frente-card frente-card--link" href="economia.html">
           <span class="num">03</span>
-          <h3>Economía</h3>
-          <p>Clubes, empresas, talento e inversión, articulados en comunidades que crecen juntas.</p>
-          <span class="frente-card-cta">Conocer Economía →</span>
+          <h3 data-i18n="nav.fabw_economia">Economía</h3>
+          <p data-i18n="frentes.f3_p">Clubes, empresas, talento e inversión, articulados en comunidades que crecen juntas.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f3_cta">Conocer Economía →</span>
         </a>
         <a class="frente-card frente-card--link" href="cultura.html">
           <span class="num">04</span>
-          <h3>Cultura</h3>
-          <p>Intercambio, idiomas y conexiones entre jóvenes, clubes y países.</p>
-          <span class="frente-card-cta">Conocer Cultura →</span>
+          <h3 data-i18n="nav.fabw_cultura">Cultura</h3>
+          <p data-i18n="frentes.f4_p">Intercambio, idiomas y conexiones entre jóvenes, clubes y países.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f4_cta">Conocer Cultura →</span>
         </a>
         <a class="frente-card frente-card--link" href="salud.html">
           <span class="num">05</span>
-          <h3>Salud</h3>
-          <p>Hábitos saludables y acompañamiento físico y emocional entre clubes y comunidades.</p>
-          <span class="frente-card-cta">Conocer Salud →</span>
+          <h3 data-i18n="nav.fabw_salud">Salud</h3>
+          <p data-i18n="frentes.f5_p">Hábitos saludables y acompañamiento físico y emocional entre clubes y comunidades.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f5_cta">Conocer Salud →</span>
         </a>
         <a class="frente-card frente-card--link" href="sociedad.html">
           <span class="num">06</span>
-          <h3>Sociedad</h3>
-          <p>No somos un club, somos una comunidad que juega, aprende y crece junta.</p>
-          <span class="frente-card-cta">Conocer Sociedad →</span>
+          <h3 data-i18n="nav.fabw_sociedad">Sociedad</h3>
+          <p data-i18n="frentes.f6_p">No somos un club, somos una comunidad que juega, aprende y crece junta.</p>
+          <span class="frente-card-cta" data-i18n="frentes.f6_cta">Conocer Sociedad →</span>
         </a>
       </div>
     </div>
@@ -273,24 +289,24 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ PUENTE A ÁREAS DE FORMACIÓN ============ -->
   <section class="puente">
     <div class="wrap">
-      <span class="eyebrow">De la intención a la práctica</span>
-      <h2>Estos seis frentes se entrenan todos los días en las 7 áreas de formación 11 Cracks.</h2>
-      <a class="link-more" href="index.html#areas">Ver las áreas de formación →</a>
+      <span class="eyebrow" data-i18n="puente.eyebrow">De la intención a la práctica</span>
+      <h2 data-i18n="puente.h2">Estos seis frentes se entrenan todos los días en las 7 áreas de formación 11 Cracks.</h2>
+      <a class="link-more" href="index.html#areas" data-i18n="puente.link">Ver las áreas de formación →</a>
     </div>
   </section>
 
   <!-- ============ VISIÓN 2026-2027 ============ -->
   <section class="vision">
     <div class="wrap">
-      <span class="eyebrow on-dark">2026 — 2027</span>
-      <h2>La evolución e innovación del deporte.</h2>
+      <span class="eyebrow on-dark" data-i18n="vision.eyebrow">2026 — 2027</span>
+      <h2 data-i18n="vision.h2">La evolución e innovación del deporte.</h2>
       <div class="vision-list" id="visionList">
-        <div class="vision-line">Un <span class="verb">entrenamiento</span> puede convertirse en una clase.</div>
-        <div class="vision-line">Un <span class="verb">club</span> puede convertirse en una comunidad.</div>
-        <div class="vision-line">Una <span class="verb">camiseta</span> puede convertirse en una oportunidad.</div>
-        <div class="vision-line">Una <span class="verb">botella reciclada</span> puede convertirse en educación.</div>
-        <div class="vision-line">Un <span class="verb">jugador</span> puede convertirse en un ser integral.</div>
-        <div class="vision-line">Un <span class="verb">territorio</span> puede conectarse con el mundo.</div>
+        <div class="vision-line" data-i18n="vision.l1">Un <span class="verb">entrenamiento</span> puede convertirse en una clase.</div>
+        <div class="vision-line" data-i18n="vision.l2">Un <span class="verb">club</span> puede convertirse en una comunidad.</div>
+        <div class="vision-line" data-i18n="vision.l3">Una <span class="verb">camiseta</span> puede convertirse en una oportunidad.</div>
+        <div class="vision-line" data-i18n="vision.l4">Una <span class="verb">botella reciclada</span> puede convertirse en educación.</div>
+        <div class="vision-line" data-i18n="vision.l5">Un <span class="verb">jugador</span> puede convertirse en un ser integral.</div>
+        <div class="vision-line" data-i18n="vision.l6">Un <span class="verb">territorio</span> puede conectarse con el mundo.</div>
       </div>
     </div>
   </section>
@@ -298,8 +314,8 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <!-- ============ CIERRE ============ -->
   <section class="close-cta">
     <div class="wrap">
-      <h2>Encuentra tu lugar dentro de este propósito.</h2>
-      <a class="btn" href="index.html#lugar">Ver mis caminos de entrada</a>
+      <h2 data-i18n="close.h2">Encuentra tu lugar dentro de este propósito.</h2>
+      <a class="btn" href="index.html#lugar" data-i18n="close.btn">Ver mis caminos de entrada</a>
     </div>
   </section>
 
@@ -309,22 +325,22 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <h4>Eleven Cracks</h4>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="ecosistema.html">Ecosistema</a>
-        <a href="for-a-better-world.html">For a Better World</a>
-        <a href="historias.html">Historias</a>
-        <a href="seleccion-internacional.html">Selección Internacional</a>
+        <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
+        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+        <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
+        <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
+        <a href="historias.html" data-i18n="nav.historias">Historias</a>
+        <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
       </div>
       <div>
-        <h4>Comunidad</h4>
-        <a href="padres.html">Padres</a>
-        <a href="soy-club.html">Equipos</a>
-        <a href="soy-aliado.html">Marcas</a>
+        <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
+        <a href="padres.html" data-i18n="footer.padres">Padres</a>
+        <a href="soy-club.html" data-i18n="footer.equipos">Equipos</a>
+        <a href="soy-aliado.html" data-i18n="footer.marcas">Marcas</a>
       </div>
       <div>
-        <h4>Contacto</h4>
-        <a href="https://www.11cracksglobal.com/contacto/">Escríbenos</a>
+        <h4 data-i18n="footer.h_contacto">Contacto</h4>
+        <a href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
         <div class="social-icons">
           <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></svg></a>
           <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -332,17 +348,17 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         </div>
       </div>
       <div>
-        <h4>Encuentra tu lugar</h4>
-        <a href="soy-club.html">Soy Club</a>
-        <a href="soy-deportista.html">Soy Deportista</a>
-        <a href="soy-aliado.html">Soy Aliado</a>
-        <a href="plan-padrino.html">Quiero apoyar</a>
-        <a href="padres.html">Soy Padre/Madre</a>
+        <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
+        <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
+        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+        <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
+        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+        <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Eleven Cracks · Sport Student</span>
-      <span>Educación · Medio ambiente · Economía · Cultura · Salud · Sociedad</span>
+      <span data-i18n="footer.copyright">© 2026 Eleven Cracks · Sport Student</span>
+      <span data-i18n="footer.categories">Educación · Medio ambiente · Economía · Cultura · Salud · Sociedad</span>
     </div>
   </div>
 </footer>
@@ -442,6 +458,179 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     });
   }, { threshold: 0.4 });
   lines.forEach(function(l){ observer.observe(l); });
+})();
+</script>
+
+<script>
+(function(){
+  var STRINGS = { es: {}, en: {}, zh: {} };
+
+  STRINGS.en = {
+    'nav.nosotros': 'About Us',
+    'nav.ecosistema': 'Ecosystem',
+    'nav.historias': 'Stories',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'See all six fronts',
+    'nav.fabw_educacion': 'Education',
+    'nav.fabw_ambiente': 'Environment',
+    'nav.fabw_economia': 'Economy',
+    'nav.fabw_cultura': 'Culture',
+    'nav.fabw_salud': 'Health',
+    'nav.fabw_sociedad': 'Society',
+    'nav.lugar': 'Find your place',
+    'nav.lugar_club': "I'm a Club",
+    'nav.lugar_deportista': "I'm an Athlete",
+    'nav.lugar_aliado': "I'm a Partner",
+    'nav.lugar_apoyar': 'I want to support',
+    'nav.lugar_padres': "I'm a Parent",
+    'nav.contacto': 'Contact',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'International Selection',
+    'footer.h_comunidad': 'Community',
+    'footer.padres': 'Parents',
+    'footer.equipos': 'Teams',
+    'footer.marcas': 'Brands',
+    'footer.h_contacto': 'Contact',
+    'footer.escribenos': 'Write to us',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Education · Environment · Economy · Culture · Health · Society',
+
+    'hero.breadcrumb': '&larr; Back to home',
+    'hero.h1': 'Six fronts, one same purpose.',
+    'hero.lede': 'Education, environment, economy, culture, health, and society — this is how 11 Cracks understands its impact beyond the field.',
+
+    'frentes.eyebrow': 'The six fronts',
+    'frentes.h2': 'One same field, six ways to leave a mark.',
+    'frentes.f1_p': 'Learning from the heart, in a schedule that complements training, with no desks.',
+    'frentes.f1_cta': 'Learn about Education →',
+    'frentes.f2_p': 'Circular economy from the field: uniforms, recycling, and environmental awareness in every process.',
+    'frentes.f2_cta': 'Learn about Environment →',
+    'frentes.f3_p': 'Clubs, companies, talent, and investment, woven together into communities that grow together.',
+    'frentes.f3_cta': 'Learn about Economy →',
+    'frentes.f4_p': 'Exchange, languages, and connections among young people, clubs, and countries.',
+    'frentes.f4_cta': 'Learn about Culture →',
+    'frentes.f5_p': 'Healthy habits and physical and emotional support among clubs and communities.',
+    'frentes.f5_cta': 'Learn about Health →',
+    'frentes.f6_p': "We're not a club, we're a community that plays, learns, and grows together.",
+    'frentes.f6_cta': 'Learn about Society →',
+
+    'puente.eyebrow': 'From intention to practice',
+    'puente.h2': 'These six fronts are trained every day within the 7 areas of 11 Cracks development.',
+    'puente.link': 'See the development areas →',
+
+    'vision.eyebrow': '2026 — 2027',
+    'vision.h2': 'The evolution and innovation of sport.',
+    'vision.l1': 'A <span class="verb">training session</span> can become a class.',
+    'vision.l2': 'A <span class="verb">club</span> can become a community.',
+    'vision.l3': 'A <span class="verb">jersey</span> can become an opportunity.',
+    'vision.l4': 'A <span class="verb">recycled bottle</span> can become education.',
+    'vision.l5': 'A <span class="verb">player</span> can become a well-rounded person.',
+    'vision.l6': 'A <span class="verb">region</span> can connect with the world.',
+
+    'close.h2': 'Find your place within this purpose.',
+    'close.btn': 'See my ways in'
+  };
+
+  STRINGS.zh = {
+    'nav.nosotros': '关于我们',
+    'nav.ecosistema': '生态系统',
+    'nav.historias': '故事',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': '查看全部六大领域',
+    'nav.fabw_educacion': '教育',
+    'nav.fabw_ambiente': '环境',
+    'nav.fabw_economia': '经济',
+    'nav.fabw_cultura': '文化',
+    'nav.fabw_salud': '健康',
+    'nav.fabw_sociedad': '社会',
+    'nav.lugar': '找到你的位置',
+    'nav.lugar_club': '我是俱乐部',
+    'nav.lugar_deportista': '我是运动员',
+    'nav.lugar_aliado': '我是合作伙伴',
+    'nav.lugar_apoyar': '我想提供支持',
+    'nav.lugar_padres': '我是家长',
+    'nav.contacto': '联系我们',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': '国际选拔',
+    'footer.h_comunidad': '社区',
+    'footer.padres': '家长',
+    'footer.equipos': '球队',
+    'footer.marcas': '品牌',
+    'footer.h_contacto': '联系方式',
+    'footer.escribenos': '联系我们',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': '教育 · 环境 · 经济 · 文化 · 健康 · 社会',
+
+    'hero.breadcrumb': '&larr; 返回首页',
+    'hero.h1': '六大领域，同一个目标。',
+    'hero.lede': '教育、环境、经济、文化、健康与社会——这就是11 Cracks理解其超越球场影响力的方式。',
+
+    'frentes.eyebrow': '六大领域',
+    'frentes.h2': '同一片球场，六种留下印记的方式。',
+    'frentes.f1_p': '用心学习，作为训练之外的补充活动，没有课桌。',
+    'frentes.f1_cta': '了解教育 →',
+    'frentes.f2_p': '从球场出发的循环经济：球衣、回收利用和贯穿每个环节的环保意识。',
+    'frentes.f2_cta': '了解环境 →',
+    'frentes.f3_p': '俱乐部、企业、人才与投资相互连接，构成共同成长的社区。',
+    'frentes.f3_cta': '了解经济 →',
+    'frentes.f4_p': '青年、俱乐部与国家之间的交流、语言学习与联系。',
+    'frentes.f4_cta': '了解文化 →',
+    'frentes.f5_p': '俱乐部与社区之间的健康习惯以及身体和情感上的陪伴。',
+    'frentes.f5_cta': '了解健康 →',
+    'frentes.f6_p': '我们不只是一个俱乐部，我们是一个共同比赛、学习和成长的社区。',
+    'frentes.f6_cta': '了解社会 →',
+
+    'puente.eyebrow': '从意图到实践',
+    'puente.h2': '这六大领域每天都在11 Cracks的七大领域中进行训练。',
+    'puente.link': '查看培养领域 →',
+
+    'vision.eyebrow': '2026 — 2027',
+    'vision.h2': '体育的进化与创新。',
+    'vision.l1': '一次<span class="verb">训练</span>可以变成一堂课。',
+    'vision.l2': '一个<span class="verb">俱乐部</span>可以变成一个社区。',
+    'vision.l3': '一件<span class="verb">球衣</span>可以变成一个机会。',
+    'vision.l4': '一个<span class="verb">回收瓶</span>可以变成教育。',
+    'vision.l5': '一名<span class="verb">球员</span>可以成长为全面发展的人。',
+    'vision.l6': '一个<span class="verb">地区</span>可以与世界相连。',
+
+    'close.h2': '在这个使命中找到你的位置。',
+    'close.btn': '查看我的加入方式'
+  };
+
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
+  });
+
+  function applyLang(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      var dict = STRINGS[lang] || {};
+      if (dict[key] !== undefined) { el.innerHTML = dict[key]; }
+      else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
+    });
+    document.documentElement.lang = lang;
+    var label = document.getElementById('langLabel');
+    if (label) label.textContent = lang.toUpperCase();
+    document.querySelectorAll('#langMenu a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('site_lang', lang); } catch(e){}
+  }
+
+  var langMenu = document.getElementById('langMenu');
+  if (langMenu) {
+    langMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        applyLang(a.getAttribute('data-lang'));
+      });
+    });
+  }
+
+  var saved = 'es';
+  try { saved = localStorage.getItem('site_lang') || 'es'; } catch(e){}
+  if (saved !== 'es') { applyLang(saved); }
 })();
 </script>
 </body>
