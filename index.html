@@ -85,36 +85,53 @@ section{padding:128px 0;}
 nav.mainnav{position:sticky; top:0; z-index:60; background:var(--black); border-bottom:1px solid oklch(1 0 0 / 0.1);}
 .mainnav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
 .logo img{height:34px; width:auto;}
-.nav-links{display:flex; align-items:center; gap:28px;}
+.nav-links{display:flex; align-items:center; gap:24px;}
 .nav-links > a:not(.btn){font-size:.9rem; font-weight:600; color:var(--ivory-dim); transition:color .2s; display:inline-flex; align-items:center; min-height:44px;}
 .nav-links > a:not(.btn):hover{color:var(--gold-light);}
-.nav-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; gap:5px;}
+.nav-utility{opacity:.75;}
+.nav-utility:hover{opacity:1;}
+.nav-mobile-controls{display:none; align-items:center; gap:10px;}
+.nav-toggle{display:flex; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; gap:5px;}
 .nav-toggle span, .nav-toggle::before, .nav-toggle::after{content:''; display:block; width:20px; height:2px; background:var(--white);}
 .nav-dropdown{position:relative;}
 .dropdown-toggle{display:inline-flex; align-items:center; gap:7px; cursor:pointer; background:oklch(1 0 0 / 0.05); border:1px solid oklch(1 0 0 / 0.16); border-radius:999px; font:inherit; font-size:.88rem; font-weight:600; color:var(--ivory-dim); padding:9px 16px; min-height:44px; white-space:nowrap; transition:color .2s, background .2s, border-color .2s;}
 .dropdown-toggle:hover{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
-.dropdown-toggle svg{width:10px; height:10px; transition:transform .2s;}
+.dropdown-toggle svg{width:10px; height:10px; transition:transform .2s; flex-shrink:0;}
 .nav-dropdown.open .dropdown-toggle svg, .nav-dropdown:hover .dropdown-toggle svg{transform:rotate(180deg);}
-.lang-toggle{padding:9px 14px;}
-.lang-toggle svg{width:16px; height:16px;}
-.nav-dropdown.open .lang-toggle svg, .nav-dropdown:hover .lang-toggle svg{transform:none;}
+.lang-toggle{padding:9px 14px; font-family:var(--numeric); letter-spacing:.03em;}
+.cta-toggle{background:var(--gold-action); color:var(--black); border-color:var(--gold-action);}
+.cta-toggle:hover{background:var(--gold-light); border-color:var(--gold-light); color:var(--black);}
+.nav-dropdown.open .cta-toggle, .nav-dropdown:hover .cta-toggle{background:var(--gold-light); border-color:var(--gold-light); color:var(--black);}
 .dropdown-menu a[data-lang]{cursor:pointer;}
 .dropdown-menu a[data-lang].active{color:var(--gold-light);}
 .nav-dropdown.open .dropdown-toggle, .nav-dropdown:hover .dropdown-toggle{color:var(--gold-light); background:oklch(1 0 0 / 0.1); border-color:oklch(1 0 0 / 0.32);}
+.nav-dropdown.open .cta-toggle, .nav-dropdown:hover .cta-toggle{color:var(--black);}
 .dropdown-menu{display:none; background:var(--charcoal); border:1px solid oklch(1 0 0 / 0.12); border-radius:8px; padding:8px; min-width:230px;}
 .nav-dropdown.open .dropdown-menu{display:block;}
 .dropdown-menu a{display:block; padding:10px 14px; border-radius:6px; font-size:.88rem; font-weight:600; color:var(--ivory-dim);}
 .dropdown-menu a:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
-@media (min-width:1141px){
+.lang-menu{min-width:200px;}
+.lang-option{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; border-radius:6px; font-size:.88rem; font-weight:600; color:var(--ivory-dim);}
+a.lang-option:hover{background:oklch(1 0 0 / 0.08); color:var(--gold-light);}
+.lang-option .lang-code{font-family:var(--numeric); font-size:.78rem; opacity:.6; letter-spacing:.03em;}
+.lang-option.active .lang-code{opacity:1; color:var(--gold-light);}
+.lang-option.is-pending{opacity:.4; cursor:default;}
+.lang-option .lang-pending{font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; font-weight:700;}
+@media (min-width:1280px){
   .dropdown-menu{display:block; position:absolute; top:100%; left:50%; padding-top:14px; box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(-50%) translateY(-6px); transition:opacity .16s ease, transform .16s ease, visibility .16s;}
   .nav-dropdown.open .dropdown-menu, .nav-dropdown:hover .dropdown-menu{opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);}
+  .lang-dropdown-desktop .dropdown-menu{left:auto; right:0; transform:translateY(-6px);}
+  .nav-dropdown.open .lang-dropdown-desktop .dropdown-menu, .lang-dropdown-desktop:hover .dropdown-menu{transform:translateY(0);}
 }
-@media (max-width:1140px){
+@media (max-width:1279px){
+  .nav-mobile-controls{display:flex;}
   .nav-links{position:fixed; inset:0 0 0 auto; width:min(78vw,320px); height:100vh; background:var(--black); flex-direction:column; align-items:flex-start; padding:90px 28px 28px; gap:22px; transform:translateX(100%); transition:transform .3s ease; box-shadow:-8px 0 30px oklch(0 0 0 / 0.4); overflow-y:auto;}
   .nav-links.open{transform:translateX(0);}
-  .nav-toggle{display:flex;}
   .dropdown-toggle{width:100%; justify-content:space-between;}
   .dropdown-menu{margin-top:8px; border:none; padding:0 0 0 14px; min-width:0; background:transparent;}
+  #navDropdown{order:2;}
+  .nav-utility{order:3; opacity:1;}
+  .lang-dropdown-desktop{order:4; width:100%; padding-top:14px; margin-top:6px; border-top:1px solid oklch(1 0 0 / 0.1);}
 }
 
 /* ---------- HERO ---------- */
@@ -457,28 +474,44 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     <a class="logo" href="#main" aria-label="Eleven Cracks — inicio">
       <img src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/logo.svg" alt="Eleven Cracks">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    <div class="nav-mobile-controls">
+      <div class="nav-dropdown lang-dropdown lang-dropdown-mobile" id="langDropdownMobile">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenuMobile" aria-label="Cambiar idioma">
+          <span class="lang-current">ES</span>
+          <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <div class="dropdown-menu lang-menu" id="langMenuMobile">
+          <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
+          <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
+          <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
+          <span class="lang-option is-pending" aria-disabled="true">Português <span class="lang-code">PT</span><span class="lang-pending">Próximamente</span></span>
+          <span class="lang-option is-pending" aria-disabled="true">Italiano <span class="lang-code">IT</span><span class="lang-pending">Próximamente</span></span>
+        </div>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+    </div>
     <div class="nav-links" id="navLinks">
       <a href="#somos" data-i18n="nav.nosotros">Nosotros</a>
       <a href="#ecosistema" data-i18n="nav.ecosistema">Ecosistema</a>
-      <div class="nav-dropdown" id="fabwDropdown">
-        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="fabwMenu">
-          <span data-i18n="nav.fabw">For a Better World</span>
+      <a href="historias.html" data-i18n="nav.historias">Historias</a>
+      <a href="for-a-better-world.html" data-i18n="nav.fabw">For a Better World</a>
+      <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
+      <div class="nav-dropdown lang-dropdown lang-dropdown-desktop" id="langDropdown">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
+          <span class="lang-current">ES</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
-        <div class="dropdown-menu" id="fabwMenu">
-          <a href="#for-a-better-world" data-i18n="nav.fabw_all">Ver todos los frentes</a>
-          <a href="educacion.html" data-i18n="nav.fabw_educacion">Educación</a>
-          <a href="medio-ambiente.html" data-i18n="nav.fabw_ambiente">Medio Ambiente</a>
-          <a href="economia.html" data-i18n="nav.fabw_economia">Economía</a>
-          <a href="cultura.html" data-i18n="nav.fabw_cultura">Cultura</a>
-          <a href="salud.html" data-i18n="nav.fabw_salud">Salud</a>
-          <a href="sociedad.html" data-i18n="nav.fabw_sociedad">Sociedad</a>
-          <a href="historias.html" data-i18n="nav.historias">Historias</a>
+        <div class="dropdown-menu lang-menu" id="langMenu">
+          <a href="#" data-lang="es" class="lang-option">Español <span class="lang-code">ES</span></a>
+          <a href="#" data-lang="en" class="lang-option">English <span class="lang-code">EN</span></a>
+          <a href="#" data-lang="zh" class="lang-option">中文 <span class="lang-code">ZH</span></a>
+          <span class="lang-option is-pending" aria-disabled="true">Português <span class="lang-code">PT</span><span class="lang-pending">Próximamente</span></span>
+          <span class="lang-option is-pending" aria-disabled="true">Italiano <span class="lang-code">IT</span><span class="lang-pending">Próximamente</span></span>
         </div>
       </div>
+      <a class="nav-utility" href="#contacto" data-i18n="nav.contacto">Contacto</a>
       <div class="nav-dropdown" id="navDropdown">
-        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
+        <button class="dropdown-toggle cta-toggle" type="button" aria-expanded="false" aria-controls="dropdownMenu">
           <span data-i18n="nav.lugar">Encuentra tu lugar</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
@@ -490,18 +523,6 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="padres.html" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
-      <div class="nav-dropdown" id="langDropdown">
-        <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Cambiar idioma">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
-          <span id="langLabel">ES</span>
-        </button>
-        <div class="dropdown-menu" id="langMenu">
-          <a href="#" data-lang="es">Español</a>
-          <a href="#" data-lang="en">English</a>
-          <a href="#" data-lang="zh">中文</a>
-        </div>
-      </div>
-      <a class="btn" href="#contacto" data-i18n="nav.contacto">Contacto</a>
     </div>
   </div>
 </nav>
@@ -1484,23 +1505,19 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var label = document.getElementById('langLabel');
-    if (label) label.textContent = lang.toUpperCase();
-    document.querySelectorAll('#langMenu a').forEach(function(a){
+    document.querySelectorAll('.lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
+    document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){
       a.classList.toggle('active', a.getAttribute('data-lang') === lang);
     });
     try { localStorage.setItem('site_lang', lang); } catch(e){}
   }
 
-  var langMenu = document.getElementById('langMenu');
-  if (langMenu) {
-    langMenu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        applyLang(a.getAttribute('data-lang'));
-      });
+  document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      applyLang(a.getAttribute('data-lang'));
     });
-  }
+  });
 
   var saved = 'es';
   try { saved = localStorage.getItem('site_lang') || 'es'; } catch(e){}
