@@ -319,12 +319,16 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
    difuminado quedaba flotando sobre el negro en vez de fundirse. La foto
    debe terminar justo al borde de la sección, no superponerse. */
 .somos-purpose{margin-top:72px; display:grid; grid-template-columns:0.8fr 1.2fr; gap:48px; align-items:center;}
-/* Solo desktop (grid en 2 columnas, foto es el elemento más bajo): cancela
-   exactamente el padding-bottom de .somos para que la foto quede al ras del
-   borde, sin superponerse al negro de .areas. En mobile el grid se apila y
-   el último elemento pasa a ser el CTA de texto — ahí se deja el aire normal. */
-@media (min-width:821px){.somos-purpose{margin-bottom:calc((var(--pad-compact) * -1) - 8px);}}
+.somos-purpose-textonly{grid-template-columns:1fr; max-width:640px;}
 @media (max-width:820px){.somos-purpose{grid-template-columns:1fr; margin-top:48px; gap:24px;}}
+
+/* Foto reubicada: vive DESPUÉS de .areas en el DOM, así que pinta encima de
+   su fondo negro sin necesitar z-index (los hermanos posteriores siempre
+   pintan sobre los anteriores). margin-top negativo la sube para que
+   traslape el final del negro en vez de aparecer ya completamente en blanco. */
+.purpose-photo-relocated{position:relative; margin-top:-140px; margin-bottom:40px; pointer-events:none;}
+.purpose-photo-relocated img{max-width:380px; width:60%; border-radius:4px;}
+@media (max-width:700px){.purpose-photo-relocated{margin-top:-64px; margin-bottom:24px;} .purpose-photo-relocated img{width:75%; max-width:280px;}}
 .somos-purpose img{border-radius:4px;}
 .somos-purpose h3{font-family:var(--display); font-weight:400; font-size:clamp(1.6rem,3.2vw,2.3rem); margin-bottom:16px;}
 
@@ -810,8 +814,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
         <p class="somos-video-caption" data-i18n="somos.video_caption">Voces reales del territorio donde nace 11 Cracks — el propósito, contado por quienes lo viven.</p>
       </div>
 
-      <div class="somos-purpose" data-motion="reveal">
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cta_image.png" alt="Deportista formándose en el programa 11 Cracks">
+      <div class="somos-purpose somos-purpose-textonly" data-motion="reveal">
         <div>
           <h3 data-i18n="somos.purpose_h3">Generación cero excusas. Cien oportunidades.</h3>
           <p class="lede" data-i18n="somos.purpose_p">Durante años, muchos escenarios deportivos se enfocaron únicamente en la posibilidad de llegar al profesionalismo, haciendo que para miles de jóvenes el deporte pareciera un camino de "todo o nada". Nosotros abrimos cien caminos más.</p>
@@ -901,6 +904,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       </div>
     </div>
   </section>
+
+  <!-- ============ FOTO REUBICADA — experimento, se solapa hacia arriba sobre el negro ============ -->
+  <div class="purpose-photo-relocated">
+    <div class="wrap">
+      <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/cta_image.png" alt="Deportista formándose en el programa 11 Cracks">
+    </div>
+  </div>
 
   <!-- ============ FOR A BETTER WORLD (teaser) ============ -->
   <section class="fabw-teaser" id="for-a-better-world">
