@@ -317,6 +317,9 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .somos-media img{display:block; width:100%; margin-bottom:0; border-radius:4px 4px 0 0;}
 .somos-copy{padding-bottom:var(--pad-editorial);}
 .somos-purpose h3{font-family:var(--display); font-weight:400; font-size:clamp(1.6rem,3.2vw,2.3rem); margin-bottom:16px;}
+/* Alineación óptica: todo el bloque derecho (heading+párrafo+CTA) baja como
+   una sola unidad para que el heading arranque a la altura del collage. */
+@media (min-width:821px){.somos-copy{padding-top:56px;}}
 @media (max-width:820px){
   .somos-purpose{grid-template-columns:1fr; margin-top:48px; gap:24px;}
   .somos-media{order:2; align-self:end;}
