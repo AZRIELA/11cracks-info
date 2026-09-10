@@ -69,12 +69,10 @@ section{padding:128px 0;}
    del borde, más cerca que el resto de contenidos de la Home. */
 .founder-story{padding-top:var(--pad-editorial); padding-bottom:var(--pad-editorial);}
 .somos{padding-top:var(--pad-editorial); padding-bottom:0;}
-/* areas.bottom deliberadamente COMPACTO, no editorial: al ser fondo negro
-   igual que el resto de la sección, un padding-bottom grande ahí no se lee
-   como aire — se lee como que el contenido oscuro simplemente se acaba sin
-   razón. El aire real de esta transición debe vivir en fabw-teaser.top
-   (blanco, entra justo después del cambio de color, se percibe de inmediato). */
-.areas{padding-top:var(--pad-editorial); padding-bottom:80px;}
+/* areas.bottom: respiración interna real dentro del negro (no es la
+   transición hacia fabw-teaser, que sigue viviendo en fabw-teaser.top). El
+   último item (07) necesita aire antes de que termine la sección oscura. */
+.areas{padding-top:var(--pad-editorial); padding-bottom:clamp(96px, 7vw, 136px);}
 .fabw-teaser{padding-top:var(--pad-editorial); padding-bottom:48px;}
 /* fabw-teaser→voces (FABW→Historias) queda con sus valores fijos previos,
    sin usar los tokens de esta pasada: es la transición explícitamente
@@ -95,7 +93,7 @@ section{padding:128px 0;}
 @media (max-width:700px){
   section{padding:72px 0;}
   .hero{padding-bottom:40px;}
-  .areas{padding-bottom:48px;}
+  .areas{padding-bottom:clamp(64px, 9vw, 88px);}
   .fabw-teaser{padding-bottom:28px;}
   .voces{padding-top:28px;}
   .marcas{padding-top:28px; padding-bottom:40px;}
@@ -319,6 +317,10 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .somos-media img{display:block; width:100%; margin-bottom:0; border-radius:4px 4px 0 0;}
 .somos-copy{padding-bottom:var(--pad-editorial);}
 .somos-purpose h3{font-family:var(--display); font-weight:400; font-size:clamp(1.6rem,3.2vw,2.3rem); margin-bottom:16px;}
+/* Alineación óptica: el bloque de párrafo+CTA debe arrancar a la altura de
+   las cabezas del collage, no solo compartir el top del grid con el heading.
+   Solo aplica en el layout de 2 columnas (desktop/tablet). */
+@media (min-width:821px){.somos-purpose .lede{margin-top:48px;}}
 @media (max-width:820px){
   .somos-purpose{grid-template-columns:1fr; margin-top:48px; gap:24px;}
   .somos-media{order:2; align-self:end;}
