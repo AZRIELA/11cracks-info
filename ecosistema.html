@@ -122,6 +122,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
   .nav-links.open{transform:translateX(0);}
   .dropdown-toggle{width:100%; justify-content:space-between;}
   .dropdown-menu{margin-top:8px; border:none; padding:0 0 0 14px; min-width:0; background:transparent;}
+  .lang-dropdown-mobile .dropdown-menu{position:absolute; top:calc(100% + 10px); right:0; margin-top:0; border:1px solid oklch(1 0 0 / 0.12); padding:8px; min-width:200px; background:var(--charcoal); box-shadow:0 12px 32px oklch(0 0 0 / 0.4); z-index:5;}
   #navDropdown{order:2;}
   .nav-utility{order:3; opacity:1;}
   .lang-dropdown-desktop{order:4; width:100%; padding-top:14px; margin-top:6px; border-top:1px solid oklch(1 0 0 / 0.1);}
@@ -249,8 +250,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true">Português<span class="lang-soon" aria-hidden="true" title="Próximamente">⏳</span></span>
-          <span class="lang-option is-pending" aria-disabled="true">Italiano<span class="lang-soon" aria-hidden="true" title="Próximamente">⏳</span></span>
+          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
+          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -270,8 +271,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true">Português<span class="lang-soon" aria-hidden="true" title="Próximamente">⏳</span></span>
-          <span class="lang-option is-pending" aria-disabled="true">Italiano<span class="lang-soon" aria-hidden="true" title="Próximamente">⏳</span></span>
+          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
+          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
