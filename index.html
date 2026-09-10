@@ -67,8 +67,13 @@ section{padding:128px 0;}
    donde ambos lados de una sección son grandes. */
 .founder-story{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
 .somos{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
-.areas{padding-top:var(--pad-editorial); padding-bottom:var(--pad-editorial);}
-.fabw-teaser{padding-top:var(--pad-compact); padding-bottom:48px;}
+/* areas.bottom deliberadamente COMPACTO, no editorial: al ser fondo negro
+   igual que el resto de la sección, un padding-bottom grande ahí no se lee
+   como aire — se lee como que el contenido oscuro simplemente se acaba sin
+   razón. El aire real de esta transición debe vivir en fabw-teaser.top
+   (blanco, entra justo después del cambio de color, se percibe de inmediato). */
+.areas{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
+.fabw-teaser{padding-top:var(--pad-editorial); padding-bottom:48px;}
 /* fabw-teaser→voces (FABW→Historias) queda con sus valores fijos previos,
    sin usar los tokens de esta pasada: es la transición explícitamente
    aprobada y protegida contra "huecos dobles" en un pase anterior. */
