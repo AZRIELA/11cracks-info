@@ -148,6 +148,11 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .intro .wrap{max-width:800px;}
 .intro h2{font-size:clamp(1.7rem,3.4vw,2.4rem); margin-bottom:20px;}
 
+/* ---------- POR QUÉ EL DEPORTE ---------- */
+.porque-deporte{background:var(--gold-dim);}
+.porque-deporte .wrap{max-width:800px;}
+.porque-deporte h2{font-size:clamp(1.6rem,3.2vw,2.2rem); margin-bottom:18px;}
+
 /* ---------- TERRITORIOS DE PAZ ---------- */
 .paz{position:relative; background:var(--black); color:var(--white); overflow:hidden;}
 .paz .wrap{position:relative; z-index:2; max-width:760px;}
@@ -160,6 +165,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .paz-eje{background:var(--black); padding:28px 22px;}
 .paz-eje h3{font-family:var(--body); font-weight:700; font-size:.98rem; color:var(--white); margin-bottom:8px;}
 .paz-eje p{color:var(--ivory-dim); font-size:.9rem;}
+.paz-note{margin-top:40px; color:var(--ivory-dim); opacity:.85; font-size:.9rem; max-width:60ch;}
 
 /* ---------- GALERÍA ---------- */
 .galeria{background:var(--white);}
@@ -315,6 +321,15 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
   </section>
 
+  <!-- ============ POR QUÉ EL DEPORTE ============ -->
+  <section class="porque-deporte">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="soc.pd_eyebrow">Por qué el deporte</span>
+      <h2 data-i18n="soc.pd_h2">Una cancha reúne a quienes, de otra forma, no se encontrarían.</h2>
+      <p class="lede" data-i18n="soc.pd_lede">El deporte no pide un mismo origen, barrio o condición para participar: basta con estar ahí. Por eso 11 Cracks usa el deporte como punto de partida para construir comunidad — no porque sea el fin, sino porque es la puerta más abierta que existe.</p>
+    </div>
+  </section>
+
   <!-- ============ TERRITORIOS DE PAZ ============ -->
   <section class="paz">
     <div class="wrap">
@@ -343,6 +358,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <p data-i18n="soc.eje5_p">El territorio no solo contiene al joven: puede conectarlo con nuevos caminos.</p>
         </div>
       </div>
+      <p class="paz-note" data-i18n="soc.paz_note">Un Territorio de Paz no es un espacio aislado: es una puerta de entrada al ecosistema 11 Cracks. Quien llega a través de él puede continuar su proceso dentro de las siete áreas de formación, con el mismo acompañamiento que cualquier otro deportista del ecosistema.</p>
     </div>
   </section>
 
@@ -593,6 +609,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'soc.intro_eyebrow': 'What this front means',
     'soc.intro_h2': 'The field as a meeting point, not only a place to compete.',
     'soc.intro_lede': 'Within 11 Cracks, Society brings together everything that turns a sports venue into a space of belonging: coexistence, inclusion, volunteering and opportunities built as a community, not in isolation.',
+    'soc.pd_eyebrow': 'Why sport',
+    'soc.pd_h2': 'A field brings together people who would otherwise never meet.',
+    'soc.pd_lede': "Sport doesn't ask for a shared background, neighborhood, or status to take part: showing up is enough. That's why 11 Cracks uses sport as the starting point for building community — not because it's the end goal, but because it's the most open door there is.",
+
     'soc.paz_eyebrow': 'Society · Territories of Peace',
     'soc.paz_h2': 'A field can also be a safe place to grow.',
     'soc.paz_lede': 'We turn sports venues into territories of peace: safe spaces for training, coexistence and inclusion where children and young people can learn, grow and build new opportunities.',
@@ -606,6 +626,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'soc.eje4_p': 'People who multiply knowledge, support and opportunities.',
     'soc.eje5_h3': 'Opportunities',
     'soc.eje5_p': 'The territory does not just hold the young person: it can connect them with new paths.',
+    'soc.paz_note': "A Territory of Peace is not an isolated space: it's a gateway into the 11 Cracks ecosystem. Anyone who arrives through it can continue their process within the seven training areas, with the same support as any other athlete in the ecosystem.",
+
     'soc.galeria_eyebrow': 'In pictures',
     'soc.galeria_h2': 'Community, on and off the field.',
     'soc.close_h2': 'Find your place within this community.'
@@ -650,6 +672,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'soc.intro_eyebrow': '这一领域的意义',
     'soc.intro_h2': '球场是相遇之地，而不仅仅是竞技之地。',
     'soc.intro_lede': '在11 Cracks中，社会领域汇聚了让体育场地成为归属空间的一切：共处、包容、志愿服务，以及在社区中而非孤立地构建的机会。',
+    'soc.pd_eyebrow': '为什么是体育',
+    'soc.pd_h2': '一片球场能让原本不会相遇的人走到一起。',
+    'soc.pd_lede': '体育不要求参与者拥有相同的出身、社区或条件，只需要出现在那里。这正是11 Cracks以体育作为构建社区起点的原因——不是因为它是终点，而是因为它是最开放的一扇门。',
+
     'soc.paz_eyebrow': '社会 · 和平领地',
     'soc.paz_h2': '球场也可以是一个安全成长的地方。',
     'soc.paz_lede': '我们将体育场地转变为和平领地：安全的培养、共处与包容空间，让儿童和青少年在其中学习、成长并构建新的机会。',
@@ -663,6 +689,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'soc.eje4_p': '让知识、陪伴与机会成倍增长的人们。',
     'soc.eje5_h3': '机会',
     'soc.eje5_p': '这片土地不仅容纳青少年，还能将他们与新的道路连接起来。',
+    'soc.paz_note': '和平领地并不是一个孤立的空间：它是通往11 Cracks生态系统的入口。通过它加入的人，可以继续在七大培养领域中推进自己的历程，获得与生态系统中其他运动员相同的陪伴。',
+
     'soc.galeria_eyebrow': '影像记录',
     'soc.galeria_h2': '球场内外的社区。',
     'soc.close_h2': '在这个社区中找到你的位置。'
