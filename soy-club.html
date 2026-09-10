@@ -172,6 +172,14 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .statement p{margin:0 auto; color:oklch(0.16 0.003 92 / 0.75);}
 
 /* ---------- EVIDENCIA ---------- */
+.faq{background:var(--white);}
+.faq-list{margin-top:32px; border-top:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
+.faq-item summary{font-family:var(--display); font-weight:600; font-size:1.1rem; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:16px;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+'; font-size:1.4rem; color:var(--gold-deep); flex-shrink:0; transition:transform .2s ease;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{margin-top:14px; color:var(--ink-dim); font-size:.95rem;}
 .evidencia{background:var(--charcoal); color:var(--white); text-align:center;}
 .evidencia h2{font-size:clamp(1.5rem,3vw,2rem); max-width:20ch; margin:0 auto 20px;}
 .evidencia .link-more{color:var(--gold-light); border-color:var(--gold);}
@@ -327,6 +335,30 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
   </section>
 
+  <!-- ============ QUÉ CAMBIA CON 11 CRACKS ============ -->
+  <section class="obtiene">
+    <div class="wrap">
+      <div class="obtiene-head">
+        <span class="eyebrow" data-i18n="actores.eyebrow">Qué cambia con 11 Cracks</span>
+        <h2 data-i18n="actores.h2">Un mismo proceso, visto desde cada actor.</h2>
+      </div>
+      <div class="obtiene-grid">
+        <div class="obtiene-item">
+          <h3 data-i18n="actores.dep_h3">El deportista</h3>
+          <p data-i18n="actores.dep_p">Formación más allá del entrenamiento, con las siete áreas de 11 Cracks y experiencias NeuroCracks aplicadas a su proceso. Su progreso puede abrir el acceso a oportunidades del ecosistema, sujetas a requisitos y disponibilidad — no de forma automática.</p>
+        </div>
+        <div class="obtiene-item">
+          <h3 data-i18n="actores.ent_h3">El entrenador</h3>
+          <p data-i18n="actores.ent_p">Acompaña y observa la evolución del deportista dentro del proceso, con la metodología NeuroCracks integrada a cada sesión — una mirada más integral, no solo técnica.</p>
+        </div>
+        <div class="obtiene-item">
+          <h3 data-i18n="actores.club_h3">El club</h3>
+          <p data-i18n="actores.club_p">Fortalece su propuesta formativa y su relación con las familias, queda conectado al ecosistema 11 Cracks y participa en su cultura de sostenibilidad a través de PET.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CÓMO FUNCIONA ============ -->
   <section class="pasos">
     <div class="wrap">
@@ -374,6 +406,31 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       <span class="eyebrow on-dark" data-i18n="evidencia.eyebrow">Evidencia</span>
       <h2 data-i18n="evidencia.h2">Así viven el proceso quienes ya son parte de 11 Cracks.</h2>
       <a class="link-more" href="index.html#voces" data-i18n="evidencia.link">Ver historias reales →</a>
+    </div>
+  </section>
+
+  <!-- ============ PREGUNTAS FRECUENTES ============ -->
+  <section class="faq">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</span>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="faq.q1">¿11 Cracks reemplaza el entrenamiento del club?</summary>
+          <p data-i18n="faq.a1">No. Se integra para ampliar la formación alrededor del deportista, sin cambiar tu estructura actual.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q2">¿Está pensado solo para quienes llegarán al profesionalismo?</summary>
+          <p data-i18n="faq.a2">No. La formación busca preparar para el deporte y para la vida, más allá del rendimiento en cancha.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q3">¿Qué papel tiene el entrenador?</summary>
+          <p data-i18n="faq.a3">Es una figura clave de acompañamiento: observa la evolución del deportista y conecta el entrenamiento con su proceso formativo.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q4">¿Cómo inicia mi club?</summary>
+          <p data-i18n="faq.a4">A través del contacto directo con 11 Cracks — el equipo confirma el encaje y los siguientes pasos.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -610,6 +667,23 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'evidencia.eyebrow': 'Evidence',
     'evidencia.h2': 'This is how the process is lived by those already part of 11 Cracks.',
     'evidencia.link': 'See real stories →',
+    'actores.eyebrow': 'What changes with 11 Cracks',
+    'actores.h2': 'One process, seen from each side.',
+    'actores.dep_h3': 'The athlete',
+    'actores.dep_p': "Training beyond practice, with 11 Cracks' seven areas and NeuroCracks experiences applied to their process. Their progress can open access to opportunities within the ecosystem, subject to requirements and availability — not automatically.",
+    'actores.ent_h3': 'The coach',
+    'actores.ent_p': "Accompanies and observes the athlete's evolution within the process, with the NeuroCracks methodology built into every session — a more complete view, not only a technical one.",
+    'actores.club_h3': 'The club',
+    'actores.club_p': 'Strengthens its training offer and its relationship with families, connects to the 11 Cracks ecosystem, and takes part in its sustainability culture through PET.',
+    'faq.eyebrow': 'Frequently asked questions',
+    'faq.q1': "Does 11 Cracks replace the club's training?",
+    'faq.a1': "No. It integrates to expand the athlete's training, without changing your current structure.",
+    'faq.q2': 'Is it only for those who will turn professional?',
+    'faq.a2': 'No. The training aims to prepare for sport and for life, beyond performance on the field.',
+    'faq.q3': "What role does the coach play?",
+    'faq.a3': "A key accompanying figure: observing the athlete's evolution and connecting training with their formative process.",
+    'faq.q4': 'How does my club get started?',
+    'faq.a4': 'Through direct contact with 11 Cracks — the team confirms the fit and the next steps.',
 
     'cierre.h2': 'Your field can be the next 11 Cracks classroom.'
   };
@@ -674,6 +748,23 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'evidencia.eyebrow': '实证',
     'evidencia.h2': '这是已经加入11 Cracks的人所经历的过程。',
     'evidencia.link': '查看真实故事 →',
+    'actores.eyebrow': '11 Cracks带来的改变',
+    'actores.h2': '同一个过程，来自不同角色的视角。',
+    'actores.dep_h3': '运动员',
+    'actores.dep_p': '培训不止于训练本身，还包括11 Cracks的七大领域和融入其过程的NeuroCracks体验。他的进步可以开启生态系统内机会的大门，但需满足条件并视名额而定——并非自动获得。',
+    'actores.ent_h3': '教练',
+    'actores.ent_p': '在整个过程中陪伴并观察运动员的成长，NeuroCracks方法融入每一节训练——一种更全面的视角，而不仅仅是技术层面。',
+    'actores.club_h3': '俱乐部',
+    'actores.club_p': '强化自身的培养体系及与家庭的关系，连接到11 Cracks生态系统，并通过PET参与可持续文化建设。',
+    'faq.eyebrow': '常见问题',
+    'faq.q1': '11 Cracks会取代俱乐部的训练吗？',
+    'faq.a1': '不会。它是为了拓展围绕运动员的培养而融入进来的，不会改变你目前的架构。',
+    'faq.q2': '这个项目只针对将成为职业运动员的人吗？',
+    'faq.a2': '不是。培养的目的是为体育和人生做准备，而不仅仅是场上的表现。',
+    'faq.q3': '教练扮演什么角色？',
+    'faq.a3': '教练是关键的陪伴者：观察运动员的成长，并将训练与其培养过程连接起来。',
+    'faq.q4': '我的俱乐部如何开始？',
+    'faq.a4': '通过与11 Cracks的直接联系——团队会确认契合度和后续步骤。',
 
     'cierre.h2': '你的球场可以成为11 Cracks的下一个课堂。'
   };
