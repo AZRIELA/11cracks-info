@@ -30,6 +30,14 @@
   --display: 'Barlow Condensed', sans-serif;
   --body: 'Geist', sans-serif;
   --numeric: 'Bebas Neue', sans-serif;
+  /* Respiración vertical de capítulos editoriales — mismo principio que
+     NeuroCracks (referencia bloqueada), aplicado como aire INTERNO de cada
+     sección, no como valor de transición entre dos secciones. */
+  --pad-editorial: clamp(96px, 7.5vw, 144px);
+  --pad-compact:   clamp(40px, 4vw, 56px);
+}
+@media (max-width:700px){
+  :root{ --pad-editorial: clamp(56px, 10vw, 80px); }
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
@@ -53,11 +61,18 @@ section{padding:128px 0;}
    franjas de 250-290px sin razón compositiva entre varias secciones. */
 .hero{padding-bottom:64px;}
 .lugar{padding-top:48px; padding-bottom:64px;}
-.founder-story{padding-top:40px; padding-bottom:56px;}
-.somos{padding-top:48px; padding-bottom:64px;}
-.areas{padding-top:48px; padding-bottom:56px;}
-.fabw-teaser{padding-top:40px; padding-bottom:48px;}
-.voces{padding-top:40px; padding-bottom:48px;}
+/* Cada transición sigue calculándose a propósito (un lado "editorial" grande
+   + el lado vecino "compacto", nunca dos lados grandes encontrándose sin
+   razón) — ver comentario de más abajo para las dos excepciones deliberadas
+   donde ambos lados de una sección son grandes. */
+.founder-story{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
+.somos{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
+.areas{padding-top:var(--pad-editorial); padding-bottom:var(--pad-editorial);}
+.fabw-teaser{padding-top:var(--pad-compact); padding-bottom:48px;}
+/* fabw-teaser→voces (FABW→Historias) queda con sus valores fijos previos,
+   sin usar los tokens de esta pasada: es la transición explícitamente
+   aprobada y protegida contra "huecos dobles" en un pase anterior. */
+.voces{padding-top:40px; padding-bottom:var(--pad-editorial);}
 .marcas{padding-top:40px; padding-bottom:56px;}
 /* NeuroCracks e Ecosistema necesitan AIRE INTERNO (composición), no una
    transición más corta — no confundir con el padding de transición del resto
@@ -65,22 +80,20 @@ section{padding:128px 0;}
    tocar estos dos valores en una pasada global de spacing. */
 .statement{padding-top:48px; padding-bottom:48px;}
 .ecosistema{padding-top:112px; padding-bottom:112px;}
-.pet-moment{padding-top:44px; padding-bottom:40px;}
-.seleccion{padding-top:40px; padding-bottom:56px;}
+/* PET y Selección: los dos casos señalados como "más evidente falta de
+   aire" — ambos lados generosos a propósito, no solo el que mira al vecino
+   más comprimido. */
+.pet-moment{padding-top:var(--pad-editorial); padding-bottom:var(--pad-editorial);}
+.seleccion{padding-top:var(--pad-editorial); padding-bottom:var(--pad-editorial);}
 @media (max-width:700px){
   section{padding:72px 0;}
   .hero{padding-bottom:40px;}
   .lugar{padding-top:32px; padding-bottom:40px;}
-  .founder-story{padding-top:32px; padding-bottom:40px;}
-  .somos{padding-top:32px; padding-bottom:40px;}
-  .areas{padding-top:32px; padding-bottom:40px;}
-  .fabw-teaser{padding-top:28px; padding-bottom:32px;}
-  .voces{padding-top:28px; padding-bottom:32px;}
+  .fabw-teaser{padding-bottom:28px;}
+  .voces{padding-top:28px;}
   .marcas{padding-top:28px; padding-bottom:32px;}
   .statement{padding-top:32px; padding-bottom:32px;}
   .ecosistema{padding-top:64px; padding-bottom:64px;}
-  .pet-moment{padding-top:32px; padding-bottom:28px;}
-  .seleccion{padding-top:28px; padding-bottom:32px;}
 }
 .lede{font-size:1.05rem; color:var(--ink-dim); max-width:60ch;}
 /* ---------- SISTEMA DE ACCIONES: Primary / Secondary / Editorial / Utility ---------- */
