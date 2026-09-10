@@ -171,6 +171,13 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .sostener-grid img{border-radius:4px;}
 .sostener-grid h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin-bottom:16px;}
 
+/* ---------- QUIÉN PUEDE SER PADRINO + PRIVACIDAD ---------- */
+.padrino-info{background:var(--white);}
+.padrino-info-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+@media (max-width:820px){.padrino-info-grid{grid-template-columns:1fr; gap:36px;}}
+.padrino-info-item h3{font-family:var(--body); font-weight:700; font-size:1.15rem; color:var(--black); margin-bottom:12px;}
+.padrino-info-item p{color:var(--ink-dim); font-size:.95rem;}
+
 /* ---------- CÓMO FUNCIONA — pasos ---------- */
 .pasos{background:var(--white);}
 .pasos-head{max-width:640px; margin-bottom:56px;}
@@ -335,6 +342,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <h3 data-i18n="flujo.node3">Más oportunidades para crecer</h3>
         </div>
       </div>
+      <p class="flujo-note" data-i18n="flujo.note">Tu aporte no paga una clase suelta: sostiene la continuidad del proceso formativo del deportista, mes a mes.</p>
     </div>
   </section>
 
@@ -377,6 +385,22 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
             <p data-i18n="pasos.paso3_p">El padrinazgo continúa mes a mes y puedes finalizarlo cuando lo necesites.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUIÉN PUEDE SER PADRINO + PRIVACIDAD ============ -->
+  <section class="padrino-info">
+    <div class="wrap padrino-info-grid">
+      <div class="padrino-info-item">
+        <span class="eyebrow" data-i18n="quien.eyebrow">Quién puede ser padrino</span>
+        <h3 data-i18n="quien.h3">Cualquier persona que quiera acompañar un proceso.</h3>
+        <p data-i18n="quien.p">No se requiere ninguna condición especial: basta con la voluntad de sostener, de forma continua y voluntaria, la formación de un deportista dentro de 11 Cracks.</p>
+      </div>
+      <div class="padrino-info-item">
+        <span class="eyebrow" data-i18n="privacidad.eyebrow">Privacidad y cuidado del deportista</span>
+        <h3 data-i18n="privacidad.h3">La identidad del deportista se protege siempre.</h3>
+        <p data-i18n="privacidad.p">11 Cracks gestiona la asignación y el contacto de forma responsable, priorizando el bienestar y la privacidad del deportista por encima de cualquier otro interés.</p>
       </div>
     </div>
   </section>
@@ -594,9 +618,18 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'flujo.node1': 'Padrino',
     'flujo.node2': 'Ongoing development',
     'flujo.node3': 'More opportunities to grow',
+    'flujo.note': "Your contribution isn't paying for a single class: it sustains the continuity of the athlete's development process, month after month.",
 
     'sostener.eyebrow': 'Much more than sport',
     'sostener.h2': 'Sport, NeuroCracks, learning, and life skills — in the same process.',
+
+    'quien.eyebrow': 'Who can become a padrino',
+    'quien.h3': 'Anyone who wants to accompany a process.',
+    'quien.p': 'No special condition is required: it takes only the willingness to sustain, on an ongoing and voluntary basis, an athlete\'s development within 11 Cracks.',
+
+    'privacidad.eyebrow': 'Privacy and care for the athlete',
+    'privacidad.h3': "The athlete's identity is always protected.",
+    'privacidad.p': "11 Cracks manages the assignment and contact responsibly, prioritizing the athlete's wellbeing and privacy above any other interest.",
 
     'pasos.eyebrow': 'How it works',
     'pasos.paso1_h3': 'You become a padrino',
@@ -654,9 +687,18 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'flujo.node1': '资助人',
     'flujo.node2': '持续培养',
     'flujo.node3': '更多成长机会',
+    'flujo.note': '你的支持并不是支付某一节课，而是持续维持运动员培养过程的连续性，一月接一月。',
 
     'sostener.eyebrow': '远不止体育',
     'sostener.h2': '体育、NeuroCracks、学习与生活技能——融为一体的培养过程。',
+
+    'quien.eyebrow': '谁可以成为资助人',
+    'quien.h3': '任何愿意陪伴这一过程的人。',
+    'quien.p': '无需任何特殊条件：只需自愿、持续地支持11 Cracks中一名运动员的培养过程。',
+
+    'privacidad.eyebrow': '隐私与对运动员的保护',
+    'privacidad.h3': '运动员的身份始终受到保护。',
+    'privacidad.p': '11 Cracks负责任地管理分配与联系事宜，将运动员的福祉与隐私置于其他任何利益之上。',
 
     'pasos.eyebrow': '如何运作',
     'pasos.paso1_h3': '你成为资助人',
