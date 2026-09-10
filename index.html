@@ -323,7 +323,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
    exactamente el padding-bottom de .somos para que la foto quede al ras del
    borde, sin superponerse al negro de .areas. En mobile el grid se apila y
    el último elemento pasa a ser el CTA de texto — ahí se deja el aire normal. */
-@media (min-width:821px){.somos-purpose{margin-bottom:calc((var(--pad-compact) * -1) + 24px);}}
+@media (min-width:821px){.somos-purpose{margin-bottom:calc((var(--pad-compact) * -1) - 8px);}}
 @media (max-width:820px){.somos-purpose{grid-template-columns:1fr; margin-top:48px; gap:24px;}}
 .somos-purpose img{border-radius:4px;}
 .somos-purpose h3{font-family:var(--display); font-weight:400; font-size:clamp(1.6rem,3.2vw,2.3rem); margin-bottom:16px;}
