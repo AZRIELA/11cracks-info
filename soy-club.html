@@ -255,8 +255,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -276,8 +276,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -483,6 +483,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -606,7 +607,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -770,6 +771,168 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'cierre.h2': '你的球场可以成为11 Cracks的下一个课堂。'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver todas as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Fale conosco',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+
+    'hero.back': '&larr; Voltar ao início',
+    'hero.eyebrow': 'Sou um Clube · 11 Cracks',
+    'hero.h1': 'Leve a 11 Cracks para o seu clube',
+    'hero.lede': 'Transforme o campo em um espaço de formação, acompanhamento e desenvolvimento integral para seus atletas e sua comissão técnica.',
+    'hero.cta': 'Juntar meu clube',
+
+    'obtiene.eyebrow': 'O que seu clube ganha',
+    'obtiene.h2': 'O que você integra ao seu clube, sem mudar sua estrutura atual.',
+    'obtiene.item1.h3': 'Sport Student + 7 áreas de formação',
+    'obtiene.item1.p': 'Você integra a metodologia Sport Student aos seus treinamentos, com acesso às sete áreas de formação da 11 Cracks para seus atletas e sua comissão técnica.',
+    'obtiene.item2.h3': 'Acompanhamento dentro do ecossistema',
+    'obtiene.item2.p': 'Seu clube fica conectado ao ecossistema 11 Cracks — acompanhamento do processo formativo e acesso aos mecanismos de apoio disponíveis.',
+    'obtiene.item3.h3': 'Sustentabilidade · PET',
+    'obtiene.item3.p': 'Seus atletas participam dos processos de reciclagem e economia circular da 11 Cracks, integrados à dinâmica de treinamento.',
+
+    'pasos.eyebrow': 'Como funciona',
+    'pasos.item1.h3': 'Você deixa os dados do seu clube',
+    'pasos.item1.p': 'Você nos conta quem são e qual modalidade lhes interessa.',
+    'pasos.item2.h3': 'A 11 Cracks valida a parceria',
+    'pasos.item2.p': 'A equipe confirma o encaixe e os próximos passos com seu clube.',
+    'pasos.item3.h3': 'Vocês começam com a metodologia',
+    'pasos.item3.p': 'A Sport Student se integra aos treinamentos do seu clube.',
+
+    'statement.eyebrow': 'Formar elite · Construir vidas',
+    'statement.h2': 'NeuroCracks para treinadores',
+    'statement.lede': 'Desenvolve talento, mentalidade e liderança para decidir dentro e fora do jogo, com a metodologia NeuroCracks aplicada a cada sessão de treinamento.',
+
+    'evidencia.eyebrow': 'Evidência',
+    'evidencia.h2': 'Assim vivem o processo aqueles que já fazem parte da 11 Cracks.',
+    'evidencia.link': 'Ver histórias reais →',
+    'actores.eyebrow': 'O que muda com a 11 Cracks',
+    'actores.h2': 'Um mesmo processo, visto a partir de cada ator.',
+    'actores.dep_h3': 'O atleta',
+    'actores.dep_p': 'Formação além do treinamento, com as sete áreas da 11 Cracks e experiências NeuroCracks aplicadas ao seu processo. Seu progresso pode abrir acesso a oportunidades do ecossistema, sujeitas a requisitos e disponibilidade — não de forma automática.',
+    'actores.ent_h3': 'O treinador',
+    'actores.ent_p': 'Acompanha e observa a evolução do atleta dentro do processo, com a metodologia NeuroCracks integrada a cada sessão — um olhar mais integral, não apenas técnico.',
+    'actores.club_h3': 'O clube',
+    'actores.club_p': 'Fortalece sua proposta formativa e sua relação com as famílias, fica conectado ao ecossistema 11 Cracks e participa de sua cultura de sustentabilidade por meio do PET.',
+    'faq.eyebrow': 'Perguntas frequentes',
+    'faq.q1': 'A 11 Cracks substitui o treinamento do clube?',
+    'faq.a1': 'Não. Ela se integra para ampliar a formação em torno do atleta, sem mudar sua estrutura atual.',
+    'faq.q2': 'É pensado apenas para quem vai chegar ao profissionalismo?',
+    'faq.a2': 'Não. A formação busca preparar para o esporte e para a vida, além do desempenho em campo.',
+    'faq.q3': 'Qual é o papel do treinador?',
+    'faq.a3': 'É uma figura-chave de acompanhamento: observa a evolução do atleta e conecta o treinamento com seu processo formativo.',
+    'faq.q4': 'Como meu clube começa?',
+    'faq.a4': 'Por meio do contato direto com a 11 Cracks — a equipe confirma o encaixe e os próximos passos.',
+
+    'cierre.h2': 'Seu campo pode ser a próxima sala de aula da 11 Cracks.'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+
+    'hero.back': '&larr; Torna alla home',
+    'hero.eyebrow': 'Sono un Club · 11 Cracks',
+    'hero.h1': 'Porta 11 Cracks nel tuo club',
+    'hero.lede': "Trasforma il campo in uno spazio di formazione, monitoraggio e sviluppo integrale per i tuoi atleti e il tuo staff tecnico.",
+    'hero.cta': 'Unisci il mio club',
+
+    'obtiene.eyebrow': 'Cosa ottiene il tuo club',
+    'obtiene.h2': 'Ciò che integri nel tuo club, senza cambiare la tua struttura attuale.',
+    'obtiene.item1.h3': 'Sport Student + 7 aree di formazione',
+    'obtiene.item1.p': "Integri la metodologia Sport Student nei tuoi allenamenti, con accesso alle sette aree di formazione di 11 Cracks per i tuoi atleti e il tuo staff tecnico.",
+    'obtiene.item2.h3': "Accompagnamento all'interno dell'ecosistema",
+    'obtiene.item2.p': "Il tuo club si connette all'ecosistema 11 Cracks — monitoraggio del processo formativo e accesso ai meccanismi di supporto disponibili.",
+    'obtiene.item3.h3': 'Sostenibilità · PET',
+    'obtiene.item3.p': "I tuoi atleti partecipano ai processi di riciclo ed economia circolare di 11 Cracks, integrati nella routine di allenamento.",
+
+    'pasos.eyebrow': 'Come funziona',
+    'pasos.item1.h3': 'Lasci i dati del tuo club',
+    'pasos.item1.p': 'Ci racconti chi sono e quale modalità li interessa.',
+    'pasos.item2.h3': 'La 11 Cracks convalida la partnership',
+    'pasos.item2.p': 'Il team conferma la compatibilità e i prossimi passi con il tuo club.',
+    'pasos.item3.h3': 'Iniziate con la metodologia',
+    'pasos.item3.p': 'Sport Student si integra negli allenamenti del tuo club.',
+
+    'statement.eyebrow': 'Formare élite · Costruire vite',
+    'statement.h2': 'NeuroCracks per allenatori',
+    'statement.lede': "Sviluppa talento, mentalità e leadership per decidere dentro e fuori dal campo, con la metodologia NeuroCracks applicata a ogni sessione di allenamento.",
+
+    'evidencia.eyebrow': 'Evidenza',
+    'evidencia.h2': 'Ecco come vivono il processo coloro che già fanno parte di 11 Cracks.',
+    'evidencia.link': 'Vedi storie vere →',
+    'actores.eyebrow': 'Cosa cambia con 11 Cracks',
+    'actores.h2': 'Un unico processo, visto da ogni parte.',
+    'actores.dep_h3': "L'atleta",
+    'actores.dep_p': "Formazione oltre l'allenamento, con le sette aree di 11 Cracks e le esperienze NeuroCracks applicate al suo percorso. I suoi progressi possono aprire l'accesso a opportunità all'interno dell'ecosistema, soggette a requisiti e disponibilità — non in modo automatico.",
+    'actores.ent_h3': "L'allenatore",
+    'actores.ent_p': "Accompagna e osserva l'evoluzione dell'atleta all'interno del processo, con la metodologia NeuroCracks integrata in ogni sessione — uno sguardo più integrale, non solo tecnico.",
+    'actores.club_h3': 'Il club',
+    'actores.club_p': "Rafforza la propria proposta formativa e il rapporto con le famiglie, si connette all'ecosistema 11 Cracks e partecipa alla sua cultura di sostenibilità attraverso il PET.",
+    'faq.eyebrow': 'Domande frequenti',
+    'faq.q1': "11 Cracks sostituisce l'allenamento del club?",
+    'faq.a1': "No. Si integra per ampliare la formazione intorno all'atleta, senza cambiare la tua struttura attuale.",
+    'faq.q2': 'È pensato solo per chi diventerà professionista?',
+    'faq.a2': 'No. La formazione mira a preparare per lo sport e per la vita, oltre alla prestazione in campo.',
+    'faq.q3': "Che ruolo ha l'allenatore?",
+    'faq.a3': "È una figura chiave di accompagnamento: osserva l'evoluzione dell'atleta e collega l'allenamento con il suo percorso formativo.",
+    'faq.q4': 'Come inizia il mio club?',
+    'faq.a4': 'Attraverso il contatto diretto con 11 Cracks — il team conferma la compatibilità e i prossimi passi.',
+
+    'cierre.h2': 'Il tuo campo può essere la prossima aula di 11 Cracks.'
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -783,7 +946,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){

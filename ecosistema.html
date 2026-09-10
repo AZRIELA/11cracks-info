@@ -250,8 +250,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -271,8 +271,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -446,6 +446,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -571,7 +572,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -733,6 +734,166 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'close.btn': '查看我的加入方式'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver todas as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Fale conosco',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+
+    'hero.breadcrumb': '&larr; Voltar ao início',
+    'hero.eyebrow': 'Ecossistema · 11 Cracks',
+    'hero.h1': 'Apoio e oportunidades além do treinamento',
+    'hero.lede': 'Três mecanismos de apoio que conectam seu desenvolvimento com respaldo real, dentro e fora de campo.',
+
+    'frentes.eyebrow': 'Três mecanismos de apoio',
+    'frentes.h2': 'A nutrição também é treinamento.',
+    'frentes.f1_tag': 'Fome zero',
+    'frentes.f1_h3': 'Segurança alimentar como parte do processo formativo',
+    'frentes.f1_p': 'Trabalhamos junto a escolas, clubes, famílias, empresas e parceiros sociais para contribuir com a segurança alimentar de crianças e jovens vinculados ao esporte de base.',
+    'frentes.f1_li1': 'Jornadas de apoio nutricional',
+    'frentes.f1_li2': 'Redes solidárias de alimentação',
+    'frentes.f1_li3': 'Educação alimentar dentro do processo esportivo',
+    'frentes.f2_tag': 'Carteira Solidária 11 Cracks',
+    'frentes.f2_h3': 'Benefícios que acompanham seu caminho',
+    'frentes.f2_p': 'Transforma o investimento esportivo em apoio real para escolas e clubes: não é dinheiro livre nem um saldo sacável, mas sim uma rede de respaldo ativada conforme cada convênio.',
+    'frentes.f2_li1': 'Uniformes, bolas e material de treinamento',
+    'frentes.f2_li2': 'Descontos, produtos e experiências de marcas parceiras',
+    'frentes.f2_li3': 'Dotação para escolas esportivas comunitárias',
+    'frentes.f3_tag': 'Oportunidades 11 Cracks',
+    'frentes.f3_h3': 'Seu progresso pode abrir novas portas',
+    'frentes.f3_p': 'Existem bolsas, processos de observação e experiências formativas dentro do ecossistema, sujeitas a requisitos, vagas e processos de inscrição e seleção — não é uma concessão automática.',
+    'frentes.f3_li1': 'Campus esportivos e culturais, nacionais e internacionais',
+    'frentes.f3_li2': 'Programas de idiomas e Trilinguismo Sport',
+    'frentes.f3_li3': 'Acompanhamento acadêmico e esportivo',
+
+    'statement.eyebrow': 'Eventos NeuroCracks',
+    'statement.h2': 'Educamos a mente e agilizamos os pés.',
+    'statement.lede': 'Competições esportivas com propósito educativo, desafios de Trilinguismo Sport, liderança, trabalho em equipe e consciência ambiental — em um mesmo evento.',
+
+    'momentos.pet_eyebrow': 'Sustentabilidade · PET',
+    'momentos.pet_h3': 'Seu clube também joga pelo planeta',
+    'momentos.pet_p': 'Os clubes participam de processos de reciclagem e economia circular integrados à sua rotina de treinamento — não apenas em eventos pontuais — com os próprios atletas como protagonistas do processo.',
+    'momentos.si_eyebrow': 'Programa emblemático',
+    'momentos.si_h3': 'Seleção Internacional 11 Cracks',
+    'momentos.si_p': 'O caminho mais alto dentro do ecossistema: um número limitado de vagas para o talento que já se destaca, com cinco pilares de formação próprios.',
+    'momentos.si_link': 'Conhecer o programa →',
+
+    'evidencia.eyebrow': 'Evidência',
+    'evidencia.h2': 'É assim que este ecossistema se vê por dentro.',
+    'evidencia.link1': 'Histórias reais →',
+    'evidencia.link2': 'Marcas parceiras →',
+
+    'pagecierre.h2': 'Encontre seu lugar dentro deste ecossistema.',
+    'close.h2': 'Isso é 11&nbsp;Cracks',
+    'close.sub': 'Um lugar para inspirar a humanidade.',
+    'close.cta': 'Junte-se ao movimento ↗',
+    'close.btn': 'Ver meus caminhos de entrada'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+
+    'hero.breadcrumb': '&larr; Torna alla home',
+    'hero.eyebrow': 'Ecosistema · 11 Cracks',
+    'hero.h1': "Supporto e opportunità oltre l'allenamento",
+    'hero.lede': 'Tre meccanismi di supporto che collegano la tua crescita a un sostegno reale, dentro e fuori dal campo.',
+
+    'frentes.eyebrow': 'Tre meccanismi di supporto',
+    'frentes.h2': 'Anche la nutrizione è allenamento.',
+    'frentes.f1_tag': 'Fame zero',
+    'frentes.f1_h3': 'La sicurezza alimentare come parte del processo formativo',
+    'frentes.f1_p': 'Lavoriamo insieme a scuole, club, famiglie, aziende e partner sociali per contribuire alla sicurezza alimentare di bambini e giovani legati allo sport di base.',
+    'frentes.f1_li1': 'Giornate di supporto nutrizionale',
+    'frentes.f1_li2': 'Reti solidali di alimentazione',
+    'frentes.f1_li3': "Educazione alimentare all'interno del processo sportivo",
+    'frentes.f2_tag': 'Portafoglio Solidale 11 Cracks',
+    'frentes.f2_h3': 'Benefici che accompagnano il tuo percorso',
+    'frentes.f2_p': "Trasforma l'investimento sportivo in supporto reale per scuole e club: non è denaro libero né un saldo prelevabile, ma una rete di sostegno attivata secondo ogni accordo.",
+    'frentes.f2_li1': 'Divise, palloni e materiale di allenamento',
+    'frentes.f2_li2': 'Sconti, prodotti ed esperienze di marchi partner',
+    'frentes.f2_li3': 'Dotazioni per le scuole sportive comunitarie',
+    'frentes.f3_tag': 'Opportunità 11 Cracks',
+    'frentes.f3_h3': 'Il tuo progresso può aprire nuove porte',
+    'frentes.f3_p': "Esistono borse di studio, scouting ed esperienze formative all'interno dell'ecosistema, soggette a requisiti, posti disponibili e processi di candidatura e selezione — non è un'assegnazione automatica.",
+    'frentes.f3_li1': 'Campus sportivi e culturali, nazionali e internazionali',
+    'frentes.f3_li2': 'Programmi linguistici e Trilinguismo Sport',
+    'frentes.f3_li3': 'Accompagnamento accademico e sportivo',
+
+    'statement.eyebrow': 'Eventi NeuroCracks',
+    'statement.h2': 'Formiamo la mente e velocizziamo i piedi.',
+    'statement.lede': 'Competizioni sportive con finalità educativa, sfide di Trilinguismo Sport, leadership, lavoro di squadra e consapevolezza ambientale — in un unico evento.',
+
+    'momentos.pet_eyebrow': 'Sostenibilità · PET',
+    'momentos.pet_h3': 'Il tuo club gioca anche per il pianeta',
+    'momentos.pet_p': 'I club partecipano a processi di riciclo ed economia circolare integrati nella loro routine di allenamento — non solo in eventi occasionali — con gli stessi atleti come protagonisti del processo.',
+    'momentos.si_eyebrow': 'Programma di punta',
+    'momentos.si_h3': 'Selezione Internazionale 11 Cracks',
+    'momentos.si_p': "Il percorso più alto all'interno dell'ecosistema: un numero limitato di posti per i talenti che già si distinguono, con cinque pilastri di formazione propri.",
+    'momentos.si_link': 'Scopri il programma →',
+
+    'evidencia.eyebrow': 'Evidenza',
+    'evidencia.h2': "Ecco come appare questo ecosistema dall'interno.",
+    'evidencia.link1': 'Storie vere →',
+    'evidencia.link2': 'Marchi partner →',
+
+    'pagecierre.h2': "Trova il tuo posto all'interno di questo ecosistema.",
+    'close.h2': 'Questo è 11&nbsp;Cracks',
+    'close.sub': "Un luogo per ispirare l'umanità.",
+    'close.cta': 'Unisciti al movimento ↗',
+    'close.btn': "Vedi i miei percorsi d'ingresso"
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -746,7 +907,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){

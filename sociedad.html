@@ -257,8 +257,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -278,8 +278,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -445,6 +445,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -566,7 +567,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -697,6 +698,138 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'soc.close_h2': '在这个社区中找到你的位置。'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Escreva para nós',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+    'historias.eyebrow': 'Histórias reais',
+    'historias.h2': 'Conheça as histórias de quem vive este ecossistema todos os dias.',
+    'historias.cta': 'Ver histórias reais →',
+    'pagecierre.cta': 'Ver meus caminhos de entrada →',
+    'close.h2': 'Isso é 11&nbsp;Cracks',
+    'close.sub': 'Um lugar para inspirar a humanidade.',
+    'close.cta': 'Junte-se ao movimento ↗',
+    'soc.hero_eyebrow': 'For a Better World · Sociedade',
+    'soc.hero_h1': 'Sociedade',
+    'soc.hero_lede': 'Não somos um clube, somos uma comunidade que joga, aprende e cresce junta.',
+    'soc.intro_eyebrow': 'O que significa esta frente',
+    'soc.intro_h2': 'O campo como ponto de encontro, não apenas de competição.',
+    'soc.intro_lede': 'Dentro da 11 Cracks, Sociedade reúne tudo o que transforma um espaço esportivo em um espaço de pertencimento: convivência, inclusão, voluntariado e oportunidades construídas em comunidade, não isoladamente.',
+    'soc.pd_eyebrow': 'Por que o esporte',
+    'soc.pd_h2': 'Um campo reúne pessoas que, de outra forma, nunca se encontrariam.',
+    'soc.pd_lede': 'O esporte não exige uma mesma origem, bairro ou condição para participar: basta estar ali. Por isso a 11 Cracks usa o esporte como ponto de partida para construir comunidade — não porque seja o fim, mas porque é a porta mais aberta que existe.',
+
+    'soc.paz_eyebrow': 'Sociedade · Territórios de Paz',
+    'soc.paz_h2': 'Um campo também pode ser um lugar seguro para crescer.',
+    'soc.paz_lede': 'Transformamos espaços esportivos em territórios de paz: espaços seguros de formação, convivência e inclusão onde crianças e jovens podem aprender, crescer e construir novas oportunidades.',
+    'soc.eje1_h3': 'Espaços seguros',
+    'soc.eje1_p': 'Ambientes esportivos que protegem, acompanham e favorecem o desenvolvimento.',
+    'soc.eje2_h3': 'Inclusão',
+    'soc.eje2_p': 'Um campo onde diferentes realidades podem se encontrar e participar.',
+    'soc.eje3_h3': 'Convivência e comunidade',
+    'soc.eje3_p': 'O esporte como ponto de encontro, respeito e construção coletiva.',
+    'soc.eje4_h3': 'Voluntariado',
+    'soc.eje4_p': 'Pessoas que multiplicam conhecimento, acompanhamento e oportunidades.',
+    'soc.eje5_h3': 'Oportunidades',
+    'soc.eje5_p': 'O território não apenas acolhe o jovem: pode conectá-lo a novos caminhos.',
+    'soc.paz_note': 'Um Território de Paz não é um espaço isolado: é uma porta de entrada para o ecossistema 11 Cracks. Quem chega por ele pode continuar seu processo dentro das sete áreas de formação, com o mesmo acompanhamento de qualquer outro atleta do ecossistema.',
+
+    'soc.galeria_eyebrow': 'Em imagens',
+    'soc.galeria_h2': 'Comunidade, dentro e fora do campo.',
+    'soc.close_h2': 'Encontre seu lugar dentro desta comunidade.'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+    'historias.eyebrow': 'Storie vere',
+    'historias.h2': 'Scopri le storie di chi vive questo ecosistema ogni giorno.',
+    'historias.cta': 'Vedi le storie vere →',
+    'pagecierre.cta': 'Vedi i miei percorsi di ingresso →',
+    'close.h2': 'Questo è 11&nbsp;Cracks',
+    'close.sub': 'Un luogo per ispirare l\'umanità.',
+    'close.cta': 'Unisciti al movimento ↗',
+    'soc.hero_eyebrow': 'For a Better World · Società',
+    'soc.hero_h1': 'Società',
+    'soc.hero_lede': 'Non siamo un club, siamo una comunità che gioca, impara e cresce insieme.',
+    'soc.intro_eyebrow': 'Cosa significa questo fronte',
+    'soc.intro_h2': 'Il campo come punto d\'incontro, non solo di competizione.',
+    'soc.intro_lede': 'All\'interno di 11 Cracks, Società riunisce tutto ciò che trasforma uno spazio sportivo in uno spazio di appartenenza: convivenza, inclusione, volontariato e opportunità costruite in comunità, non in solitudine.',
+    'soc.pd_eyebrow': 'Perché lo sport',
+    'soc.pd_h2': 'Un campo riunisce persone che altrimenti non si incontrerebbero mai.',
+    'soc.pd_lede': 'Lo sport non chiede una stessa origine, quartiere o condizione per partecipare: basta esserci. Per questo 11 Cracks usa lo sport come punto di partenza per costruire comunità — non perché sia il fine, ma perché è la porta più aperta che esista.',
+
+    'soc.paz_eyebrow': 'Società · Territori di Pace',
+    'soc.paz_h2': 'Un campo può anche essere un luogo sicuro dove crescere.',
+    'soc.paz_lede': 'Trasformiamo gli spazi sportivi in territori di pace: spazi sicuri di formazione, convivenza e inclusione dove bambini e giovani possono imparare, crescere e costruire nuove opportunità.',
+    'soc.eje1_h3': 'Spazi sicuri',
+    'soc.eje1_p': 'Ambienti sportivi che proteggono, accompagnano e favoriscono lo sviluppo.',
+    'soc.eje2_h3': 'Inclusione',
+    'soc.eje2_p': 'Un campo dove realtà diverse possono incontrarsi e partecipare.',
+    'soc.eje3_h3': 'Convivenza e comunità',
+    'soc.eje3_p': 'Lo sport come punto d\'incontro, rispetto e costruzione collettiva.',
+    'soc.eje4_h3': 'Volontariato',
+    'soc.eje4_p': 'Persone che moltiplicano conoscenza, accompagnamento e opportunità.',
+    'soc.eje5_h3': 'Opportunità',
+    'soc.eje5_p': 'Il territorio non si limita ad accogliere il giovane: può collegarlo a nuovi percorsi.',
+    'soc.paz_note': 'Un Territorio di Pace non è uno spazio isolato: è una porta d\'accesso all\'ecosistema 11 Cracks. Chi vi arriva può proseguire il proprio percorso all\'interno delle sette aree di formazione, con lo stesso accompagnamento di qualsiasi altro atleta dell\'ecosistema.',
+
+    'soc.galeria_eyebrow': 'In immagini',
+    'soc.galeria_h2': 'Comunità, dentro e fuori dal campo.',
+    'soc.close_h2': 'Trova il tuo posto all\'interno di questa comunità.'
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -710,7 +843,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){

@@ -258,8 +258,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -279,8 +279,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -486,6 +486,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -595,7 +596,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -733,6 +734,142 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'cierre.h2': '一次训练，可能就是一切的开始。'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver todas as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Fale conosco',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+
+    'hero.back': '&larr; Voltar ao início',
+    'hero.eyebrow': 'Sou Atleta · 11 Cracks',
+    'hero.h1': 'Cresça dentro e fora de campo',
+    'hero.lede': 'Treine, aprenda, acompanhe seu progresso e prepare-se para novas oportunidades dentro do ecossistema 11 Cracks.',
+    'hero.cta': 'Quero iniciar meu processo',
+
+    'vivir.eyebrow': 'O que você vai viver',
+    'vivir.h2': 'Seu processo, passo a passo.',
+    'vivir.v1_h3': 'Você treina como sempre — com algo a mais',
+    'vivir.v1_p': 'Você continua treinando o seu esporte. A diferença é que, dentro da mesma sessão, você também trabalha seu manejo emocional, sua disciplina e sua forma de responder sob pressão — isso é NeuroCracks na prática, não um curso à parte.',
+    'vivir.v2_h3': 'Você avança pelas sete áreas, de forma progressiva',
+    'vivir.v2_p': 'Nem tudo chega ao mesmo tempo: você vai incorporando finanças, marketing, idiomas, cultura, saúde mental, alto rendimento e sustentabilidade conforme seu processo avança.',
+    'vivir.v3_h3': 'Seu percurso fica registrado',
+    'vivir.v3_p': 'O que você mostra dentro das sete áreas é o que a equipe observa. Um percurso sustentado pode abrir a porta para a Seleção Internacional — um possível horizonte, não um resultado garantido.',
+
+    'obtiene.eyebrow': 'O que você obtém',
+    'obtiene.h2': 'Formação que não fica apenas no campo.',
+    'obtiene.item1.h3': 'Sete áreas de formação',
+    'obtiene.item1.p': 'Finanças, marketing, idiomas, cultura, saúde mental, alto rendimento e sustentabilidade — no mesmo processo.',
+    'obtiene.item1.link': 'Ver as 7 áreas →',
+    'obtiene.item2.h3': 'NeuroCracks',
+    'obtiene.item2.p': 'Formação emocional, disciplina e mentalidade competitiva saudável, dentro de cada sessão de treinamento.',
+    'obtiene.item2.link': 'Como formamos →',
+    'obtiene.item3.h3': 'Seleção Internacional',
+    'obtiene.item3.p': 'Um possível horizonte para quem se destaca dentro do seu percurso — a equipe identifica os atletas, não é uma candidatura aberta nem uma meta automática.',
+    'obtiene.item3.link': 'Conhecer o programa →',
+
+    'pasos.eyebrow': 'Como funciona',
+    'pasos.item1.h3': 'Você deixa seus dados',
+    'pasos.item1.p': 'Você nos conta quem é você e em qual clube ou território treina.',
+    'pasos.item2.h3': 'A 11 Cracks confirma sua vinculação',
+    'pasos.item2.p': 'A equipe confirma como você se conecta ao ecossistema formativo.',
+    'pasos.item3.h3': 'Você começa seu processo',
+    'pasos.item3.p': 'Você treina, aprende e avança pelas sete áreas de formação.',
+
+    'cierre.h2': 'Um treino pode ser o começo de tudo.'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+
+    'hero.back': '&larr; Torna alla home',
+    'hero.eyebrow': 'Sono un Atleta · 11 Cracks',
+    'hero.h1': 'Cresci dentro e fuori dal campo',
+    'hero.lede': "Allenati, impara, monitora i tuoi progressi e preparati per nuove opportunità all'interno dell'ecosistema 11 Cracks.",
+    'hero.cta': 'Voglio iniziare il mio percorso',
+
+    'vivir.eyebrow': 'Cosa vivrai',
+    'vivir.h2': 'Il tuo percorso, passo dopo passo.',
+    'vivir.v1_h3': 'Ti alleni come sempre — con qualcosa in più',
+    'vivir.v1_p': 'Continui ad allenare il tuo sport. La differenza è che, nella stessa sessione, lavori anche sulla tua gestione emotiva, sulla tua disciplina e sul tuo modo di rispondere sotto pressione — questo è NeuroCracks nella pratica, non un corso a parte.',
+    'vivir.v2_h3': 'Avanzi nelle sette aree, in modo progressivo',
+    'vivir.v2_p': 'Non tutto arriva allo stesso tempo: vai incorporando finanza, marketing, lingue, cultura, salute mentale, alte prestazioni e sostenibilità man mano che il tuo percorso avanza.',
+    'vivir.v3_h3': 'Il tuo percorso viene registrato',
+    'vivir.v3_p': 'Ciò che mostri nelle sette aree è ciò che il team osserva. Un percorso costante può aprire la porta alla Selezione Internazionale — un possibile orizzonte, non un risultato garantito.',
+
+    'obtiene.eyebrow': 'Cosa ottieni',
+    'obtiene.h2': 'Una formazione che non si ferma al campo.',
+    'obtiene.item1.h3': 'Sette aree di formazione',
+    'obtiene.item1.p': 'Finanza, marketing, lingue, cultura, salute mentale, alte prestazioni e sostenibilità — nello stesso percorso.',
+    'obtiene.item1.link': 'Vedi le 7 aree →',
+    'obtiene.item2.h3': 'NeuroCracks',
+    'obtiene.item2.p': 'Formazione emotiva, disciplina e una mentalità competitiva sana, in ogni sessione di allenamento.',
+    'obtiene.item2.link': 'Come formiamo →',
+    'obtiene.item3.h3': 'Selezione Internazionale',
+    'obtiene.item3.p': 'Un possibile orizzonte per chi si distingue nel proprio percorso — è il team a individuare gli atleti, non è una candidatura aperta né un obiettivo automatico.',
+    'obtiene.item3.link': 'Scopri il programma →',
+
+    'pasos.eyebrow': 'Come funziona',
+    'pasos.item1.h3': 'Lasci i tuoi dati',
+    'pasos.item1.p': 'Ci racconti chi sei e in quale club o territorio ti alleni.',
+    'pasos.item2.h3': '11 Cracks conferma la tua iscrizione',
+    'pasos.item2.p': "Il team conferma come ti colleghi all'ecosistema formativo.",
+    'pasos.item3.h3': 'Inizi il tuo percorso',
+    'pasos.item3.p': 'Ti alleni, impari e avanzi nelle sette aree di formazione.',
+
+    'cierre.h2': "Un allenamento può essere l'inizio di tutto."
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -746,7 +883,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){

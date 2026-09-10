@@ -263,8 +263,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -284,8 +284,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -455,6 +455,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -576,7 +577,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -716,6 +717,144 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'close.cta': '加入这场运动 ↗'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver todas as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Parceiro',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'nav.back': '&larr; Voltar ao início',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Fale conosco',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+
+    'hero.eyebrow': 'Plano Padrinho · 11 Cracks',
+    'hero.h1': 'Acompanhe sua trajetória, não apenas uma aula',
+    'hero.lede': 'Torne-se padrinho e ajude a sustentar, de forma contínua, a formação de um atleta dentro da 11 Cracks.',
+    'hero.cta': 'Quero ser padrinho',
+
+    'flujo.eyebrow': 'O que significa ser padrinho',
+    'flujo.h2': 'Um acompanhamento contínuo, não uma doação pontual.',
+    'flujo.node1': 'Padrinho',
+    'flujo.node2': 'Formação contínua',
+    'flujo.node3': 'Mais oportunidades para crescer',
+    'flujo.note': 'Sua contribuição não paga uma aula avulsa: ela sustenta a continuidade do processo formativo do atleta, mês a mês.',
+
+    'sostener.eyebrow': 'Muito mais que esporte',
+    'sostener.h2': 'Esporte, NeuroCracks, aprendizagem e habilidades para a vida — no mesmo processo.',
+
+    'quien.eyebrow': 'Quem pode ser padrinho',
+    'quien.h3': 'Pessoas, famílias ou organizações que queiram acompanhar um processo.',
+    'quien.p': 'Quem tiver interesse em sustentar, de forma contínua, a formação de um atleta dentro da 11 Cracks pode manifestar seu interesse em ser padrinho. A equipe confirma os detalhes do processo em cada caso.',
+
+    'privacidad.eyebrow': 'Privacidade e cuidado com o atleta',
+    'privacidad.h3': 'A identidade do atleta é sempre protegida.',
+    'privacidad.p': 'A 11 Cracks gerencia a atribuição e o contato de forma responsável, priorizando o bem-estar e a privacidade do atleta acima de qualquer outro interesse.',
+
+    'pasos.eyebrow': 'Como funciona',
+    'pasos.paso1_h3': 'Você se torna padrinho',
+    'pasos.paso1_p': 'Você inicia um apoio contínuo ao processo formativo de um atleta.',
+    'pasos.paso2_h3': 'Você acompanha sua formação',
+    'pasos.paso2_p': 'Seu apoio se reflete na continuidade da formação dele, sessão a sessão.',
+    'pasos.paso3_h3': 'Você continua enquanto quiser apoiar',
+    'pasos.paso3_p': 'O padrinato se renova mês a mês e você pode encerrá-lo quando precisar.',
+
+    'pagecierre.h2': 'Acompanhe uma trajetória, não apenas uma aula.',
+    'close.secundario': 'Você representa uma empresa? Saiba como ser parceiro →',
+    'close.h2': 'Isso é 11&nbsp;Cracks',
+    'close.sub': 'Um lugar para inspirar a humanidade.',
+    'close.cta': 'Junte-se ao movimento ↗'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti i sei fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Partner',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'nav.back': '&larr; Torna alla home',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+
+    'hero.eyebrow': 'Piano Padrino · 11 Cracks',
+    'hero.h1': 'Accompagna il suo percorso, non solo una lezione',
+    'hero.lede': "Diventa padrino e aiuta a sostenere, in modo continuativo, la formazione di un atleta all'interno di 11 Cracks.",
+    'hero.cta': 'Voglio diventare padrino',
+
+    'flujo.eyebrow': 'Cosa significa essere padrino',
+    'flujo.h2': 'Un accompagnamento continuativo, non una donazione una tantum.',
+    'flujo.node1': 'Padrino',
+    'flujo.node2': 'Formazione continua',
+    'flujo.node3': 'Più opportunità per crescere',
+    'flujo.note': "Il tuo contributo non paga una singola lezione: sostiene la continuità del percorso formativo dell'atleta, mese dopo mese.",
+
+    'sostener.eyebrow': 'Molto più che sport',
+    'sostener.h2': 'Sport, NeuroCracks, apprendimento e competenze di vita — nello stesso percorso.',
+
+    'quien.eyebrow': 'Chi può diventare padrino',
+    'quien.h3': 'Persone, famiglie o organizzazioni che vogliono accompagnare un percorso.',
+    'quien.p': "Chi fosse interessato a sostenere, in modo continuativo, la formazione di un atleta all'interno di 11 Cracks può manifestare il proprio interesse a diventare padrino. Il team conferma i dettagli del processo caso per caso.",
+
+    'privacidad.eyebrow': "Privacy e cura dell'atleta",
+    'privacidad.h3': "L'identità dell'atleta è sempre protetta.",
+    'privacidad.p': "11 Cracks gestisce l'assegnazione e il contatto in modo responsabile, dando priorità al benessere e alla privacy dell'atleta al di sopra di qualsiasi altro interesse.",
+
+    'pasos.eyebrow': 'Come funziona',
+    'pasos.paso1_h3': 'Diventi padrino',
+    'pasos.paso1_p': 'Inizi un sostegno continuativo al percorso formativo di un atleta.',
+    'pasos.paso2_h3': 'Accompagni la sua formazione',
+    'pasos.paso2_p': 'Il tuo sostegno si riflette nella continuità della sua formazione, sessione dopo sessione.',
+    'pasos.paso3_h3': 'Continui finché vuoi sostenere',
+    'pasos.paso3_p': 'Il padrinato si rinnova mese dopo mese e puoi terminarlo quando ne hai bisogno.',
+
+    'pagecierre.h2': 'Accompagna un percorso, non solo una lezione.',
+    'close.secundario': "Rappresenti un'azienda? Scopri come diventare partner →",
+    'close.h2': 'Questo è 11&nbsp;Cracks',
+    'close.sub': "Un luogo per ispirare l'umanità.",
+    'close.cta': 'Unisciti al movimento ↗'
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -729,7 +868,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){

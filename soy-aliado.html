@@ -251,8 +251,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -272,8 +272,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="#" data-lang="es" lang="es" class="lang-option">Español<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="en" lang="en" class="lang-option">English<span class="lang-check" aria-hidden="true">✓</span></a>
           <a href="#" data-lang="zh" lang="zh" class="lang-option">中文<span class="lang-check" aria-hidden="true">✓</span></a>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Português</span>
-          <span class="lang-option is-pending" aria-disabled="true" title="Próximamente">Italiano</span>
+          <a href="#" data-lang="pt" lang="pt" class="lang-option">Português<span class="lang-check" aria-hidden="true">✓</span></a>
+          <a href="#" data-lang="it" lang="it" class="lang-option">Italiano<span class="lang-check" aria-hidden="true">✓</span></a>
         </div>
       </div>
       <a class="nav-utility social-icon" href="https://www.11cracksglobal.com/contacto/" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg></a>
@@ -458,6 +458,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
           <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
           <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
           <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
+          <a href="soy-deportista.html#familias" data-i18n="nav.lugar_padres">Soy Padre/Madre</a>
         </div>
       </div>
     </div>
@@ -585,7 +586,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 
 <script>
 (function(){
-  var STRINGS = { es: {}, en: {}, zh: {} };
+  var STRINGS = { es: {}, en: {}, zh: {}, pt: {}, it: {} };
 
   STRINGS.en = {
     'nav.nosotros': 'About Us',
@@ -729,6 +730,148 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'cierre.h2': '你的品牌可以成为下一代领导者的一部分。'
   };
 
+  STRINGS.pt = {
+    'nav.nosotros': 'Sobre Nós',
+    'nav.ecosistema': 'Ecossistema',
+    'nav.historias': 'Histórias',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Ver as seis frentes',
+    'nav.fabw_educacion': 'Educação',
+    'nav.fabw_ambiente': 'Meio Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Saúde',
+    'nav.fabw_sociedad': 'Sociedade',
+    'nav.lugar': 'Encontre seu lugar',
+    'nav.lugar_club': 'Sou um Clube',
+    'nav.lugar_deportista': 'Sou um Atleta',
+    'nav.lugar_aliado': 'Sou um Aliado',
+    'nav.lugar_apoyar': 'Quero apoiar',
+    'nav.lugar_padres': 'Sou Pai/Mãe',
+    'nav.contacto': 'Contato',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Seleção Internacional',
+    'footer.h_comunidad': 'Comunidade',
+    'footer.padres': 'Pais',
+    'footer.equipos': 'Equipes',
+    'footer.marcas': 'Marcas',
+    'footer.h_contacto': 'Contato',
+    'footer.escribenos': 'Escreva para nós',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educação · Meio ambiente · Economia · Cultura · Saúde · Sociedade',
+
+    'hero.back': '&larr; Voltar ao início',
+    'hero.eyebrow': 'Sou um Aliado · 11 Cracks',
+    'hero.h1': 'Transforme sua marca em impacto',
+    'hero.lede': 'Conecte seus recursos e benefícios com atletas, famílias e comunidades dentro do ecossistema 11 Cracks.',
+    'hero.cta': 'Quero ser aliado',
+
+    'obtiene.eyebrow': 'O que sua marca ganha',
+    'obtiene.h2': 'Presença real, não apenas um logo em uma lista.',
+    'obtiene.item1.h3': 'Rastreabilidade',
+    'obtiene.item1.p': 'Sua contribuição fica associada a um processo formativo concreto dentro do ecossistema.',
+    'obtiene.item2.h3': 'Campanhas conjuntas',
+    'obtiene.item2.p': 'Comunicamos sua contribuição junto à da 11 Cracks em campanhas, site e redes do ecossistema.',
+    'obtiene.item3.h3': 'Visibilidade no ecossistema',
+    'obtiene.item3.p': 'Presença no conteúdo, nas redes e nos eventos em que a comunidade 11 Cracks participa.',
+    'obtiene.item4.h3': 'Métricas agregadas de impacto',
+    'obtiene.item4.p': 'Resgate, alcance e resultados da sua contribuição — sem expor dados pessoais dos menores do ecossistema.',
+
+    'formas.eyebrow': 'Formas de se aliar',
+    'formas.h2': 'Três caminhos, de acordo com o tipo de relação que você busca.',
+    'formas.item1.h3': 'Descontos, produtos ou fundos',
+    'formas.item1.p': 'Contribua com descontos, experiências, produtos, fundos ou campanhas PET para jovens do ecossistema, com rastreabilidade da sua contribuição.',
+    'formas.item2.h3': 'Resgates e campanhas',
+    'formas.item2.p': 'Sua marca participa das campanhas ativas do ecossistema, com resgates e métricas agregadas de impacto associadas à sua contribuição.',
+    'formas.item3.h3': 'Colaboração com marcas',
+    'formas.item3.p': 'Integre sua marca ao ecossistema junto a clubes, famílias e atletas, conforme o tipo de colaboração que definirmos juntos.',
+
+    'pasos.eyebrow': 'Como funciona',
+    'pasos.item1.h3': 'Você nos conta seu interesse',
+    'pasos.item1.p': 'Você deixa os dados da sua empresa e qual forma de aliança te interessa.',
+    'pasos.item2.h3': 'Definimos a aliança juntos',
+    'pasos.item2.p': 'A equipe da 11 Cracks confirma o encaixe e os termos concretos.',
+    'pasos.item3.h3': 'Sua marca se ativa no ecossistema',
+    'pasos.item3.p': 'A relação começa, com rastreabilidade sobre o processo que você apoia.',
+
+    'evidencia.eyebrow': 'Evidência',
+    'evidencia.h2': 'Organizações que já constroem impacto junto à 11 Cracks.',
+    'evidencia.link': 'Ver marcas aliadas →',
+
+    'cierre.h2': 'Sua marca pode fazer parte da próxima geração de líderes.'
+  };
+
+  STRINGS.it = {
+    'nav.nosotros': 'Chi Siamo',
+    'nav.ecosistema': 'Ecosistema',
+    'nav.historias': 'Storie',
+    'nav.fabw': 'For a Better World',
+    'nav.fabw_all': 'Vedi tutti e sei i fronti',
+    'nav.fabw_educacion': 'Educazione',
+    'nav.fabw_ambiente': 'Ambiente',
+    'nav.fabw_economia': 'Economia',
+    'nav.fabw_cultura': 'Cultura',
+    'nav.fabw_salud': 'Salute',
+    'nav.fabw_sociedad': 'Società',
+    'nav.lugar': 'Trova il tuo posto',
+    'nav.lugar_club': 'Sono un Club',
+    'nav.lugar_deportista': 'Sono un Atleta',
+    'nav.lugar_aliado': 'Sono un Alleato',
+    'nav.lugar_apoyar': 'Voglio sostenere',
+    'nav.lugar_padres': 'Sono un Genitore',
+    'nav.contacto': 'Contatto',
+    'footer.h_cracks': 'Eleven Cracks',
+    'footer.seleccion': 'Selezione Internazionale',
+    'footer.h_comunidad': 'Comunità',
+    'footer.padres': 'Genitori',
+    'footer.equipos': 'Squadre',
+    'footer.marcas': 'Marchi',
+    'footer.h_contacto': 'Contatto',
+    'footer.escribenos': 'Scrivici',
+    'footer.copyright': '© 2026 Eleven Cracks · Sport Student',
+    'footer.categories': 'Educazione · Ambiente · Economia · Cultura · Salute · Società',
+
+    'hero.back': '&larr; Torna alla home',
+    'hero.eyebrow': 'Sono un Alleato · 11 Cracks',
+    'hero.h1': 'Trasforma il tuo marchio in impatto',
+    'hero.lede': 'Collega le tue risorse e i tuoi benefici ad atleti, famiglie e comunità all\'interno dell\'ecosistema 11 Cracks.',
+    'hero.cta': 'Voglio essere alleato',
+
+    'obtiene.eyebrow': 'Cosa ottiene il tuo marchio',
+    'obtiene.h2': 'Presenza reale, non solo un logo in una lista.',
+    'obtiene.item1.h3': 'Tracciabilità',
+    'obtiene.item1.p': 'Il tuo contributo viene associato a un processo formativo concreto all\'interno dell\'ecosistema.',
+    'obtiene.item2.h3': 'Campagne congiunte',
+    'obtiene.item2.p': 'Comunichiamo il tuo contributo insieme a quello di 11 Cracks in campagne, sito web e social dell\'ecosistema.',
+    'obtiene.item3.h3': 'Visibilità nell\'ecosistema',
+    'obtiene.item3.p': 'Presenza nei contenuti, nei social e negli eventi a cui partecipa la comunità 11 Cracks.',
+    'obtiene.item4.h3': 'Metriche aggregate di impatto',
+    'obtiene.item4.p': 'Riscatti, copertura e risultati del tuo contributo — senza esporre dati personali dei minori dell\'ecosistema.',
+
+    'formas.eyebrow': 'Modi per allearti',
+    'formas.h2': 'Tre percorsi, a seconda del tipo di relazione che cerchi.',
+    'formas.item1.h3': 'Sconti, prodotti o fondi',
+    'formas.item1.p': 'Contribuisci con sconti, esperienze, prodotti, fondi o campagne PET per i giovani dell\'ecosistema, con tracciabilità del tuo contributo.',
+    'formas.item2.h3': 'Riscatti e campagne',
+    'formas.item2.p': 'Il tuo marchio partecipa alle campagne attive dell\'ecosistema, con riscatti e metriche aggregate di impatto legate al tuo contributo.',
+    'formas.item3.h3': 'Collaborazione con marchi',
+    'formas.item3.p': 'Integra il tuo marchio nell\'ecosistema insieme a club, famiglie e atleti, in base al tipo di collaborazione che definiremo insieme.',
+
+    'pasos.eyebrow': 'Come funziona',
+    'pasos.item1.h3': 'Ci racconti il tuo interesse',
+    'pasos.item1.p': 'Lasci i dati della tua azienda e quale forma di alleanza ti interessa.',
+    'pasos.item2.h3': 'Definiamo l\'alleanza insieme',
+    'pasos.item2.p': 'Il team di 11 Cracks conferma l\'adeguatezza e i termini concreti.',
+    'pasos.item3.h3': 'Il tuo marchio si attiva nell\'ecosistema',
+    'pasos.item3.p': 'La relazione inizia, con tracciabilità sul processo che sostieni.',
+
+    'evidencia.eyebrow': 'Evidenza',
+    'evidencia.h2': 'Organizzazioni che già costruiscono impatto insieme a 11 Cracks.',
+    'evidencia.link': 'Vedi marchi alleati →',
+
+    'cierre.h2': 'Il tuo marchio può essere parte della prossima generazione di leader.'
+  };
+
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var key = el.getAttribute('data-i18n');
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
@@ -742,7 +885,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
-    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
     document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){
