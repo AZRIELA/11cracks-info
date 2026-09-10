@@ -65,7 +65,9 @@ section{padding:128px 0;}
    + el lado vecino "compacto", nunca dos lados grandes encontrándose sin
    razón) — ver comentario de más abajo para las dos excepciones deliberadas
    donde ambos lados de una sección son grandes. */
-.founder-story{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
+/* bottom en 88px fijo, no --pad-compact: la cita de Victor quedaba a ~55px
+   del borde, más cerca que el resto de contenidos de la Home. */
+.founder-story{padding-top:var(--pad-editorial); padding-bottom:88px;}
 .somos{padding-top:var(--pad-editorial); padding-bottom:var(--pad-compact);}
 /* areas.bottom deliberadamente COMPACTO, no editorial: al ser fondo negro
    igual que el resto de la sección, un padding-bottom grande ahí no se lee
@@ -94,6 +96,7 @@ section{padding:128px 0;}
   section{padding:72px 0;}
   .hero{padding-bottom:40px;}
   .lugar{padding-top:32px; padding-bottom:40px;}
+  .founder-story{padding-bottom:56px;}
   .fabw-teaser{padding-bottom:28px;}
   .voces{padding-top:28px;}
   .marcas{padding-top:28px; padding-bottom:32px;}
