@@ -59,8 +59,12 @@ section{padding:128px 0;}
 .fabw-teaser{padding-top:40px; padding-bottom:48px;}
 .voces{padding-top:40px; padding-bottom:48px;}
 .marcas{padding-top:40px; padding-bottom:56px;}
-.statement{padding-top:64px; padding-bottom:64px;}
-.ecosistema{padding-top:40px; padding-bottom:48px;}
+/* NeuroCracks e Ecosistema necesitan AIRE INTERNO (composición), no una
+   transición más corta — no confundir con el padding de transición del resto
+   de secciones de arriba. Bloqueado tras dos idas y vueltas: no volver a
+   tocar estos dos valores en una pasada global de spacing. */
+.statement{padding-top:48px; padding-bottom:48px;}
+.ecosistema{padding-top:112px; padding-bottom:112px;}
 .pet-moment{padding-top:44px; padding-bottom:40px;}
 .seleccion{padding-top:40px; padding-bottom:56px;}
 @media (max-width:700px){
@@ -73,8 +77,8 @@ section{padding:128px 0;}
   .fabw-teaser{padding-top:28px; padding-bottom:32px;}
   .voces{padding-top:28px; padding-bottom:32px;}
   .marcas{padding-top:28px; padding-bottom:32px;}
-  .statement{padding-top:40px; padding-bottom:40px;}
-  .ecosistema{padding-top:28px; padding-bottom:32px;}
+  .statement{padding-top:32px; padding-bottom:32px;}
+  .ecosistema{padding-top:64px; padding-bottom:64px;}
   .pet-moment{padding-top:32px; padding-bottom:28px;}
   .seleccion{padding-top:28px; padding-bottom:32px;}
 }
@@ -338,7 +342,9 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 }
 
 /* ---------- ENTRENAMIENTO STATEMENT ---------- */
-.statement{position:relative; background:var(--black); color:var(--white); text-align:center; overflow:hidden;}
+.statement{position:relative; background:var(--black); color:var(--white); text-align:center; overflow:hidden; display:flex; align-items:center; justify-content:center; min-height:540px;}
+@media (max-width:1024px) and (min-width:701px){.statement{min-height:460px;}}
+@media (max-width:700px){.statement{min-height:400px;}}
 /* Antes era un CSS background con background-attachment:fixed (parallax nativo
    pero imposible de combinar con una animación de escala propia — ambas pelean
    por la misma propiedad transform). Ahora es una imagen real de verdad,
@@ -355,7 +361,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
   70% { transform:scale(1); }
 }
 .statement::before{content:''; position:absolute; inset:0; z-index:1; background:oklch(0.16 0.003 92 / 0.55);}
-.statement .wrap{position:relative; z-index:2;}
+.statement .wrap{position:relative; z-index:2; width:100%;}
 .statement .eyebrow{margin-bottom:26px;}
 .statement h2{font-size:clamp(2rem,5vw,3.2rem); max-width:800px; margin:0 auto 28px; color:var(--white);}
 .statement p{margin:0 auto; max-width:680px; font-size:1.15rem; line-height:1.55; color:var(--ivory-dim);}
@@ -466,7 +472,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
 .editorial-visual-img.is-active{opacity:1;}
 /* Ecosistema: más peso en numeración/título/foto, menos aire entre filas */
 .ecosistema .editorial-selector{margin-top:32px;}
-.ecosistema .editorial-tab{padding:16px 4px;}
+.ecosistema .editorial-tab{padding:26px 4px;}
 .ecosistema .editorial-tab-num{font-size:1.7rem;}
 .ecosistema .editorial-tab-title{font-size:clamp(1.3rem,2.4vw,1.75rem); font-weight:500;}
 .ecosistema .editorial-visual{min-height:420px;}
