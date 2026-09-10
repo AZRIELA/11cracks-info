@@ -153,16 +153,40 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .evidencia h2{font-size:clamp(1.5rem,3vw,2rem); max-width:22ch; margin:0 auto 20px;}
 .close-cta{background:var(--black); color:var(--white); text-align:center;}
 .close-cta h2{font-size:clamp(1.9rem,4.6vw,2.8rem); max-width:20ch; margin:0 auto 30px;}
-footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; font-size:.85rem;}
-.footer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:32px;}
-@media (max-width:760px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+/* ---------- FOOTER: cabecera editorial + navegación, una sola retícula compartida ---------- */
+.footer-split{display:grid; grid-template-columns:7fr 5fr; gap:40px;}
+@media (max-width:760px){.footer-split{grid-template-columns:1fr; gap:20px;}}
+
+.footer-header{padding:40px 0 28px; border-bottom:1px solid oklch(1 0 0 / 0.07);}
+.footer-header h2{font-family:var(--display); font-weight:400; text-transform:uppercase; font-size:clamp(2.1rem,5.2vw,4.4rem); line-height:1; margin-bottom:18px; color:var(--white);}
+.footer-header-rule{display:block; width:100%; height:1px; background:oklch(1 0 0 / 0.14); margin-bottom:20px;}
+.footer-header-row{align-items:center;}
+.footer-header-row .close-sub{font-size:1rem; color:var(--ivory-dim);}
+.footer-cta{display:inline-flex; align-items:center; justify-content:space-between; gap:18px; background:var(--gold-action); color:var(--black); font-weight:700; font-size:.82rem; letter-spacing:.03em; text-transform:uppercase; height:54px; padding:0 26px; border-radius:8px; justify-self:start; transition:background .2s ease, transform .2s ease;}
+.footer-cta-arrow{font-size:1.05rem; line-height:1;}
+.footer-cta:hover, .footer-cta:focus-visible{background:var(--gold-action-light); transform:translateY(-1px);}
+.footer-cta:focus-visible{outline:2px solid var(--gold-light); outline-offset:3px;}
+@media (max-width:760px){.footer-cta{justify-self:stretch; justify-content:center;}}
+
+footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; padding:0 0 28px;}
+.footer-body{padding-top:36px;}
+.footer-brand-block{display:flex; flex-direction:column; align-items:flex-start; gap:14px;}
+.footer-brand-block img{height:38px; width:auto;}
+.footer-brand-sub{margin:0; font-size:.85rem; color:var(--ivory-dim); opacity:.7; letter-spacing:.02em;}
+.footer-contact{display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:10px;}
+.footer-contact-link{color:var(--ivory-dim); font-size:.85rem; font-weight:600; opacity:.85; transition:color .2s ease, opacity .2s ease;}
+.footer-contact-link:hover, .footer-contact-link:focus-visible{color:var(--gold-light); opacity:1;}
+.footer-contact-link:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
+.footer-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+.footer-body > .footer-split{margin-bottom:32px; padding-bottom:32px; border-bottom:1px solid oklch(1 0 0 / 0.1);}
+@media (max-width:400px){.footer-grid{grid-template-columns:1fr; gap:16px;}}
 .footer-grid h4{font-family:var(--body); font-weight:700; color:var(--white); font-size:.85rem; margin-bottom:14px;}
 .footer-grid a{position:relative; display:block; margin-bottom:8px; opacity:.8; color:inherit; cursor:pointer; transition:color .2s ease, transform .2s ease, opacity .2s ease;}
 .footer-grid a::before{content:""; position:absolute; left:-12px; top:50%; width:0; height:1px; background:var(--gold-light); transform:translateY(-50%); transition:width .2s ease;}
 .footer-grid a:hover, .footer-grid a:focus-visible{opacity:1; color:var(--gold-light); transform:translateX(3px);}
 .footer-grid a:hover::before, .footer-grid a:focus-visible::before{width:8px;}
 .footer-grid a:focus-visible{outline:2px solid var(--gold); outline-offset:4px; border-radius:2px;}
-.social-icons{display:flex; gap:10px; margin-top:14px;}
+.social-icons{display:flex; gap:10px;}
 .social-icon{width:44px; height:44px; border-radius:50%; border:1px solid oklch(1 0 0 / 0.18); display:inline-flex; align-items:center; justify-content:center; color:var(--ivory-dim); background:transparent; cursor:pointer; transition:background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;}
 .social-icon svg{width:18px; height:18px;}
 .social-icon:hover, .social-icon:focus-visible{background:var(--gold); border-color:var(--gold); color:var(--black); transform:translateY(-2px); box-shadow:0 6px 16px oklch(0.771 0.092 79 / 0.35);}
@@ -205,7 +229,7 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       <div class="nav-dropdown lang-dropdown lang-dropdown-desktop" id="langDropdown">
         <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
           <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
-          <span class="lang-current">Español</span>
+          <span class="lang-current">Esp.</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu lang-menu" id="langMenu">
@@ -280,36 +304,51 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
 
   <section class="close-cta">
     <div class="wrap">
-      <h2 data-i18n="close.h2">Tu recorrido dentro de 11 Cracks empieza por la formación.</h2>
-      <a class="btn" href="soy-deportista.html" data-i18n="close.cta">Empezar mi proceso</a>
+      <h2 data-i18n="pagecierre.h2">Tu recorrido dentro de 11 Cracks empieza por la formación.</h2>
+      <a class="btn" href="soy-deportista.html" data-i18n="pagecierre.cta">Empezar mi proceso</a>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
-        <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
-        <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
-        <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
+<footer id="contacto">
+  <div class="footer-header">
+    <div class="wrap">
+      <h2 data-i18n="close.h2">Eso es 11&nbsp;Cracks</h2>
+      <span class="footer-header-rule" aria-hidden="true"></span>
+      <div class="footer-split footer-header-row">
+        <p class="close-sub" data-i18n="close.sub">Un lugar para inspirar la humanidad.</p>
+        <a class="footer-cta" href="https://www.11cracksglobal.com/contacto/" data-i18n="close.cta">Súmate al movimiento <span class="footer-cta-arrow" aria-hidden="true">↗</span></a>
       </div>
-      <div>
-        <h4 data-i18n="footer.h_comunidad">Comunidad</h4>
-        <a href="soy-club.html" data-i18n="footer.equipos">Soy Club</a>
-        <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
-        <a href="soy-aliado.html" data-i18n="footer.marcas">Soy Aliado</a>
-        <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Plan Padrino</a>
+    </div>
+  </div>
+  <div class="wrap footer-body">
+    <div class="footer-split">
+      <div class="footer-brand-block">
+        <img src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/logo.svg" alt="Eleven Cracks">
+        <p class="footer-brand-sub">Sport Student</p>
+        <div class="footer-contact">
+          <a class="footer-contact-link" href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><g transform="translate(3.35,0)"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></g></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4 data-i18n="footer.h_contacto">Contacto</h4>
-        <a href="https://www.11cracksglobal.com/contacto/" data-i18n="footer.escribenos">Escríbenos</a>
-        <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zM8.5 8.5h3.8v2h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8.5z"/></svg></a>
-          <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
+      <div class="footer-grid">
+        <div>
+          <h4 data-i18n="footer.h_cracks">Eleven Cracks</h4>
+          <a href="nosotros.html" data-i18n="nav.nosotros">Nosotros</a>
+          <a href="ecosistema.html" data-i18n="nav.ecosistema">Ecosistema</a>
+          <a href="seleccion-internacional.html" data-i18n="footer.seleccion">Selección Internacional</a>
+        </div>
+        <div>
+          <h4 data-i18n="nav.lugar">Encuentra tu lugar</h4>
+          <a href="soy-club.html" data-i18n="nav.lugar_club">Soy Club</a>
+          <a href="soy-deportista.html" data-i18n="nav.lugar_deportista">Soy Deportista</a>
+          <a href="soy-aliado.html" data-i18n="nav.lugar_aliado">Soy Aliado</a>
+          <a href="plan-padrino.html" data-i18n="nav.lugar_apoyar">Quiero apoyar</a>
         </div>
       </div>
     </div>
@@ -467,8 +506,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'evidencia.h2': 'Discover the full ecosystem this program comes from.',
     'evidencia.link': 'See the ecosystem →',
 
-    'close.h2': 'Your journey within 11 Cracks starts with training.',
-    'close.cta': 'Start my process'
+    'pagecierre.h2': 'Your journey within 11 Cracks starts with training.',
+    'pagecierre.cta': 'Start my process',
+    'close.h2': 'That is 11&nbsp;Cracks',
+    'close.sub': 'A place to inspire humanity.',
+    'close.cta': 'Join the movement ↗'
   };
 
   STRINGS.zh = {
@@ -527,8 +569,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'evidencia.h2': '了解孕育这个项目的完整生态系统。',
     'evidencia.link': '查看生态系统 →',
 
-    'close.h2': '你在11 Cracks的历程，从培养开始。',
-    'close.cta': '开始我的历程'
+    'pagecierre.h2': '你在11 Cracks的历程，从培养开始。',
+    'pagecierre.cta': '开始我的历程',
+    'close.h2': '这就是11&nbsp;Cracks',
+    'close.sub': '一个激励人类的地方。',
+    'close.cta': '加入这场运动 ↗'
   };
 
   document.querySelectorAll('[data-i18n]').forEach(function(el){
@@ -544,8 +589,9 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
       else if (STRINGS.es[key] !== undefined) { el.innerHTML = STRINGS.es[key]; }
     });
     document.documentElement.lang = lang;
+    var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文' };
     document.querySelectorAll('.lang-dropdown-mobile .lang-current').forEach(function(label){ label.textContent = lang.toUpperCase(); });
-    document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = (window.LANG_NAMES && window.LANG_NAMES[lang]) || lang.toUpperCase(); });
+    document.querySelectorAll('.lang-dropdown-desktop .lang-current').forEach(function(label){ label.textContent = LANG_NAMES[lang] || lang.toUpperCase(); });
     document.querySelectorAll('.lang-menu a[data-lang]').forEach(function(a){
       a.classList.toggle('active', a.getAttribute('data-lang') === lang);
     });

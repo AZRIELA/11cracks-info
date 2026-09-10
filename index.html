@@ -516,7 +516,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       <div class="nav-dropdown lang-dropdown lang-dropdown-desktop" id="langDropdown">
         <button class="dropdown-toggle lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu" aria-label="Seleccionar idioma / Select language">
           <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 4 6 4 9s-1.5 6.4-4 9c-2.5-2.6-4-6-4-9s1.5-6.4 4-9Z"/></svg>
-          <span class="lang-current">Español</span>
+          <span class="lang-current">Esp.</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </button>
         <div class="dropdown-menu lang-menu" id="langMenu">
@@ -1812,7 +1812,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     if (STRINGS.es[key] === undefined) STRINGS.es[key] = el.innerHTML;
   });
 
-  var LANG_NAMES = { es: 'Español', en: 'English', zh: '中文', pt: 'Português', it: 'Italiano' };
+  var LANG_NAMES = { es: 'Esp.', en: 'Eng.', zh: '中文', pt: 'Port.', it: 'Ital.' };
 
   function applyLang(lang){
     document.querySelectorAll('[data-i18n]').forEach(function(el){
