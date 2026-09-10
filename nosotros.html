@@ -145,6 +145,10 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 @keyframes heroReveal{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
 
 
+/* ---------- POR QUÉ EXISTIMOS ---------- */
+.porque{background:var(--gold-dim);}
+.porque h2{font-size:clamp(1.6rem,3.2vw,2.3rem); max-width:22ch; margin-bottom:18px;}
+
 /* ---------- MISIÓN Y VISIÓN ---------- */
 .mv{background:var(--white);}
 .mv-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
@@ -163,6 +167,15 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .persona h3{font-family:var(--body); font-weight:700; font-size:1.1rem; margin-bottom:2px; color:var(--black);}
 .persona .cargo{font-size:.85rem; color:var(--ink-dim); margin-bottom:8px; display:block;}
 .persona p{font-size:.9rem; color:var(--ink-dim);}
+
+/* ---------- CÓMO FUNCIONA 11 CRACKS ---------- */
+.como{background:var(--white);}
+.como-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+@media (max-width:760px){.como-grid{grid-template-columns:1fr; gap:24px;}}
+.como-grid h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+.como-items{display:flex; flex-direction:column; gap:28px;}
+.como-item h3{font-family:var(--body); font-weight:700; font-size:1.05rem; color:var(--black); margin-bottom:8px;}
+.como-item p{font-size:.95rem; color:var(--ink-dim);}
 
 /* ---------- QUÉ HACEMOS ---------- */
 .servicios{background:var(--white);}
@@ -306,6 +319,15 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
   </section>
 
+  <!-- ============ POR QUÉ EXISTIMOS ============ -->
+  <section class="porque">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="porque.eyebrow">Por qué existimos</span>
+      <h2 data-i18n="porque.h2">El deporte es el anzuelo. La educación es el contenido. La vida es el objetivo.</h2>
+      <p class="lede" data-i18n="porque.p">No todos llegarán al fútbol profesional, pero todos llegarán a la vida. Por eso 11 Cracks existe: para que el paso de un joven por el deporte le deje algo que le sirva sin importar hasta dónde llegue en la cancha.</p>
+    </div>
+  </section>
+
   <!-- ============ MISIÓN Y VISIÓN ============ -->
   <section class="mv">
     <div class="wrap mv-grid">
@@ -347,6 +369,26 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
             <span class="cargo" data-i18n="equipo.p2_cargo">Futbolista profesional</span>
             <p data-i18n="equipo.p2_bio">Comparte su experiencia en el deporte de alto nivel y conecta a los jóvenes del ecosistema con modelos a seguir.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO FUNCIONA 11 CRACKS ============ -->
+  <section class="como">
+    <div class="wrap como-grid">
+      <div>
+        <span class="eyebrow" data-i18n="como.eyebrow">Cómo funciona 11 Cracks</span>
+        <h2 data-i18n="como.h2">Sport Student es el sello. NeuroCracks es la metodología.</h2>
+      </div>
+      <div class="como-items">
+        <div class="como-item">
+          <h3 data-i18n="como.ss_h3">Sport Student</h3>
+          <p data-i18n="como.ss_p">Es la identidad bajo la que 11 Cracks articula su propuesta: formar al deportista como estudiante de su propio proceso, dentro y fuera de la cancha.</p>
+        </div>
+        <div class="como-item">
+          <h3 data-i18n="como.nc_h3">NeuroCracks</h3>
+          <p data-i18n="como.nc_p">La metodología que acompaña el entrenamiento con herramientas de desarrollo personal y cognitivo, integrada a las sesiones — no un curso aparte, sino parte del mismo proceso.</p>
         </div>
       </div>
     </div>
@@ -587,6 +629,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'hero.h1': 'We shape athletes for life, not just for the field',
     'hero.lede': 'Every year, more than 8 million young people fall through the cracks of the sports world. Our mission is to reverse that trend.',
 
+    'porque.eyebrow': 'Why we exist',
+    'porque.h2': 'Sport is the hook. Education is the content. Life is the goal.',
+    'porque.p': "Not everyone will turn professional, but everyone will reach life. That's why 11 Cracks exists: so a young person's time in sport leaves them something useful, no matter how far they go on the field.",
+
     'mv.mision_eyebrow': 'Our mission',
     'mv.mision_h2': 'Real tools to grow, on and off the field.',
     'mv.mision_lede': 'To give young people the tools and support they need to improve their athletic, academic, and professional performance, with an inclusive and sustainable vision.',
@@ -602,6 +648,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'equipo.p2_rol': 'Ambassador',
     'equipo.p2_cargo': 'Professional footballer',
     'equipo.p2_bio': 'Shares his experience in high-level sport and connects young people in the ecosystem with role models.',
+
+    'como.eyebrow': 'How 11 Cracks works',
+    'como.h2': 'Sport Student is the seal. NeuroCracks is the methodology.',
+    'como.ss_h3': 'Sport Student',
+    'como.ss_p': "The identity under which 11 Cracks builds its offer: shaping the athlete as a student of their own process, on and off the field.",
+    'como.nc_h3': 'NeuroCracks',
+    'como.nc_p': "The methodology that accompanies training with personal and cognitive development tools, built into the sessions — not a separate course, but part of the same process.",
 
     'servicios.eyebrow': 'What we do',
     'servicios.h2': 'Comprehensive development, not just training.',
@@ -660,6 +713,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'hero.h1': '我们培养的是能面对人生的运动员，而不只是球场上的球员',
     'hero.lede': '每年有超过800万年轻人在体育世界中被埋没。我们的使命就是扭转这一趋势。',
 
+    'porque.eyebrow': '我们为何存在',
+    'porque.h2': '体育是钩子，教育是内容，人生是目标。',
+    'porque.p': '不是每个人都能成为职业球员，但每个人都会走向人生。这正是11 Cracks存在的原因：让年轻人在体育中的经历，无论他们在球场上走多远，都能留下真正有用的东西。',
+
     'mv.mision_eyebrow': '我们的使命',
     'mv.mision_h2': '真正的工具，助你在球场内外成长。',
     'mv.mision_lede': '为年轻人提供必要的工具和支持，以提升他们在体育、学业和职业方面的表现，秉持包容与可持续的愿景。',
@@ -675,6 +732,13 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'equipo.p2_rol': '大使',
     'equipo.p2_cargo': '职业足球运动员',
     'equipo.p2_bio': '分享他在高水平体育中的经验，帮助生态系统中的年轻人与榜样建立联系。',
+
+    'como.eyebrow': '11 Cracks如何运作',
+    'como.h2': 'Sport Student是标识，NeuroCracks是方法论。',
+    'como.ss_h3': 'Sport Student',
+    'como.ss_p': '这是11 Cracks构建其培养方案所依托的身份：让运动员成为自己成长过程的学习者，无论在球场内外。',
+    'como.nc_h3': 'NeuroCracks',
+    'como.nc_p': '这是伴随训练的方法论，将个人与认知发展工具融入训练课程之中——不是单独的课程，而是同一过程的一部分。',
 
     'servicios.eyebrow': '我们做什么',
     'servicios.h2': '全面培养，而不仅仅是训练。',
