@@ -145,6 +145,15 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 @keyframes heroReveal{from{opacity:0; transform:translateY(22px);} to{opacity:1; transform:translateY(0);}}
 
 
+/* ---------- QUÉ VAS A VIVIR ---------- */
+.vivir{background:var(--gold-dim);}
+.vivir-list{display:flex; flex-direction:column;}
+.vivir-item{display:grid; grid-template-columns:90px 1fr; gap:24px; padding:28px 0; border-top:1px solid oklch(0.134 0 90 / 0.14);}
+.vivir-list .vivir-item:last-child{border-bottom:1px solid oklch(0.134 0 90 / 0.14);}
+.vivir-item .num{font-family:var(--numeric); font-size:2.6rem; color:var(--gold-deep); line-height:1;}
+.vivir-item h3{font-family:var(--body); font-weight:700; font-size:1.05rem; margin-bottom:6px; color:var(--black);}
+.vivir-item p{color:var(--ink-dim); font-size:.95rem;}
+
 /* ---------- QUÉ OBTIENES ---------- */
 .obtiene{background:var(--white);}
 .obtiene-head{max-width:640px; margin-bottom:48px;}
@@ -305,6 +314,39 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
   </section>
 
+  <!-- ============ QUÉ VAS A VIVIR ============ -->
+  <section class="vivir">
+    <div class="wrap">
+      <div class="obtiene-head">
+        <span class="eyebrow" data-i18n="vivir.eyebrow">Qué vas a vivir</span>
+        <h2 data-i18n="vivir.h2">Tu proceso, paso a paso.</h2>
+      </div>
+      <div class="vivir-list">
+        <div class="vivir-item">
+          <span class="num">01</span>
+          <div>
+            <h3 data-i18n="vivir.v1_h3">Entrenas como siempre — con algo más</h3>
+            <p data-i18n="vivir.v1_p">Sigues entrenando tu deporte. La diferencia es que, dentro de la misma sesión, trabajas también tu manejo emocional, tu disciplina y tu forma de responder bajo presión — eso es NeuroCracks en la práctica, no un curso aparte.</p>
+          </div>
+        </div>
+        <div class="vivir-item">
+          <span class="num">02</span>
+          <div>
+            <h3 data-i18n="vivir.v2_h3">Avanzas por las siete áreas, de forma progresiva</h3>
+            <p data-i18n="vivir.v2_p">No todo llega al mismo tiempo: vas incorporando finanzas, marketing, idiomas, cultura, salud mental, alto rendimiento y sostenibilidad conforme avanza tu proceso.</p>
+          </div>
+        </div>
+        <div class="vivir-item">
+          <span class="num">03</span>
+          <div>
+            <h3 data-i18n="vivir.v3_h3">Tu recorrido queda registrado</h3>
+            <p data-i18n="vivir.v3_p">Lo que muestras dentro de las siete áreas es lo que el equipo observa. Un recorrido sostenido puede abrir la puerta a la Selección Internacional — un posible horizonte, no un resultado garantizado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ QUÉ OBTIENES ============ -->
   <section class="obtiene">
     <div class="wrap">
@@ -325,7 +367,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
         </div>
         <div class="obtiene-item">
           <h3 data-i18n="obtiene.item3.h3">Selección Internacional</h3>
-          <p data-i18n="obtiene.item3.p">Un cupo limitado para el talento que destaca dentro del ecosistema, con cinco pilares de formación propios.</p>
+          <p data-i18n="obtiene.item3.p">Un posible horizonte para quienes destacan dentro de su recorrido — el equipo identifica a los deportistas, no es una postulación abierta ni una meta automática.</p>
           <a class="link-more" href="index.html#seleccion" data-i18n="obtiene.item3.link">Conocer el programa →</a>
         </div>
       </div>
@@ -590,6 +632,15 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'hero.lede': 'Train, learn, track your progress and prepare for new opportunities inside the 11 Cracks ecosystem.',
     'hero.cta': 'I want to start my process',
 
+    'vivir.eyebrow': 'What you will experience',
+    'vivir.h2': 'Your process, step by step.',
+    'vivir.v1_h3': 'You keep training — with something more',
+    'vivir.v1_p': "You keep training your sport. The difference is that, within the same session, you also work on your emotional management, discipline, and how you respond under pressure — that's NeuroCracks in practice, not a separate course.",
+    'vivir.v2_h3': 'You progress through the seven areas, gradually',
+    'vivir.v2_p': "Not everything arrives at once: you gradually take on finance, marketing, languages, culture, mental health, high performance, and sustainability as your process advances.",
+    'vivir.v3_h3': 'Your journey gets recorded',
+    'vivir.v3_p': "What you show across the seven areas is what the team observes. A sustained journey can open the door to the International Selection — a possible horizon, not a guaranteed outcome.",
+
     'obtiene.eyebrow': 'What you get',
     'obtiene.h2': "Formation that doesn't stop at the field.",
     'obtiene.item1.h3': 'Seven areas of formation',
@@ -599,7 +650,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'obtiene.item2.p': 'Emotional formation, discipline and a healthy competitive mindset, within every training session.',
     'obtiene.item2.link': 'How we train →',
     'obtiene.item3.h3': 'International Selection',
-    'obtiene.item3.p': 'A limited spot for the talent that stands out within the ecosystem, with its own five pillars of formation.',
+    'obtiene.item3.p': 'A possible horizon for those who stand out within their journey — the team identifies athletes, this is not an open application nor an automatic goal.',
     'obtiene.item3.link': 'Learn about the program →',
 
     'pasos.eyebrow': 'How it works',
@@ -656,6 +707,15 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'hero.lede': '在11 Cracks生态系统内训练、学习、追踪你的进步，并为新的机会做好准备。',
     'hero.cta': '我想开始我的历程',
 
+    'vivir.eyebrow': '你将经历什么',
+    'vivir.h2': '你的历程，一步一步。',
+    'vivir.v1_h3': '继续训练——但多了一些东西',
+    'vivir.v1_p': '你依然训练自己的运动项目。不同的是，在同一次训练中，你也在锻炼情绪管理、纪律，以及在压力下的应对方式——这就是NeuroCracks在实践中的体现，而不是一门单独的课程。',
+    'vivir.v2_h3': '循序渐进地深入七大领域',
+    'vivir.v2_p': '并不是所有内容同时到来：随着你的历程推进，你会逐步接触财务、市场营销、语言、文化、心理健康、高水平表现和可持续性。',
+    'vivir.v3_h3': '你的历程会被记录',
+    'vivir.v3_p': '你在七大领域中展现的表现，正是团队所观察的内容。持续的历程可能为你打开国际选拔的大门——这是一种可能的方向，而非保证的结果。',
+
     'obtiene.eyebrow': '你能获得什么',
     'obtiene.h2': '不止于球场的培养。',
     'obtiene.item1.h3': '七大培养领域',
@@ -665,7 +725,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'obtiene.item2.p': '在每一次训练中培养情绪管理、纪律和健康的竞争心态。',
     'obtiene.item2.link': '我们如何培养 →',
     'obtiene.item3.h3': '国际选拔',
-    'obtiene.item3.p': '为生态系统内表现突出的人才提供的有限名额，拥有自己的五大培养支柱。',
+    'obtiene.item3.p': '为在自身历程中脱颖而出的人提供的可能方向——由团队甄选运动员，这并非公开申请，也不是自动达成的目标。',
     'obtiene.item3.link': '了解该项目 →',
 
     'pasos.eyebrow': '如何运作',
