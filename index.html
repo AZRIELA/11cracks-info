@@ -186,7 +186,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 /* Camera push muy sutil sobre el marquee al cargar — una vez, no en loop. */
 .hero-camera-push{animation:heroCameraPush 1600ms cubic-bezier(0.22,1,0.36,1) forwards;}
 @keyframes heroCameraPush{from{transform:scale(1.025);} to{transform:scale(1);}}
-@media (prefers-reduced-motion: reduce){.hero-scroll-cue svg{animation:none;} .hero h1{opacity:1; clip-path:none;} .hero .sub-quote::before{width:44px;}}
+@media (prefers-reduced-motion: reduce){.hero-scroll-cue svg{animation:none;} .hero h1{opacity:1; clip-path:none;} .hero .sub-quote::before{width:44px;} .manifesto-sub::before{width:44px;}}
 
 /* ---------- HERO — marquee de fotos (mismo patrón del sitio en vivo) ---------- */
 .hero-marquee{position:relative; overflow:hidden; height:92vh;}
@@ -206,9 +206,11 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 
 /* ---------- QUIÉNES SOMOS ---------- */
 .somos{background:var(--white);}
-.somos-manifesto{max-width:760px; margin:0 auto 56px; text-align:center;}
-.somos-manifesto h2{font-size:clamp(2rem,4.4vw,3.2rem); margin-bottom:16px;}
-.somos-manifesto .lede{margin:0 auto; max-width:56ch;}
+.somos-manifesto{max-width:640px; margin:0 auto 72px; text-align:center;}
+.manifesto-statement{font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,3vw,2.1rem); line-height:1.22; color:var(--black); margin-bottom:18px; max-width:none;}
+.manifesto-sub{font-family:var(--display); font-weight:400; font-size:clamp(1rem,1.7vw,1.12rem); color:var(--gold-deep); line-height:1.35; position:relative; padding-top:20px; display:inline-block; max-width:44ch;}
+.manifesto-sub::before{content:''; position:absolute; top:0; left:50%; width:0; height:2px; background:var(--gold); transform:translateX(-50%); animation:manifestoLineDraw .6s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay:.3s;}
+@keyframes manifestoLineDraw{to{width:44px;}}
 .founder-quote{display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:start; margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--line);}
 @media (max-width:600px){.founder-quote{grid-template-columns:64px 1fr; gap:18px;}}
 .founder-quote img{width:120px; height:120px; border-radius:50%; object-fit:cover;}
@@ -667,8 +669,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
   <section class="somos" id="somos">
     <div class="wrap">
       <div class="somos-manifesto" data-motion="reveal">
-        <h2 data-i18n="somos.manifesto_h2">Movilizamos el mundo a través del deporte</h2>
-        <p class="lede" data-i18n="somos.manifesto_p">Inteligencias que conectan con un mundo de posibilidades, con un enfoque social y una visión empresarial donde todos ganan.</p>
+        <p class="manifesto-statement" data-i18n="somos.manifesto_h2">Movilizamos el mundo a través del deporte.</p>
+        <p class="manifesto-sub" data-i18n="somos.manifesto_p">Inteligencias que conectan con un mundo de posibilidades, con un enfoque social y una visión empresarial donde todos ganan.</p>
       </div>
       <div class="founder-quote" data-motion="reveal">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba">
