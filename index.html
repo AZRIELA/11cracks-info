@@ -45,19 +45,38 @@ button{font-family:var(--body); border:none; background:none; cursor:pointer;}
 .eyebrow{color:var(--gold-deep); font-weight:600; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px; display:block;}
 .eyebrow.on-dark{color:var(--gold-light);}
 section{padding:128px 0;}
-/* Ritmo de superficies: 3 niveles — inmersivo / normal (base) / compacto */
-.areas{padding:160px 0;}
-.ecosistema{padding:96px 0;}
-.statement{padding:128px 0;}
-.marcas{padding:64px 0;}
-.pet-moment{padding:44px 0;}
+/* Ritmo vertical entre secciones: cada lado de cada sección se define por su
+   propia transición (misma superficie = compacto, cambio de capítulo =
+   normal, entrada a un momento inmersivo = el lado más generoso), en vez de
+   un padding simétrico que se duplica con el vecino. Ver auditoría de
+   ritmo — la combinación de dos paddings simétricos de 128px producía
+   franjas de 250-290px sin razón compositiva entre varias secciones. */
+.hero{padding-bottom:64px;}
+.lugar{padding-top:48px; padding-bottom:64px;}
+.founder-story{padding-top:40px; padding-bottom:56px;}
+.somos{padding-top:48px; padding-bottom:64px;}
+.areas{padding-top:48px; padding-bottom:56px;}
+.fabw-teaser{padding-top:40px; padding-bottom:48px;}
+.voces{padding-top:40px; padding-bottom:48px;}
+.marcas{padding-top:40px; padding-bottom:56px;}
+.statement{padding-top:64px; padding-bottom:64px;}
+.ecosistema{padding-top:40px; padding-bottom:48px;}
+.pet-moment{padding-top:44px; padding-bottom:40px;}
+.seleccion{padding-top:40px; padding-bottom:56px;}
 @media (max-width:700px){
   section{padding:72px 0;}
-  .areas{padding:88px 0;}
-  .ecosistema{padding:64px 0;}
-  .statement{padding:72px 0;}
-  .marcas{padding:48px 0;}
-  .pet-moment{padding:32px 0;}
+  .hero{padding-bottom:40px;}
+  .lugar{padding-top:32px; padding-bottom:40px;}
+  .founder-story{padding-top:32px; padding-bottom:40px;}
+  .somos{padding-top:32px; padding-bottom:40px;}
+  .areas{padding-top:32px; padding-bottom:40px;}
+  .fabw-teaser{padding-top:28px; padding-bottom:32px;}
+  .voces{padding-top:28px; padding-bottom:32px;}
+  .marcas{padding-top:28px; padding-bottom:32px;}
+  .statement{padding-top:40px; padding-bottom:40px;}
+  .ecosistema{padding-top:28px; padding-bottom:32px;}
+  .pet-moment{padding-top:32px; padding-bottom:28px;}
+  .seleccion{padding-top:28px; padding-bottom:32px;}
 }
 .lede{font-size:1.05rem; color:var(--ink-dim); max-width:60ch;}
 /* ---------- SISTEMA DE ACCIONES: Primary / Secondary / Editorial / Utility ---------- */
@@ -205,12 +224,11 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 @media (prefers-reduced-motion: reduce){.marquee-up, .marquee-down{animation:none;}}
 
 /* ---------- QUIÉNES SOMOS ---------- */
-.somos{background:var(--white); padding-top:80px;}
+.somos{background:var(--white);}
 
 /* ---- Founder Story: puente emocional entre "Encuentra tu lugar" y "Quiénes somos" ---- */
 /* DARK a propósito: crea la alternancia LIGHT(Encuentra tu lugar) → DARK(Founder Story) → LIGHT(Quiénes somos). Mismo negro institucional (--black) que hero/.areas/.statement/.seleccion, no un tono nuevo. */
-.founder-story{background:var(--black); color:var(--white); padding:96px 0;}
-@media (max-width:700px){.founder-story{padding:64px 0;}}
+.founder-story{background:var(--black); color:var(--white);}
 .founder-grid{
   display:grid;
   grid-template-columns:5fr 7fr;
@@ -257,10 +275,11 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
   .fq-pullquote{font-size:clamp(1.5rem,6.5vw,1.7rem);}
   .founder-title{font-size:clamp(1.7rem,7vw,2.1rem);}
 }
-.somos-grid{display:grid; grid-template-columns:1.15fr 1fr; gap:72px; align-items:start;}
-@media (max-width:820px){.somos-grid{grid-template-columns:1fr; gap:28px;}}
-.somos h2{font-family:var(--display); font-weight:400; font-size:clamp(2.75rem,4.5vw,4rem); line-height:0.98; max-width:none; margin-bottom:6px;}
-.somos-grid .lede{font-size:1.2rem; line-height:1.55; max-width:520px; color:var(--ink-dim);}
+.somos-eyebrow-row{margin-bottom:28px;}
+.somos-grid{display:grid; grid-template-columns:7fr 5fr; gap:64px; align-items:start;}
+@media (max-width:820px){.somos-grid{grid-template-columns:1fr; gap:24px;}}
+.somos h2{font-family:var(--display); font-weight:400; font-size:clamp(2.75rem,4.5vw,4rem); line-height:0.98; max-width:none; margin:0;}
+.somos-grid .lede{font-size:1.2rem; line-height:1.55; max-width:520px; color:var(--ink-dim); margin:0;}
 
 /* ---------- QUIÉNES SOMOS — video + cierre de propósito ---------- */
 .somos-video{margin-top:64px;}
@@ -725,14 +744,12 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
   <!-- ============ QUIÉNES SOMOS ============ -->
   <section class="somos" id="somos">
     <div class="wrap">
-      <div class="somos-grid">
-        <div data-motion="reveal">
-          <span class="eyebrow" data-i18n="somos.eyebrow">Quiénes somos</span>
-          <h2 data-i18n="somos.h2">Una infraestructura socioeducativa que nace en la cancha.</h2>
-        </div>
-        <div>
-          <p class="lede" style="margin-bottom:24px;" data-i18n="somos.lede">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
-        </div>
+      <div class="somos-eyebrow-row">
+        <span class="eyebrow" data-i18n="somos.eyebrow">Quiénes somos</span>
+      </div>
+      <div class="somos-grid" data-motion="reveal">
+        <h2 data-i18n="somos.h2">Una infraestructura socioeducativa que nace en la cancha.</h2>
+        <p class="lede" data-i18n="somos.lede">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
       </div>
 
       <div class="somos-video">
@@ -979,7 +996,7 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
     <div class="wrap">
       <span class="eyebrow on-dark" data-i18n="statement.eyebrow">Cómo formamos · NeuroCracks</span>
-      <h2 data-i18n="statement.h2">Entrenamiento desde las neuronas del corazón</h2>
+      <h2 data-i18n="statement.h2">Entrenamiento desde las neuronas del&nbsp;corazón</h2>
       <p class="lede" data-i18n="statement.lede">Formación emocional, disciplina, valores y mentalidad competitiva saludable — en cada sesión, no solo en el discurso.</p>
     </div>
   </section>
