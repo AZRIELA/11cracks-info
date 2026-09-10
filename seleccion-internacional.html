@@ -144,6 +144,7 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 .pilar-item{background:var(--black); color:var(--white); border:1px solid oklch(1 0 0 / 0.08); margin:-1px 0 0 -1px; padding:34px 28px; display:flex; flex-direction:column; gap:10px; flex:1 1 220px;}
 .pilar-item .num{font-family:var(--numeric); font-size:1.6rem; color:var(--gold);}
 .pilar-item h3{font-family:var(--body); font-weight:700; font-size:1rem;}
+.pilar-item p{font-size:.85rem; color:var(--ivory-dim); max-width:none;}
 .acceso{background:var(--charcoal); color:var(--white); text-align:center;}
 .acceso h2{font-size:clamp(1.7rem,3.6vw,2.5rem); max-width:22ch; margin:0 auto 16px;}
 .acceso p{margin:0 auto; color:var(--ivory-dim); max-width:52ch;}
@@ -251,11 +252,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
         <h2 data-i18n="pilares.h2">Lo que distingue a este programa de las demás oportunidades.</h2>
       </div>
       <div class="pilares-grid">
-        <div class="pilar-item"><span class="num">01</span><h3 data-i18n="pilares.p1">Idiomas y comunicación global</h3></div>
-        <div class="pilar-item"><span class="num">02</span><h3 data-i18n="pilares.p2">Liderazgo e inteligencia emocional</h3></div>
-        <div class="pilar-item"><span class="num">03</span><h3 data-i18n="pilares.p3">Emprendimiento deportivo</h3></div>
-        <div class="pilar-item"><span class="num">04</span><h3 data-i18n="pilares.p4">Marketing y marca personal</h3></div>
-        <div class="pilar-item"><span class="num">05</span><h3 data-i18n="pilares.p5">Experiencia y cultura internacional</h3></div>
+        <div class="pilar-item"><span class="num">01</span><h3 data-i18n="pilares.p1">Idiomas y comunicación global</h3><p data-i18n="pilares.p1_desc">Comunicación efectiva en distintos idiomas, aplicada a contextos deportivos y profesionales.</p></div>
+        <div class="pilar-item"><span class="num">02</span><h3 data-i18n="pilares.p2">Liderazgo e inteligencia emocional</h3><p data-i18n="pilares.p2_desc">Herramientas para liderar equipos y gestionar las propias emociones dentro y fuera de la cancha.</p></div>
+        <div class="pilar-item"><span class="num">03</span><h3 data-i18n="pilares.p3">Emprendimiento deportivo</h3><p data-i18n="pilares.p3_desc">Visión para convertir la trayectoria deportiva en proyectos y oportunidades propias.</p></div>
+        <div class="pilar-item"><span class="num">04</span><h3 data-i18n="pilares.p4">Marketing y marca personal</h3><p data-i18n="pilares.p4_desc">Cómo construir y comunicar una marca personal coherente con la trayectoria del deportista.</p></div>
+        <div class="pilar-item"><span class="num">05</span><h3 data-i18n="pilares.p5">Experiencia y cultura internacional</h3><p data-i18n="pilares.p5_desc">Contacto con entornos, culturas y dinámicas deportivas fuera del territorio de origen.</p></div>
       </div>
     </div>
   </section>
@@ -451,6 +452,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'pilares.p3': 'Sports entrepreneurship',
     'pilares.p4': 'Marketing and personal brand',
     'pilares.p5': 'International experience and culture',
+    'pilares.p1_desc': 'Effective communication in different languages, applied to sporting and professional contexts.',
+    'pilares.p2_desc': 'Tools to lead teams and manage emotions, on and off the field.',
+    'pilares.p3_desc': 'A mindset to turn a sporting career into projects and opportunities of your own.',
+    'pilares.p4_desc': "How to build and communicate a personal brand consistent with the athlete's career.",
+    'pilares.p5_desc': 'Exposure to environments, cultures and sporting dynamics beyond your home territory.',
 
     'acceso.eyebrow': 'How to access it',
     'acceso.h2': 'A recognition within the ecosystem, not an open application.',
@@ -506,6 +512,11 @@ footer{background:var(--black); color:var(--ivory-dim); padding:44px 0 28px; fon
     'pilares.p3': '体育创业',
     'pilares.p4': '市场营销与个人品牌',
     'pilares.p5': '国际经验与文化',
+    'pilares.p1_desc': '在体育和职业场景中运用多语言进行有效沟通。',
+    'pilares.p2_desc': '在赛场内外领导团队、管理情绪的工具。',
+    'pilares.p3_desc': '将体育生涯转化为自己项目和机会的视野。',
+    'pilares.p4_desc': '如何建立并传达与运动员自身经历一致的个人品牌。',
+    'pilares.p5_desc': '接触本土之外的环境、文化与体育动态。',
 
     'acceso.eyebrow': '如何获得资格',
     'acceso.h2': '是生态系统内的认可，而非公开申请。',
