@@ -206,6 +206,9 @@ a.lang-option:focus-visible{outline:2px solid var(--black); outline-offset:-3px;
 
 /* ---------- QUIÉNES SOMOS ---------- */
 .somos{background:var(--white);}
+.somos-manifesto{max-width:760px; margin:0 auto 56px; text-align:center;}
+.somos-manifesto h2{font-size:clamp(2rem,4.4vw,3.2rem); margin-bottom:16px;}
+.somos-manifesto .lede{margin:0 auto; max-width:56ch;}
 .founder-quote{display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:start; margin-bottom:56px; padding-bottom:56px; border-bottom:1px solid var(--line);}
 @media (max-width:600px){.founder-quote{grid-template-columns:64px 1fr; gap:18px;}}
 .founder-quote img{width:120px; height:120px; border-radius:50%; object-fit:cover;}
@@ -663,10 +666,14 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
   <!-- ============ QUIÉNES SOMOS ============ -->
   <section class="somos" id="somos">
     <div class="wrap">
+      <div class="somos-manifesto" data-motion="reveal">
+        <h2 data-i18n="somos.manifesto_h2">Movilizamos el mundo a través del deporte</h2>
+        <p class="lede" data-i18n="somos.manifesto_p">Inteligencias que conectan con un mundo de posibilidades, con un enfoque social y una visión empresarial donde todos ganan.</p>
+      </div>
       <div class="founder-quote" data-motion="reveal">
         <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba">
         <div>
-          <blockquote data-i18n="somos.quote">"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo."</blockquote>
+          <blockquote data-i18n="somos.quote">"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo. Ese es nuestro deseo y nuestro anhelo: que ningún joven se pierda en el camino, y que el deporte lo conecte con un mundo de oportunidades, haciendo que cada hora de arduo entrenamiento tenga un propósito de vida."</blockquote>
           <cite>Victor Córdoba<span data-i18n="somos.cite_role">Fundador, 11 Cracks</span></cite>
         </div>
       </div>
@@ -1400,8 +1407,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'lugar.card4.h3': 'Help an athlete keep growing',
     'lugar.card4.p': 'Your support can help cover their training process within 11 Cracks.',
     'lugar.card4.cta': 'I want to support →',
-    'somos.quote': '"Every time I walk past a field I remember, with emotion and nostalgia, dreaming as a kid of becoming a professional athlete. The day I signed my first contract I felt happiness, but also a lot of nostalgia seeing so many colleagues who got lost for elite sport, and worse still, for life itself. Among them I lost a great friend. That is our wish and our longing."',
+    'somos.quote': '"Every time I walk past a field I remember, with emotion and nostalgia, dreaming as a kid of becoming a professional athlete. The day I signed my first contract I felt happiness, but also a lot of nostalgia seeing so many colleagues who got lost for elite sport, and worse still, for life itself. Among them I lost a great friend. That is our wish and our longing: that no young person gets lost along the way, and that sport connects them with a world of opportunities, so that every hour of hard training carries a purpose for life."',
     'somos.cite_role': 'Founder, 11 Cracks',
+    'somos.manifesto_h2': 'We move the world through sport',
+    'somos.manifesto_p': 'Intelligences that connect with a world of possibilities, with a social focus and a business vision where everyone wins.',
     'somos.eyebrow': 'Who we are',
     'somos.h2': 'A socio-educational infrastructure born on the field.',
     'somos.lede': 'Our purpose is for every sports setting to become a living classroom of NeuroCracks Multiple Intelligence, where children and young people learn while they train, compete, and build a purposeful life project.',
@@ -1511,8 +1520,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'lugar.card4.h3': '帮助一名运动员持续成长',
     'lugar.card4.p': '你的支持可以帮助支付他们在11 Cracks的培训过程。',
     'lugar.card4.cta': '我想提供支持 →',
-    'somos.quote': '“每次经过球场，我都会满怀激动与怀念，想起小时候梦想成为职业运动员的自己。签下第一份职业合同的那天，我感到无比幸福，但也充满怀念——因为我看到太多同伴在追逐精英体育的路上迷失了方向，更糟糕的是，迷失了人生的方向。其中，我失去了一位挚友。这正是我们的心愿与渴望。”',
+    'somos.quote': '“每次经过球场，我都会满怀激动与怀念，想起小时候梦想成为职业运动员的自己。签下第一份职业合同的那天，我感到无比幸福，但也充满怀念——因为我看到太多同伴在追逐精英体育的路上迷失了方向，更糟糕的是，迷失了人生的方向。其中，我失去了一位挚友。这正是我们的心愿与渴望：希望没有一个年轻人在路上迷失，希望体育能把他与充满机会的世界连接起来，让每一个小时艰苦训练都承载着人生的意义。”',
     'somos.cite_role': '11 Cracks 创始人',
+    'somos.manifesto_h2': '我们通过体育推动世界',
+    'somos.manifesto_p': '连接无限可能世界的智慧，兼具社会视野与共赢的商业理念。',
     'somos.eyebrow': '关于我们',
     'somos.h2': '一个诞生于球场的社会教育体系。',
     'somos.lede': '我们的宗旨是让每一个运动场景都成为"NeuroCracks多元智能"的活课堂，让孩子和青少年在训练、比赛的同时学习成长，构建有意义的人生规划。',
@@ -1622,8 +1633,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'lugar.card4.h3': 'Ajude um atleta a continuar crescendo',
     'lugar.card4.p': 'Seu apoio pode ajudar a cobrir o processo de formação dele dentro da 11 Cracks.',
     'lugar.card4.cta': 'Quero apoiar →',
-    'somos.quote': '"Toda vez que passo por um campo, lembro, com emoção e nostalgia, de sonhar quando criança em me tornar um atleta profissional. No dia em que assinei meu primeiro contrato, senti felicidade, mas também muita nostalgia ao ver tantos colegas que se perderam para o esporte de elite, e pior ainda, para a própria vida. Entre eles, perdi um grande amigo. Esse é o nosso desejo e a nossa saudade."',
+    'somos.quote': '"Toda vez que passo por um campo, lembro, com emoção e nostalgia, de sonhar quando criança em me tornar um atleta profissional. No dia em que assinei meu primeiro contrato, senti felicidade, mas também muita nostalgia ao ver tantos colegas que se perderam para o esporte de elite, e pior ainda, para a própria vida. Entre eles, perdi um grande amigo. Esse é o nosso desejo e a nossa saudade: que nenhum jovem se perca pelo caminho, e que o esporte o conecte com um mundo de oportunidades, fazendo com que cada hora de treino árduo carregue um propósito de vida."',
     'somos.cite_role': 'Fundador, 11 Cracks',
+    'somos.manifesto_h2': 'Mobilizamos o mundo através do esporte',
+    'somos.manifesto_p': 'Inteligências que conectam com um mundo de possibilidades, com um enfoque social e uma visão empresarial onde todos ganham.',
     'somos.eyebrow': 'Quem somos',
     'somos.h2': 'Uma infraestrutura socioeducativa nascida em campo.',
     'somos.lede': 'Nosso propósito é que cada ambiente esportivo se torne uma sala de aula viva da Inteligência Múltipla NeuroCracks, onde crianças e jovens aprendem enquanto treinam, competem e constroem um projeto de vida com propósito.',
@@ -1733,8 +1746,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     'lugar.card4.h3': 'Aiuta un atleta a continuare a crescere',
     'lugar.card4.p': "Il tuo sostegno può aiutare a coprire il suo percorso di formazione all'interno di 11 Cracks.",
     'lugar.card4.cta': 'Voglio sostenere →',
-    'somos.quote': "\"Ogni volta che passo vicino a un campo, ricordo, con emozione e nostalgia, di aver sognato da bambino di diventare un atleta professionista. Il giorno in cui ho firmato il mio primo contratto ho provato felicità, ma anche molta nostalgia nel vedere tanti compagni persi per lo sport d'élite, e peggio ancora, per la vita stessa. Tra loro ho perso un grande amico. Questo è il nostro desiderio e il nostro rimpianto.\"",
+    'somos.quote': "\"Ogni volta che passo vicino a un campo, ricordo, con emozione e nostalgia, di aver sognato da bambino di diventare un atleta professionista. Il giorno in cui ho firmato il mio primo contratto ho provato felicità, ma anche molta nostalgia nel vedere tanti compagni persi per lo sport d'élite, e peggio ancora, per la vita stessa. Tra loro ho perso un grande amico. Questo è il nostro desiderio e il nostro rimpianto: che nessun giovane si perda lungo il cammino, e che lo sport lo connetta con un mondo di opportunità, affinché ogni ora di duro allenamento porti con sé uno scopo di vita.\"",
     'somos.cite_role': 'Fondatore, 11 Cracks',
+    'somos.manifesto_h2': 'Mobilitiamo il mondo attraverso lo sport',
+    'somos.manifesto_p': 'Intelligenze che si connettono con un mondo di possibilità, con un approccio sociale e una visione imprenditoriale in cui tutti vincono.',
     'somos.eyebrow': 'Chi siamo',
     'somos.h2': "Un'infrastruttura socio-educativa nata in campo.",
     'somos.lede': "Il nostro scopo è che ogni contesto sportivo diventi un'aula viva dell'Intelligenza Multipla NeuroCracks, dove bambini e giovani imparano mentre si allenano, competono e costruiscono un progetto di vita con uno scopo.",
