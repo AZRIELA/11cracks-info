@@ -589,6 +589,20 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
   .areas-sticky-title{opacity:1 !important; transform:none !important;}
   .sel-list li{opacity:1 !important; transform:none !important;}
 }
+
+/* Ajustes puntuales de la primera fase: conservar la composición original y
+   hacer más presente el mensaje institucional y el statement, sin crear un
+   nuevo sistema de scroll. */
+.vision-bridge{padding:clamp(56px,6vw,88px) 0; background:var(--white);}
+.vision-bridge .wrap{max-width:900px;}
+.vision-bridge h2{max-width:16ch; margin:0; font-size:clamp(2rem,4vw,3.4rem);}
+.vision-bridge p{max-width:58ch; margin-top:20px; color:var(--ink-dim); font-size:1.05rem; line-height:1.55;}
+.founder-quote-text .link-more{margin-top:4px;}
+@media (max-width:700px){
+  .vision-bridge{padding:52px 0;}
+  .vision-bridge h2{font-size:clamp(2rem,9vw,3rem);}
+  .vision-bridge p{margin-top:16px; font-size:1rem;}
+}
 </style>
 </head>
 <body>
@@ -661,11 +675,10 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
       <div class="hero-content">
         <span class="eyebrow on-dark">Sport Student · NeuroCracks</span>
         <h1 data-i18n="hero.h1">¿Cómo aportamos al mundo?</h1>
-        <p class="lede" data-i18n="hero.lede">Le damos valor y herramientas a los formadores que en su momento fueron nuestros formadores, y un futuro esperanzador al deportista. Esa es nuestra pasión: conectar el entorno con quienes construyen grandeza, y abrirle al deporte un mundo de posibilidades infinitas, lejos de la escasez.</p>
-        <div class="pull-quote" data-i18n="hero.pullquote">"El deporte es la cuota inicial de la vida, no la vida."</div>
-        <div class="sub-quote" data-i18n="hero.subquote">Las piernas se cansan más rápido que el conocimiento.</div>
+        <p class="lede">Convertimos el deporte en educación, oportunidades e impacto sostenible.</p>
+        <div class="sub-quote">El deporte es la cuota inicial de la vida, no la vida.</div>
         <a class="hero-scroll-cue" href="#lugar">
-          <span data-i18n="nav.lugar">Encuentra tu lugar</span>
+          <span>DESCUBRE 11 CRACKS</span>
           <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l5 5 5-5"/></svg>
         </a>
       </div>
@@ -772,14 +785,14 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     <div class="wrap founder-grid">
       <div class="founder-portrait">
         <!-- TEMP_ASSET: reemplazar por fotografía vertical/documental de Víctor Córdoba en contexto deportivo (cancha, entrenamiento, conversación con jóvenes) — la foto actual (team_photo_1.png) es un headshot de gala con un aro dorado circular pintado dentro del propio PNG, no una máscara CSS. No es la solución definitiva. -->
-        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Victor Córdoba, fundador de 11 Cracks">
+        <img src="https://www.11cracksglobal.com/wp-content/uploads/2026/04/team_photo_1.png" alt="Víctor Córdoba, CEO de 11 Cracks">
       </div>
-      <span class="founder-eyebrow" data-i18n="somos.founder_eyebrow">Voz del fundador</span>
-      <p class="founder-title" data-i18n="somos.manifesto_h2">Movilizamos el mundo a través del deporte.</p>
+      <span class="founder-eyebrow">Visión del CEO</span>
+      <p class="founder-title">Que ningún joven se pierda en el camino.</p>
       <span class="founder-rule" aria-hidden="true"></span>
-      <p class="founder-intro" data-i18n="somos.manifesto_p">Inteligencias que conectan con un mundo de posibilidades, con un enfoque social y una visión empresarial donde todos ganan.</p>
-      <blockquote class="founder-quote-text" data-i18n="somos.quote"><span class="fq-historia">"Cada vez que paso por una cancha recuerdo, con emoción y nostalgia, cuando soñaba de niño con ser un deportista profesional. El día que firmé mi primer contrato sentí felicidad, pero también mucha nostalgia al ver a tantos colegas que se perdían para el deporte élite, y peor aún, para la vida. Entre ellos perdí un gran amigo.</span> <span class="fq-pullquote">Ese es nuestro deseo y nuestro anhelo: que ningún joven se pierda en el camino, y que el deporte lo conecte con un mundo de oportunidades, haciendo que cada hora de arduo entrenamiento tenga un propósito de vida."</span></blockquote>
-      <cite class="founder-cite">Victor Córdoba<span data-i18n="somos.cite_role">Fundador, 11 Cracks</span></cite>
+      <p class="founder-intro">Cuando cumplí el sueño de llegar al deporte profesional, también vi a muchos compañeros quedarse sin alternativas. 11 Cracks nace para que cada hora de entrenamiento pueda conectarse con un propósito de vida.</p>
+      <blockquote class="founder-quote-text"><a class="link-more on-dark" href="nosotros.html">Conoce nuestra historia →</a></blockquote>
+      <cite class="founder-cite">Víctor Córdoba<span>CEO 11 Cracks</span></cite>
     </div>
   </section>
 
@@ -790,8 +803,8 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
         <span class="eyebrow" data-i18n="somos.eyebrow">Quiénes somos</span>
       </div>
       <div class="somos-grid" data-motion="reveal">
-        <h2 data-i18n="somos.h2">Una infraestructura socioeducativa que nace en&nbsp;la cancha.</h2>
-        <p class="lede" data-i18n="somos.lede">Nuestro propósito es que cada escenario deportivo se convierta en una aula viva de Inteligencia Múltiple NeuroCracks, donde los niños y jóvenes aprendan mientras entrenan, compiten y construyen un proyecto de vida con propósito.</p>
+        <h2 data-i18n="somos.h2">Una infraestructura de formación, impacto y oportunidades que nace en&nbsp;la cancha.</h2>
+        <p class="lede">11 Cracks conecta clubes, deportistas, formadores, empresas y comunidades en un ecosistema que integra educación, deporte, tecnología, sostenibilidad y desarrollo.</p>
       </div>
 
       <div class="somos-video">
@@ -1033,14 +1046,24 @@ footer{background:var(--black); color:var(--ivory-dim); font-size:.85rem; paddin
     </div>
   </section>
 
+  <!-- ============ VISIÓN INSTITUCIONAL ============ -->
+  <section class="vision-bridge" aria-labelledby="vision-title">
+    <div class="wrap">
+      <span class="eyebrow">Nuestra visión</span>
+      <h2 id="vision-title">Movilizamos el mundo a través del deporte.</h2>
+      <p>Inteligencias que conectan con un mundo de posibilidades, con un enfoque social y una visión empresarial donde todos ganan.</p>
+    </div>
+  </section>
+
   <!-- ============ STATEMENT — CÓMO DESARROLLAMOS / NEUROCRACKS ============ -->
   <section class="statement">
     <div class="statement-heart-wrap">
       <img class="statement-heart" src="https://www.11cracksglobal.com/wp-content/themes/eleven-cracks/assets/img/bg_training.png" alt="" aria-hidden="true">
     </div>
     <div class="wrap">
-      <span class="eyebrow on-dark" data-i18n="statement.eyebrow">Cómo formamos · NeuroCracks</span>
-      <h2 data-i18n="statement.h2">Entrenamiento desde las neuronas del&nbsp;corazón</h2>
+      <span class="eyebrow on-dark">Metodología 11 Cracks</span>
+      <h2>NeuroCracks</h2>
+      <p class="statement-subtitle">Entrenamiento desde las neuronas del&nbsp;corazón.</p>
       <p class="lede" data-i18n="statement.lede">Formación emocional, disciplina, valores y mentalidad competitiva saludable — en cada sesión, no solo en el discurso.</p>
     </div>
   </section>
